@@ -1,0 +1,249 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const programs = [
+  { name: 'Private Pilot', price: '$17,644.50', hours: '45 flight hrs', href: '/training#private' },
+  { name: 'Instrument Rating', price: '$17,628', hours: '47 flight hrs', href: '/training#instrument' },
+  { name: 'Commercial Single-Engine', price: '$36,738', hours: '121 flight hrs', href: '/training#commercial' },
+  { name: 'Multi-Engine Add-On', price: '$8,850', hours: '15 flight hrs', href: '/training#multi' },
+  { name: 'ATP Multi-Engine', price: '$4,715', hours: '6.5 flight hrs', href: '/training#atp' },
+  { name: 'ATP-CTP', price: '$4,995', hours: '40 hrs total', href: '/atp-ctp' },
+];
+
+const partners = ['GoJet Airlines', 'Frontier Airlines', 'Key Lime Air'];
+---
+<BaseLayout>
+  <!-- Hero: Self-Examining Authority -->
+  <section class="relative bg-slate-950 text-white overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-500/10 via-slate-950 to-slate-950"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(to_bottom_right,transparent_0%,transparent_60%,rgba(251,191,36,0.05)_100%)]"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 text-xs font-semibold tracking-wide text-amber-300 uppercase">
+          <span class="h-1.5 w-1.5 rounded-full bg-amber-400"></span>
+          FAA Part 141 Certificated · Colorado Springs
+        </div>
+
+        <h1 class="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05]">
+          Your airline career,<br />
+          <span class="text-amber-400">on your schedule.</span>
+        </h1>
+
+        <p class="mt-6 text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl">
+          Direct Connect Flight Academy is one of only a handful of flight schools in the United States with
+          <strong class="text-white">FAA Self-Examining Authority</strong> for Private and Instrument checkrides.
+          We administer your checkrides in-house — so you finish when you're ready, not when an outside examiner is available.
+        </p>
+
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a href="/contact" class="inline-flex items-center rounded-md bg-amber-400 px-6 py-3 text-base font-semibold text-slate-950 hover:bg-amber-300 transition shadow-lg shadow-amber-400/20">
+            Book a Discovery Flight — $190
+          </a>
+          <a href="/training" class="inline-flex items-center rounded-md border border-slate-600 px-6 py-3 text-base font-semibold text-white hover:bg-slate-800 transition">
+            Explore Programs →
+          </a>
+        </div>
+      </div>
+
+      <!-- Stats strip -->
+      <div class="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-px bg-slate-800 rounded-lg overflow-hidden border border-slate-800">
+        <div class="bg-slate-950 px-6 py-5">
+          <div class="text-3xl font-extrabold text-amber-400">300+</div>
+          <div class="text-sm text-slate-400 mt-1">flying days per year</div>
+        </div>
+        <div class="bg-slate-950 px-6 py-5">
+          <div class="text-3xl font-extrabold text-amber-400">Part 141</div>
+          <div class="text-sm text-slate-400 mt-1">FAA certificated curriculum</div>
+        </div>
+        <div class="bg-slate-950 px-6 py-5">
+          <div class="text-3xl font-extrabold text-amber-400">Airline-Pilot</div>
+          <div class="text-sm text-slate-400 mt-1">mentors, not just CFIs</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Self-Examining Authority matters (dedicated section) -->
+  <section class="bg-white py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div>
+          <div class="inline-block text-xs font-semibold tracking-wide text-amber-600 uppercase">The DCFA Advantage</div>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+            Why Self-Examining Authority changes everything.
+          </h2>
+          <p class="mt-6 text-lg text-slate-600 leading-relaxed">
+            At most flight schools, when you're ready for your Private or Instrument checkride, you wait. You wait two weeks. You wait six weeks.
+            You wait for a Designated Pilot Examiner (DPE) to have an open slot — and during that wait, your skills get rusty and your timeline slips.
+          </p>
+          <p class="mt-4 text-lg text-slate-600 leading-relaxed">
+            DCFA holds <strong class="text-slate-900">FAA Self-Examining Authority</strong>, granted to only a small number of Part 141 schools nationwide.
+            That means we conduct your Private and Instrument checkrides in-house, on our schedule, when <em>you're</em> ready.
+            No DPE wait list. No skill decay. You move from rating to rating without losing momentum.
+          </p>
+          <a href="/about" class="mt-8 inline-flex items-center text-sm font-semibold text-amber-700 hover:text-amber-800">
+            Learn more about our credentials →
+          </a>
+        </div>
+
+        <div class="grid gap-4">
+          <div class="rounded-lg border border-slate-200 p-6 bg-slate-50">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 h-10 w-10 rounded-lg bg-amber-100 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-5 w-5 text-amber-700">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold text-slate-900">Finish on schedule</div>
+                <div class="text-sm text-slate-600 mt-1">No 2–6 week wait between training completion and checkride.</div>
+              </div>
+            </div>
+          </div>
+          <div class="rounded-lg border border-slate-200 p-6 bg-slate-50">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 h-10 w-10 rounded-lg bg-amber-100 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-5 w-5 text-amber-700">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold text-slate-900">Examined by your mentors</div>
+                <div class="text-sm text-slate-600 mt-1">Active airline pilots who know exactly what professional standards look like.</div>
+              </div>
+            </div>
+          </div>
+          <div class="rounded-lg border border-slate-200 p-6 bg-slate-50">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 h-10 w-10 rounded-lg bg-amber-100 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-5 w-5 text-amber-700">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5 10.5 6 21 6m0 0v7.5M21 6 9 18l-3.75-3.75" />
+                </svg>
+              </div>
+              <div>
+                <div class="font-semibold text-slate-900">Accelerated pathways</div>
+                <div class="text-sm text-slate-600 mt-1">Zero-to-Commercial in 12–14 months. Instrument-to-Commercial in 9–11 months.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs preview with pricing transparency -->
+  <section class="bg-slate-50 py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
+        <div>
+          <div class="text-xs font-semibold tracking-wide text-amber-600 uppercase">Programs & Pricing</div>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">Every certificate. Every rating. Transparent pricing.</h2>
+        </div>
+        <a href="/training" class="text-sm font-semibold text-amber-700 hover:text-amber-800">View all programs →</a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {programs.map(program => (
+          <a href={program.href} class="group block rounded-xl border border-slate-200 bg-white p-6 hover:border-amber-400 hover:shadow-lg transition">
+            <div class="text-sm text-slate-500">{program.hours}</div>
+            <div class="mt-1 text-xl font-bold text-slate-900 group-hover:text-amber-700 transition">{program.name}</div>
+            <div class="mt-4 flex items-end justify-between">
+              <div class="text-2xl font-extrabold text-slate-900">{program.price}</div>
+              <div class="text-amber-600 group-hover:translate-x-1 transition">→</div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="mt-10 rounded-lg bg-slate-900 text-white p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div>
+          <div class="font-bold text-lg">Need a custom training plan?</div>
+          <div class="text-slate-300 text-sm mt-1">Rotor pilots, returning students, and veterans all have unique paths. Tell us where you are — we'll build the right program.</div>
+        </div>
+        <a href="/contact" class="flex-shrink-0 inline-flex items-center rounded-md bg-amber-400 px-5 py-2.5 text-sm font-semibold text-slate-950 hover:bg-amber-300 transition">
+          Get a personalized quote
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Differentiators -->
+  <section class="bg-white py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <div class="text-xs font-semibold tracking-wide text-amber-600 uppercase">Built for the airlines</div>
+        <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">Trained the way airlines actually fly.</h2>
+        <p class="mt-4 text-lg text-slate-600">From your first flight, you'll learn crew concepts, checklist discipline, and Line-Oriented Scenarios — the same techniques used by Part 121 carriers.</p>
+      </div>
+
+      <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="mx-auto h-14 w-14 rounded-xl bg-amber-100 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" class="h-7 w-7 text-amber-700">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+            </svg>
+          </div>
+          <h3 class="mt-5 text-lg font-bold text-slate-900">Multi-crew from day one</h3>
+          <p class="mt-2 text-slate-600">Challenge-response checklists, crew callouts, and CRM are baked into Lesson 1 — not added on later.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="mx-auto h-14 w-14 rounded-xl bg-amber-100 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" class="h-7 w-7 text-amber-700">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+            </svg>
+          </div>
+          <h3 class="mt-5 text-lg font-bold text-slate-900">Mentored by airline pilots</h3>
+          <p class="mt-2 text-slate-600">Our instructors aren't time-builders — they're active Part 121 pilots who know what comes next in your career.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="mx-auto h-14 w-14 rounded-xl bg-amber-100 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" class="h-7 w-7 text-amber-700">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+            </svg>
+          </div>
+          <h3 class="mt-5 text-lg font-bold text-slate-900">Self-Examining Authority</h3>
+          <p class="mt-2 text-slate-600">In-house Private and Instrument checkrides. Skip the DPE wait. Finish on time, every time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section class="bg-slate-50 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <div class="text-xs font-semibold tracking-wide text-slate-500 uppercase">Airline Partners</div>
+        <h2 class="mt-2 text-2xl font-bold text-slate-900">Established pathways to the flight deck</h2>
+      </div>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
+        {partners.map(name => (
+          <div class="text-xl font-bold text-slate-400 tracking-tight">{name}</div>
+        ))}
+      </div>
+      <p class="mt-8 text-center text-sm text-slate-500">
+        Partner logos coming soon — placeholder text shown.
+      </p>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="bg-slate-950 text-white py-20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Ready to start?</h2>
+      <p class="mt-4 text-lg text-slate-300">
+        A Discovery Flight is the best way to find out if aviation is for you. Take the controls, fly over the Front Range, and decide.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="/contact" class="inline-flex items-center rounded-md bg-amber-400 px-6 py-3 text-base font-semibold text-slate-950 hover:bg-amber-300 transition">
+          Book a Discovery Flight — $190
+        </a>
+        <a href="tel:+17192087049" class="inline-flex items-center rounded-md border border-slate-600 px-6 py-3 text-base font-semibold text-white hover:bg-slate-800 transition">
+          Call (719) 208-7049
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
