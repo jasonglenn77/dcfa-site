@@ -25,10 +25,23 @@ const {
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <title>{title}</title>
   <meta name="description" content={description} />
+  <link rel="canonical" href={Astro.url.href} />
+  <meta name="theme-color" content="#1e40af" />
+
+  <!-- Open Graph (Facebook, iMessage, Slack, LinkedIn, Discord) -->
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#1e40af" />
+  <meta property="og:url" content={Astro.url.href} />
+  <meta property="og:site_name" content="Direct Connect Flight Academy" />
+  <meta property="og:image" content={new URL('/images/aircraft/da42-air.png', Astro.site).href} />
+  <meta property="og:image:alt" content="DA42 multi-engine aircraft in flight — Direct Connect Flight Academy" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={new URL('/images/aircraft/da42-air.png', Astro.site).href} />
 
   <script is:inline>
     (function () {
