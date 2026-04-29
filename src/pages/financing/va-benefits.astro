@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import CtaBlock from '../../components/ui/CtaBlock.astro';
+import { vaBenefits } from '../../data/financing';
+---
+<BaseLayout
+  title="VA Benefits & GI Bill — Direct Connect Flight Academy"
+  description="DCFA accepts Chapter 30, 33, 1606, and 1607 GI Bill benefits for the Instrument Rating and Commercial Single-Engine Land programs. Step-by-step application guide for veterans."
+>
+  <PageHero
+    eyebrow="For Veterans"
+    title="VA benefits and the GI Bill"
+    subtitle="DCFA is approved to accept GI Bill training benefits for two of our core programs. Here's exactly which chapters we accept, which programs are eligible, and how to apply."
+  />
+
+  <!-- Accepted chapters -->
+  <section class="bg-white dark:bg-slate-950 py-16 sm:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">GI Bill chapters we accept</h2>
+          <ul class="mt-6 space-y-3">
+            {vaBenefits.acceptedChapters.map(c => (
+              <li class="rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-4 flex items-start gap-3">
+                <div class="flex-shrink-0 h-8 w-8 rounded-md bg-green-100 dark:bg-green-900/40 flex items-center justify-center">
+                  <svg class="h-4 w-4 text-green-700 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-bold text-slate-900 dark:text-white">{c.code}</div>
+                  <div class="text-sm text-slate-600 dark:text-slate-400">{c.name}</div>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-4 text-sm text-slate-600 dark:text-slate-400">
+            Funding window: {vaBenefits.fundingWindow}.
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">VA-approved DCFA programs</h2>
+          <ul class="mt-6 space-y-3">
+            {vaBenefits.approvedPrograms.map(p => (
+              <li class="rounded-lg border border-green-200 dark:border-green-900 bg-green-50 dark:bg-green-950/30 p-4 flex items-center justify-between">
+                <span class="font-semibold text-slate-900 dark:text-white">{p}</span>
+                <span class="text-xs font-semibold uppercase tracking-wide text-green-700 dark:text-green-400">Eligible</span>
+              </li>
+            ))}
+            {vaBenefits.notEligible.map(p => (
+              <li class="rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-4 flex items-center justify-between opacity-75">
+                <span class="font-semibold text-slate-900 dark:text-white">{p}</span>
+                <span class="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Not Eligible</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application steps -->
+  <section class="bg-slate-50 dark:bg-slate-900 py-16 sm:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">How to apply</h2>
+      <p class="mt-3 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
+        Three steps. The first must be done with the VA before you start training.
+      </p>
+
+      <div class="mt-10 space-y-4 sm:space-y-6">
+        {vaBenefits.applicationSteps.map((step, i) => (
+          <div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-5 sm:p-6 flex flex-col sm:flex-row gap-4 sm:gap-6">
+            <div class="flex-shrink-0">
+              <div class="h-12 w-12 rounded-full bg-blue-700 dark:bg-blue-600 text-white flex items-center justify-center font-extrabold text-lg">
+                {i + 1}
+              </div>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">{step.title}</h3>
+              <p class="mt-2 text-slate-700 dark:text-slate-300">{step.detail}</p>
+              {step.url && (
+                <a href={step.url} target={step.url.startsWith('http') ? '_blank' : undefined} rel={step.url.startsWith('http') ? 'noopener' : undefined} class="mt-3 inline-flex items-center text-sm font-semibold text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
+                  {step.url.startsWith('http') ? 'Open external link' : 'Submit interest form'} →
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBlock
+    title="Ready to use your benefits?"
+    description="Submit the contact form and we'll walk you through the COE, medical, and program-selection process."
+    primaryLabel="Contact DCFA"
+    secondaryLabel="Call (719) 208-7049"
+  />
+</BaseLayout>

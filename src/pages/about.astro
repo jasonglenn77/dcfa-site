@@ -1,8 +1,88 @@
 ---
-import StubPage from '../components/StubPage.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import CtaBlock from '../components/ui/CtaBlock.astro';
 ---
-<StubPage
-  title="About DCFA"
-  eyebrow="Our Story"
-  intro="The academy's story, FAA Part 141 credentials, Self-Examining Authority detail, and instructor team. Detailed page coming next."
-/>
+<BaseLayout
+  title="About — Direct Connect Flight Academy"
+  description="Direct Connect Flight Academy is an FAA Part 141 certificated flight school in Colorado Springs with Self-Examining Authority for Private and Instrument checkrides."
+>
+  <PageHero
+    eyebrow="About DCFA"
+    title="Built by airline pilots, for future airline pilots."
+    subtitle="Direct Connect Flight Academy was founded with one goal: train pilots the way airlines actually fly, so the transition from student to professional is as short and smooth as possible."
+    bgImage="/images/team/open-house.jpg"
+  />
+
+  <!-- Self-Examining Authority -->
+  <section class="bg-white dark:bg-slate-950 py-16 sm:py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-10 lg:gap-16">
+        <div class="lg:col-span-1">
+          <div class="text-xs font-semibold tracking-wide text-blue-700 dark:text-blue-400 uppercase">Our advantage</div>
+          <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">FAA Self-Examining Authority</h2>
+        </div>
+        <div class="lg:col-span-2">
+          <p class="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+            DCFA is one of only a small number of Part 141 schools in the United States to hold <strong>FAA Self-Examining Authority</strong> for Private Pilot and Instrument Rating checkrides.
+          </p>
+          <p class="mt-4 text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+            What that means in practice: when most students finish their training, they wait two to six weeks for a Designated Pilot Examiner (DPE) to be available for the checkride. During that wait, skills get rusty and timelines slip. At DCFA, we administer those checkrides ourselves, in-house, on our schedule. You finish when <em>you're</em> ready — not when an outside examiner has an opening.
+          </p>
+          <p class="mt-4 text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+            That single advantage compresses the timeline from Discovery Flight to Commercial Pilot by months. It's the most concrete differentiator between DCFA and almost any other flight school you'll consider.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials -->
+  <section class="bg-slate-50 dark:bg-slate-900 py-16 sm:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Credentials and capabilities</h2>
+
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        {[
+          { title: 'FAA Part 141 Certificated', body: 'Structured curriculum approved by the FAA, with reduced minimum hours compared to Part 61 training.' },
+          { title: 'Self-Examining Authority', body: 'In-house Private Pilot and Instrument checkrides. No DPE wait list.' },
+          { title: 'Active Airline Pilot Mentors', body: 'Instructors are working Part 121 pilots, not time-builders. They know what comes next.' },
+          { title: 'ATP-CTP with A320 Sim', body: 'Full-motion Airbus A320 simulator training in Dallas or Las Vegas as part of our $4,995 ATP-CTP program.' },
+          { title: 'Rotor Transition Program', body: 'Customized fixed-wing pathways for military and civilian helicopter pilots.' },
+          { title: 'VA Benefits Accepted', body: 'Chapters 30, 33, 1606, and 1607 for the Instrument and Commercial programs.' },
+        ].map(c => (
+          <div class="rounded-lg bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-5 sm:p-6">
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">{c.title}</h3>
+            <p class="mt-2 text-sm sm:text-base text-slate-700 dark:text-slate-300">{c.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Location advantage -->
+  <section class="bg-white dark:bg-slate-950 py-16 sm:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div>
+          <div class="text-xs font-semibold tracking-wide text-blue-700 dark:text-blue-400 uppercase">Location</div>
+          <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Colorado Springs Airport</h2>
+          <p class="mt-4 text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+            Based at the Colorado Springs Airport (KCOS), where we benefit from over <strong>300 days of flying weather per year</strong> and immediate access to mountain, high-altitude, and Class C airspace operations — the kind of varied training environment that produces well-rounded pilots.
+          </p>
+          <div class="mt-6 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-5">
+            <div class="font-semibold text-slate-900 dark:text-white">1055 Aviation Way</div>
+            <div class="text-slate-700 dark:text-slate-300">Colorado Springs, CO 80916</div>
+          </div>
+        </div>
+        <div>
+          <div class="aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800">
+            <img src="/images/aircraft/da42-ground.png" alt="DA42 twin-engine aircraft at Colorado Springs Airport" class="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBlock />
+</BaseLayout>

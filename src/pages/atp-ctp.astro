@@ -1,8 +1,111 @@
 ---
-import StubPage from '../components/StubPage.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import CtaBlock from '../components/ui/CtaBlock.astro';
+
+const curriculum = [
+  { hours: 30, label: 'Virtual Instructor-Led Ground School' },
+  { hours: 4, label: 'Fixed-Base Flight Training Device' },
+  { hours: 6, label: 'Full-Motion Airbus A320 Simulator' },
+];
+
+const simTopics = [
+  'Navigation systems and procedures',
+  'Flight management systems and automation',
+  'Recognition and recovery from low-energy states',
+  'Stalls and upset recovery',
+  'Adverse weather operations',
+];
 ---
-<StubPage
-  title="ATP-CTP Program"
-  eyebrow="Airline Transport Pilot"
-  intro="Four-day virtual ground school plus two-day full-motion A320 simulator training in Dallas or Las Vegas. $4,995. Detailed page coming next."
-/>
+<BaseLayout
+  title="ATP-CTP Program — Direct Connect Flight Academy"
+  description="FAR 61.156-compliant Airline Transport Pilot Certification Training Program. 30 hours virtual ground + 4 hours FTD + 6 hours full-motion A320 simulator. $4,995."
+>
+  <PageHero
+    eyebrow="Airline Transport Pilot"
+    title="ATP-CTP Program"
+    subtitle="The required prerequisite for the ATP Multi-Engine Knowledge Test. Four-day virtual ground school plus two days of full-motion A320 simulator training in Dallas or Las Vegas — for $4,995, total."
+    bgImage="/images/cockpit/instrument-panel.jpg"
+  />
+
+  <!-- Headline price + curriculum -->
+  <section class="bg-white dark:bg-slate-950 py-16 sm:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-8 lg:gap-12 items-start">
+        <div class="lg:col-span-1">
+          <div class="rounded-xl bg-gradient-to-br from-blue-700 to-blue-900 text-white p-6 sm:p-8 sticky top-24">
+            <div class="text-xs font-semibold tracking-wide text-blue-200 uppercase">Total Program Cost</div>
+            <div class="mt-2 text-4xl sm:text-5xl font-extrabold">$4,995</div>
+            <div class="mt-1 text-sm text-blue-100">Ground school + simulator. No travel costs for ground school.</div>
+            <a href="/contact" class="mt-6 block text-center w-full rounded-md bg-white text-blue-900 px-5 py-3 text-sm font-semibold hover:bg-blue-50 transition">
+              Reserve Your Seat
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2">
+          <div class="text-xs font-semibold tracking-wide text-blue-700 dark:text-blue-400 uppercase">FAR 61.156 Compliant</div>
+          <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+            What's included.
+          </h2>
+
+          <div class="mt-8 grid sm:grid-cols-3 gap-4">
+            {curriculum.map(c => (
+              <div class="rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-5">
+                <div class="text-3xl font-extrabold text-blue-700 dark:text-blue-400">{c.hours}</div>
+                <div class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400 mt-1">hours</div>
+                <div class="mt-2 text-sm font-semibold text-slate-900 dark:text-white">{c.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div class="mt-10">
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Simulator curriculum</h3>
+            <ul class="mt-4 space-y-2">
+              {simTopics.map(t => (
+                <li class="flex items-start gap-2 text-base text-slate-700 dark:text-slate-300">
+                  <svg class="h-5 w-5 mt-0.5 flex-shrink-0 text-blue-700 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                  </svg>
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule + logistics -->
+  <section class="bg-slate-50 dark:bg-slate-900 py-16 sm:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+        Schedule and logistics
+      </h2>
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <div class="rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-6">
+          <div class="text-xs font-semibold tracking-wide text-blue-700 dark:text-blue-400 uppercase">Ground School</div>
+          <h3 class="mt-2 text-xl font-bold text-slate-900 dark:text-white">Four days, fully virtual</h3>
+          <p class="mt-3 text-slate-700 dark:text-slate-300">
+            Held the first week of every month. Attend live from anywhere — no travel costs.
+          </p>
+        </div>
+        <div class="rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-6">
+          <div class="text-xs font-semibold tracking-wide text-blue-700 dark:text-blue-400 uppercase">Simulator</div>
+          <h3 class="mt-2 text-xl font-bold text-slate-900 dark:text-white">Two days in Dallas, TX or Las Vegas, NV</h3>
+          <p class="mt-3 text-slate-700 dark:text-slate-300">
+            Full-motion Airbus A320 sim. Requires a crew of two — book with a partner or we'll pair you. Bookings within 45 days cannot guarantee sim availability.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBlock
+    title="Ready to earn your ATP?"
+    description="Reserve a seat in the next ATP-CTP class — held the first week of every month."
+    primaryLabel="Reserve Your Seat"
+    secondaryLabel="Call (719) 208-7049"
+  />
+</BaseLayout>
