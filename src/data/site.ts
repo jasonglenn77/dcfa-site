@@ -22,5 +22,5 @@ export const site = {
     instagram: 'https://www.instagram.com/flydcfa/',
     linkedin: 'https://www.linkedin.com/company/direct-connect-flight-academy/',
   },
-  discoveryFlightPrice: '$190',
+  discoveryFlightPrice: '$150',
 };

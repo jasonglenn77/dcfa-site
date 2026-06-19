@@ -80,6 +80,7 @@ export const vaBenefits = {
   approvedPrograms: [
     'Instrument Rating',
     'Commercial Single-Engine Land',
+    'ATP-CTP (simulator time only)',
   ],
   notEligible: ['Private Pilot certificate'],
   fundingWindow: 'August 1 – July 31 annually',
