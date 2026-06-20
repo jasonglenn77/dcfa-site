@@ -55,8 +55,8 @@ Source: Frank Schultz, 2026-06-15
 - [ ] Add some **Google reviews / comments** — decide: live (Google Places API) vs curated quotes
 - [ ] Add **social media feed** — IG / FB / TikTok; decide: live embeds vs curated
 
-### Self-serve CMS (chosen direction: Git-based CMS)
-- [ ] Stand up Sveltia/Decap admin at `/admin` (non-indexed) + GitHub OAuth via a small Cloudflare Worker → publishes to repo → auto-deploys
+### Self-serve CMS (TinaCMS — LIVE)
+- [x] TinaCMS at `/admin` with email logins (TinaCloud), publishing to repo → auto-deploys. See [cms-setup.md](../cms-setup.md). Owners invited via TinaCloud → Collaborators.
 
 ### Waiting on DCFA content
 - [ ] Pic of the **Sim** with info / benefits
