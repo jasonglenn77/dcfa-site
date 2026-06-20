@@ -25,4 +25,4 @@ the loop on the things that matter most:
 Have a topic you'd like us to cover, or a question about training? [Reach out anytime](/contact) —
 we're always happy to talk aviation.
 
-Blue skies, and welcome aboard!
+Blue skies, and welcome aboard.
