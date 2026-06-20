@@ -44,22 +44,28 @@ Owner needs to manage this themselves. Requirements:
 
 ---
 
-## Priority 2 — add when time permits (most need photos from DCFA)
+## Priority 2 — add when time permits
 
 Source: Frank Schultz, 2026-06-15
 
-- [ ] Add pic of the Sim with info / benefits
-- [ ] Add DCFA student **grad pics + bios** (Carson, Stephen Mount, Cody, Alexa, Johnny, etc.)
-- [ ] Add pics of **BJ, Keith, Frank, Michelle** with bio / vision / personal notes
-- [ ] Add **aircraft names/types** under "Fleet" (pics if available)
-- [ ] Add pics of **A320 Sim** in the ATP-CTP section + reviews from past clients
-- [ ] Add some **Google reviews / comments**
-- [ ] Add "**Our Partners**" (incl. **MSU**) — first page or under About; show emblems/brands
-- [ ] Add **social media feed** — current posts from IG / FB / TikTok
-- [ ] Create a **blog page** for news and industry info
+### Buildable now (in progress)
+- [x] Add "**Our Partners**" with emblems (incl. **MSU**) — rebuilt About "Partnerships in action" as a 4-card logo grid (Frontier, Key Lime, GoJet, MSU). MSU card shows accurate R-ATP partnership detail. ⏳ *needs official MSU logo at `public/images/partners/msu-denver.png`* (currently a styled wordmark fallback)
+- [x] Create a **blog page** — Astro content collection + `/blog` listing + post pages + nav link. Owner self-serve editing via Git-based CMS = next step (see below).
+- [x] **Scholarship logos** (extra request) — added optional `logo` field + monogram fallback on each card. ⏳ *needs the 7 org logos in `public/images/scholarships/`*
+- [ ] Add some **Google reviews / comments** — decide: live (Google Places API) vs curated quotes
+- [ ] Add **social media feed** — IG / FB / TikTok; decide: live embeds vs curated
 
-### Waiting on DCFA
-- [ ] Photos for all Priority-2 image items (owners said they'll take and provide these)
+### Self-serve CMS (chosen direction: Git-based CMS)
+- [ ] Stand up Sveltia/Decap admin at `/admin` (non-indexed) + GitHub OAuth via a small Cloudflare Worker → publishes to repo → auto-deploys
+
+### Waiting on DCFA content
+- [ ] Pic of the **Sim** with info / benefits
+- [ ] DCFA student **grad pics + bios** (Carson, Stephen Mount, Cody, Alexa, Johnny, etc.)
+- [ ] Pics + bios of **BJ, Keith, Frank, Michelle** (bio / vision / personal)
+- [ ] **Aircraft names/types** under "Fleet" — need actual make/models from DCFA (+ pics)
+- [ ] Pics of **A320 Sim** in the ATP-CTP section + past-client reviews
+- [ ] Official **MSU Denver logo**, and the **7 scholarship org logos**
+- [ ] Photos for all the image items above (owners said they'll provide)
 
 ---
 

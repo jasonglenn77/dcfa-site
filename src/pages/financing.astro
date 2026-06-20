@@ -3,6 +3,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/ui/PageHero.astro';
 import CtaBlock from '../components/ui/CtaBlock.astro';
 import { lenders, scholarships } from '../data/financing';
+
+// Monogram fallback for scholarships without a logo yet — first letters of the
+// first two words, so each card shows a clean badge instead of a broken image.
+const initials = (name: string) =>
+  name
+    .replace(/[^A-Za-z0-9 ]/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map(w => w[0])
+    .join('')
+    .toUpperCase();
 ---
 <BaseLayout
   title="Financing & Scholarships — Direct Connect Flight Academy"
@@ -72,7 +84,16 @@ import { lenders, scholarships } from '../data/financing';
         {scholarships.map(s => (
           <div class="rounded-lg bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-5 sm:p-6">
             <div class="flex items-start justify-between gap-4">
-              <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">{s.organization}</h3>
+              <div class="flex items-start gap-3 min-w-0">
+                <div class="flex-shrink-0 h-10 w-10 rounded-md bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center overflow-hidden">
+                  {s.logo ? (
+                    <img src={s.logo} alt={`${s.organization} logo`} class="h-full w-full object-contain p-1" loading="lazy" />
+                  ) : (
+                    <span class="text-xs font-bold text-slate-500 dark:text-slate-400">{initials(s.organization)}</span>
+                  )}
+                </div>
+                <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">{s.organization}</h3>
+              </div>
               <div class="flex-shrink-0 text-right">
                 <div class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">Award</div>
                 <div class="text-sm font-bold text-blue-700 dark:text-blue-400">{s.award}</div>

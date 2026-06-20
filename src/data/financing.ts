@@ -23,6 +23,9 @@ export interface Scholarship {
   eligibility: string;
   notes?: string;
   url?: string;
+  // Optional logo path, e.g. '/images/scholarships/eaa.png'. When omitted, the
+  // card shows a monogram fallback so it never renders a broken image.
+  logo?: string;
 }
 
 export const scholarships: Scholarship[] = [

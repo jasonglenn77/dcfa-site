@@ -10,3 +10,7 @@ dist/
 .idea/
 .claude/
 start.txt
+
+# TinaCMS — regenerated on each build
+tina/__generated__/
+public/admin/
