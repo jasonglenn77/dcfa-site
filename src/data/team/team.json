@@ -1,15 +1,60 @@
 {
   "instructors": [
-    { "name": "BJ", "role": "", "photo": "", "bio": "" },
-    { "name": "Keith", "role": "", "photo": "", "bio": "" },
-    { "name": "Frank Schultz", "role": "", "photo": "", "bio": "" },
-    { "name": "Michelle", "role": "", "photo": "", "bio": "" }
+    {
+      "name": "BJ",
+      "role": "",
+      "photo": "/images/133912040930185209.jpg",
+      "bio": ""
+    },
+    {
+      "name": "Keith",
+      "role": "",
+      "photo": "",
+      "bio": ""
+    },
+    {
+      "name": "Frank Schultz",
+      "role": "",
+      "photo": "",
+      "bio": ""
+    },
+    {
+      "name": "Michelle",
+      "role": "",
+      "photo": "",
+      "bio": ""
+    }
   ],
   "graduates": [
-    { "name": "Carson", "achievement": "", "photo": "", "bio": "" },
-    { "name": "Stephen Mount", "achievement": "", "photo": "", "bio": "" },
-    { "name": "Cody", "achievement": "", "photo": "", "bio": "" },
-    { "name": "Alexa", "achievement": "", "photo": "", "bio": "" },
-    { "name": "Johnny", "achievement": "", "photo": "", "bio": "" }
+    {
+      "name": "Carson",
+      "achievement": "",
+      "photo": "",
+      "bio": ""
+    },
+    {
+      "name": "Stephen Mount",
+      "achievement": "",
+      "photo": "",
+      "bio": ""
+    },
+    {
+      "name": "Cody",
+      "achievement": "",
+      "photo": "",
+      "bio": ""
+    },
+    {
+      "name": "Alexa",
+      "achievement": "",
+      "photo": "",
+      "bio": ""
+    },
+    {
+      "name": "Johnny",
+      "achievement": "",
+      "photo": "",
+      "bio": ""
+    }
   ]
 }
