@@ -57,6 +57,9 @@ Source: Frank Schultz, 2026-06-15
 
 ### Self-serve CMS (TinaCMS — LIVE)
 - [x] TinaCMS at `/admin` with email logins (TinaCloud), publishing to repo → auto-deploys. See [cms-setup.md](../cms-setup.md). Owners invited via TinaCloud → Collaborators.
+- [x] **Owner-editable sections** (Tina collections): **Blog**, **Home Page** (hero backgrounds + bottom photo gallery), **Partners** (home strip + About grid, incl. MSU), **Scholarships** (incl. owner-uploadable logos).
+- [x] Tina media scope widened to all of `public/images` so existing site images are selectable in the media manager.
+- Logos still need actual image files (owners can now upload them in Tina): **MSU Denver**, the **7 scholarship orgs**.
 
 ### Waiting on DCFA content
 - [ ] Pic of the **Sim** with info / benefits
