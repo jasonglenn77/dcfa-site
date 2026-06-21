@@ -27,6 +27,44 @@ export default defineConfig({
   schema: {
     collections: [
       {
+        name: 'home',
+        label: 'Home Page',
+        path: 'src/data/home',
+        format: 'json',
+        // Singleton: owners edit the one Home Page doc, can't create/delete it.
+        ui: {
+          global: true,
+          allowedActions: { create: false, delete: false },
+        },
+        fields: [
+          {
+            type: 'image',
+            name: 'heroImageLight',
+            label: 'Hero Background — Light mode',
+            description: 'Big background photo at the top of the home page (shown in light mode).',
+          },
+          {
+            type: 'image',
+            name: 'heroImageDark',
+            label: 'Hero Background — Dark mode',
+            description: 'Background photo shown when a visitor uses dark mode.',
+          },
+          {
+            type: 'object',
+            name: 'gallery',
+            label: 'Photo Gallery (bottom of home page)',
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.caption || 'Photo' }),
+            },
+            fields: [
+              { type: 'image', name: 'image', label: 'Photo' },
+              { type: 'string', name: 'caption', label: 'Caption' },
+            ],
+          },
+        ],
+      },
+      {
         name: 'blog',
         label: 'Blog Posts',
         path: 'src/content/blog',

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import home from '../data/home/home.json';
 
 const programs = [
   { name: 'Private Pilot', price: '$17,644.50', hours: '45 flight hrs', href: '/training#private' },
@@ -21,12 +22,12 @@ const partners = [
   <section class="relative overflow-hidden">
     <!-- Light theme hero background: DA42 in flight, bright sky -->
     <div class="absolute inset-0 dark:hidden">
-      <img src="/images/aircraft/da42-air.png" alt="" class="w-full h-full object-cover" />
+      <img src={home.heroImageLight} alt="" class="w-full h-full object-cover" />
       <div class="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/40"></div>
     </div>
     <!-- Dark theme hero background: DA42 at dusk -->
     <div class="absolute inset-0 hidden dark:block">
-      <img src="/images/aircraft/da42-ground.png" alt="" class="w-full h-full object-cover opacity-60" />
+      <img src={home.heroImageDark} alt="" class="w-full h-full object-cover opacity-60" />
       <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/30"></div>
     </div>
 
@@ -233,26 +234,12 @@ const partners = [
       </div>
 
       <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-        <figure class="group relative rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 aspect-[4/3] bg-slate-100 dark:bg-slate-900">
-          <img src="/images/aircraft/da42-ground.png" alt="DA42 multi-engine aircraft on the ramp at dusk" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
-          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-sm font-semibold">DA42 multi-engine on the ramp</figcaption>
-        </figure>
-        <figure class="group relative rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 aspect-[4/3] bg-slate-100 dark:bg-slate-900">
-          <img src="/images/aircraft/multi-engine.jpg" alt="DCFA multi-engine training in progress" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
-          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-sm font-semibold">Multi-engine training</figcaption>
-        </figure>
-        <figure class="group relative rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 aspect-[4/3] bg-slate-100 dark:bg-slate-900">
-          <img src="/images/cockpit/cockpit-training.jpg" alt="Pilot in DCFA cockpit during instruction" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
-          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-sm font-semibold">Crew-style cockpit training</figcaption>
-        </figure>
-        <figure class="group relative rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 aspect-[4/3] bg-slate-100 dark:bg-slate-900">
-          <img src="/images/cockpit/instrument-panel.jpg" alt="DCFA aircraft instrument panel" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
-          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-sm font-semibold">IFR-ready avionics</figcaption>
-        </figure>
-        <figure class="group relative rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 aspect-[4/3] bg-slate-100 dark:bg-slate-900">
-          <img src="/images/team/open-house.jpg" alt="DCFA open house with prospective students and instructors" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
-          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-sm font-semibold">Open house community</figcaption>
-        </figure>
+        {home.gallery.map(item => (
+          <figure class="group relative rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 aspect-[4/3] bg-slate-100 dark:bg-slate-900">
+            <img src={item.image} alt={item.caption} class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-sm font-semibold">{item.caption}</figcaption>
+          </figure>
+        ))}
       </div>
     </div>
   </section>
