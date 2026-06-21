@@ -29,6 +29,48 @@ export default defineConfig({
   schema: {
     collections: [
       {
+        name: 'team',
+        label: 'Team & Graduates',
+        path: 'src/data/team',
+        format: 'json',
+        ui: {
+          global: true,
+          allowedActions: { create: false, delete: false },
+        },
+        fields: [
+          {
+            type: 'object',
+            name: 'instructors',
+            label: 'Instructors / Staff',
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.name || 'Person' }),
+            },
+            fields: [
+              { type: 'string', name: 'name', label: 'Name' },
+              { type: 'string', name: 'role', label: 'Role / Title' },
+              { type: 'image', name: 'photo', label: 'Photo' },
+              { type: 'string', name: 'bio', label: 'Bio', ui: { component: 'textarea' } },
+            ],
+          },
+          {
+            type: 'object',
+            name: 'graduates',
+            label: 'Graduate Spotlights',
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.name || 'Graduate' }),
+            },
+            fields: [
+              { type: 'string', name: 'name', label: 'Name' },
+              { type: 'string', name: 'achievement', label: 'Now flying / Achievement' },
+              { type: 'image', name: 'photo', label: 'Photo' },
+              { type: 'string', name: 'bio', label: 'Bio', ui: { component: 'textarea' } },
+            ],
+          },
+        ],
+      },
+      {
         name: 'partners',
         label: 'Partners',
         path: 'src/data/partners',
