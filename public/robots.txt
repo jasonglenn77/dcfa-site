@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /admin
+Disallow: /brand
 
 Sitemap: https://dcfa-site.jason-glenn7.workers.dev/sitemap-index.xml

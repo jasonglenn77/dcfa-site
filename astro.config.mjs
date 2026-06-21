@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://dcfa-site.jason-glenn7.workers.dev',
-  integrations: [sitemap()],
+  integrations: [sitemap({ filter: (page) => !page.includes('/brand') })],
   vite: {
     plugins: [tailwindcss()],
   },

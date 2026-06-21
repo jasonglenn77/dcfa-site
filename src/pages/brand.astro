@@ -1,0 +1,225 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+
+// Light-protection passcode for DCFA staff. Change this value to rotate access.
+// Note: this is a client-side gate (the passcode lives in the page script) — it
+// keeps the public out of a non-indexed page, but it is not hardened security.
+const PASSCODE = 'flydcfa-team';
+
+const palette = [
+  { name: 'Brand Blue', hex: '#1D4ED8', text: '#fff' },
+  { name: 'Deep Navy', hex: '#1E3A8A', text: '#fff' },
+  { name: 'Ink', hex: '#0F172A', text: '#fff' },
+  { name: 'Slate', hex: '#475569', text: '#fff' },
+  { name: 'Mist', hex: '#F1F5F9', text: '#0f172a' },
+  { name: 'White', hex: '#FFFFFF', text: '#0f172a' },
+];
+
+const logos = [
+  { label: 'Full color (default)', file: '/images/logo/dcfa-logo.png', bg: 'bg-white', note: 'Use on white or light backgrounds.' },
+  { label: 'Reversed / white', file: '/images/brand/dcfa-logo-white.png', bg: 'bg-slate-900', note: 'Use on dark or photo backgrounds.' },
+  { label: 'Black (mono)', file: '/images/brand/dcfa-logo-black.png', bg: 'bg-white', note: 'Single-color print, faxes, stamps.' },
+];
+
+const qrcodes = [
+  { label: 'Website', file: '/images/brand/qr-website.png', url: 'flydcfa.com' },
+  { label: 'Contact / Discovery Flight', file: '/images/brand/qr-contact.png', url: 'flydcfa.com/contact' },
+  { label: 'Instagram', file: '/images/brand/qr-instagram.png', url: '@flydcfa' },
+  { label: 'Facebook', file: '/images/brand/qr-facebook.png', url: 'Direct Connect Flight Academy' },
+];
+
+// Email signature (email-safe inline HTML). Logo uses an absolute URL so it
+// resolves in email clients — live once the site is on flydcfa.com.
+const signatureHtml = `<table cellpadding="0" cellspacing="0" style="font-family:Arial,Helvetica,sans-serif;color:#0f172a;font-size:13px;line-height:1.5;">
+  <tr>
+    <td style="padding-right:16px;border-right:2px solid #1D4ED8;vertical-align:middle;">
+      <img src="https://flydcfa.com/images/logo/dcfa-logo.png" alt="Direct Connect Flight Academy" width="180" style="display:block;" />
+    </td>
+    <td style="padding-left:16px;vertical-align:middle;">
+      <strong style="font-size:15px;color:#0f172a;">[Your Name]</strong><br />
+      <span style="color:#475569;">[Your Title] · Direct Connect Flight Academy</span><br />
+      <a href="tel:+17192087049" style="color:#1D4ED8;text-decoration:none;">(719) 208-7049</a> &nbsp;·&nbsp;
+      <a href="mailto:info@flydcfa.com" style="color:#1D4ED8;text-decoration:none;">info@flydcfa.com</a><br />
+      <a href="https://flydcfa.com" style="color:#1D4ED8;text-decoration:none;font-weight:bold;">flydcfa.com</a>
+    </td>
+  </tr>
+</table>`;
+
+const aboutBlurb = "Direct Connect Flight Academy is an FAA Part 141 certificated flight school at the Colorado Springs Airport, with FAA Examining Authority for Private and Instrument checkrides. Mentored by active airline pilots and partnered with Frontier Airlines, Key Lime Air, and MSU Denver, DCFA trains students from their first Discovery Flight through ATP — including ATP-CTP with full-motion A320 simulator training.";
+
+const reviewRequest = "Hi [Name] — congratulations again on your checkride! If DCFA helped you reach your goals, would you take 60 seconds to leave us a Google review? It genuinely helps other future pilots find us. Here's the link: [Google review link]. Thank you — and blue skies!";
+---
+<BaseLayout
+  title="Brand & Marketing Toolkit — DCFA (Internal)"
+  description="Internal brand and marketing resources for the Direct Connect Flight Academy team."
+  noindex={true}
+>
+  <!-- ===== Passcode gate ===== -->
+  <section id="gate" class="bg-slate-50 dark:bg-slate-900 min-h-[70vh] flex items-center justify-center py-20 px-4">
+    <div class="w-full max-w-sm rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-8 text-center shadow-sm">
+      <div class="text-xs font-semibold tracking-wide text-blue-700 dark:text-blue-400 uppercase">DCFA Staff Only</div>
+      <h1 class="mt-2 text-2xl font-extrabold text-slate-900 dark:text-white">Brand &amp; Marketing Toolkit</h1>
+      <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Enter the team passcode to access logos, brand colors, email signatures, QR codes, and more.</p>
+      <form id="passcode-form" class="mt-6 space-y-3">
+        <input id="passcode-input" type="password" placeholder="Passcode" autocomplete="off"
+          class="block w-full rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2.5 text-center shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+        <p id="passcode-error" class="hidden text-sm text-red-600 dark:text-red-400">Incorrect passcode — try again.</p>
+        <button type="submit" class="block w-full rounded-md bg-blue-700 hover:bg-blue-800 px-5 py-2.5 text-sm font-semibold text-white transition">Unlock</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Toolkit content ===== -->
+  <div id="brand-content" class="hidden">
+    <section class="bg-white dark:bg-slate-950 py-12 sm:py-16">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div class="text-xs font-semibold tracking-wide text-blue-700 dark:text-blue-400 uppercase">DCFA Internal</div>
+        <h1 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Brand &amp; Marketing Toolkit</h1>
+        <p class="mt-3 max-w-2xl text-slate-600 dark:text-slate-300">Everything the team needs to represent DCFA consistently — in email, in print, and in person. Download an asset, copy a template, and go.</p>
+
+        <!-- Logos -->
+        <h2 class="mt-12 text-2xl font-extrabold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">Logo library</h2>
+        <div class="mt-6 grid sm:grid-cols-3 gap-5">
+          {logos.map(l => (
+            <div class="rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+              <div class={`flex items-center justify-center h-32 px-6 ${l.bg}`}>
+                <img src={l.file} alt={`DCFA logo — ${l.label}`} class="max-h-12 w-auto" />
+              </div>
+              <div class="p-4 bg-white dark:bg-slate-900">
+                <div class="font-bold text-slate-900 dark:text-white text-sm">{l.label}</div>
+                <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{l.note}</div>
+                <a href={l.file} download class="mt-2 inline-flex text-sm font-semibold text-blue-700 dark:text-blue-400 hover:underline">Download PNG ↓</a>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Keep clear space around the logo, don't stretch or recolor it, and don't place the color logo on busy backgrounds — use the reversed (white) version instead.</p>
+
+        <!-- Colors -->
+        <h2 class="mt-12 text-2xl font-extrabold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">Brand colors</h2>
+        <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          {palette.map(c => (
+            <div class="rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800">
+              <div class="h-20 flex items-end p-2" style={`background:${c.hex};color:${c.text};`}><span class="text-xs font-semibold">{c.name}</span></div>
+              <div class="p-2 bg-white dark:bg-slate-900 text-center text-xs font-mono text-slate-700 dark:text-slate-300">{c.hex}</div>
+            </div>
+          ))}
+        </div>
+        <p class="mt-3 text-sm text-slate-500 dark:text-slate-400"><strong>Typeface:</strong> Inter — headings bold/extra-bold, body regular. (System sans-serif is a fine fallback.)</p>
+
+        <!-- Email signature -->
+        <h2 class="mt-12 text-2xl font-extrabold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">Email signature</h2>
+        <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Replace the name and title, then copy it into your email signature settings. In Gmail/Outlook you can paste the preview directly; for clients that accept HTML, use the code.</p>
+        <div class="mt-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white p-5 overflow-x-auto">
+          <div id="sig-preview" set:html={signatureHtml}></div>
+        </div>
+        <div class="mt-3">
+          <button id="copy-sig" class="rounded-md bg-blue-700 hover:bg-blue-800 px-4 py-2 text-sm font-semibold text-white transition">Copy signature HTML</button>
+          <span id="copy-sig-done" class="hidden ml-2 text-sm text-green-600 dark:text-green-400">Copied!</span>
+        </div>
+        <pre id="sig-html" class="mt-3 max-h-48 overflow-auto rounded-lg bg-slate-900 text-slate-200 text-xs p-4 whitespace-pre-wrap">{signatureHtml}</pre>
+
+        <!-- QR codes -->
+        <h2 class="mt-12 text-2xl font-extrabold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">QR codes</h2>
+        <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">For business cards, flyers, and signage. These point to <strong>flydcfa.com</strong> — they go live when the site moves to that domain.</p>
+        <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-5">
+          {qrcodes.map(q => (
+            <div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 text-center">
+              <img src={q.file} alt={`QR code — ${q.label}`} class="w-full max-w-[140px] mx-auto" />
+              <div class="mt-2 font-bold text-slate-900 dark:text-white text-sm">{q.label}</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 break-all">{q.url}</div>
+              <a href={q.file} download class="mt-1 inline-flex text-xs font-semibold text-blue-700 dark:text-blue-400 hover:underline">Download ↓</a>
+            </div>
+          ))}
+        </div>
+        <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">A Google-review QR and a TikTok QR can be added once the Google Business Profile review link and TikTok handle are available.</p>
+
+        <!-- Business card -->
+        <h2 class="mt-12 text-2xl font-extrabold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">Business card — sample</h2>
+        <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">A starting layout (3.5" × 2"). Hand this to a printer along with the logo files and QR codes above, or we can produce print-ready files.</p>
+        <div class="mt-6 flex flex-wrap gap-6">
+          <div class="w-[350px] h-[200px] rounded-lg border border-slate-300 dark:border-slate-700 bg-white shadow-sm p-5 flex flex-col justify-between">
+            <img src="/images/logo/dcfa-logo.png" alt="DCFA" class="h-9 w-auto" />
+            <div>
+              <div class="text-lg font-extrabold text-slate-900">[Your Name]</div>
+              <div class="text-sm text-slate-500">[Your Title]</div>
+            </div>
+            <div class="text-xs text-slate-600 leading-relaxed">
+              (719) 208-7049 · info@flydcfa.com<br />1055 Aviation Way, Colorado Springs, CO · flydcfa.com
+            </div>
+          </div>
+          <div class="w-[350px] h-[200px] rounded-lg border border-slate-300 dark:border-slate-700 shadow-sm p-5 flex items-center justify-between" style="background:#0F172A;">
+            <div>
+              <img src="/images/brand/dcfa-logo-white.png" alt="DCFA" class="h-8 w-auto" />
+              <div class="mt-3 text-sm font-semibold text-blue-300">Your airline career<br />starts here.</div>
+            </div>
+            <div class="text-center">
+              <img src="/images/brand/qr-website.png" alt="Scan" class="h-20 w-20 rounded bg-white p-1" />
+              <div class="mt-1 text-[10px] text-slate-400">Scan to visit</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Boilerplate -->
+        <h2 class="mt-12 text-2xl font-extrabold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">Boilerplate &amp; listings</h2>
+        <div class="mt-6 grid md:grid-cols-2 gap-6">
+          <div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-5">
+            <div class="text-xs font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-400">Name · Address · Phone (use exactly)</div>
+            <p class="mt-2 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              Direct Connect Flight Academy<br />{site.address.street}<br />{site.address.city}, {site.address.state} {site.address.zip}<br />{site.phone} · {site.email}
+            </p>
+            <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">Use this exact wording on every directory and listing — consistency helps local search ranking.</p>
+          </div>
+          <div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-5">
+            <div class="text-xs font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-400">Tagline</div>
+            <p class="mt-2 text-sm font-semibold text-slate-900 dark:text-white">{site.tagline}</p>
+            <div class="mt-4 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-400">About (short)</div>
+            <p class="mt-2 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">{aboutBlurb}</p>
+          </div>
+        </div>
+
+        <!-- Review request -->
+        <h2 class="mt-12 text-2xl font-extrabold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">Ask a graduate for a review</h2>
+        <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Send this after a checkride — reviews feed the website and lift local search. Drop in your Google review link once the Business Profile is set up.</p>
+        <div class="mt-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-5">
+          <p class="text-sm text-slate-700 dark:text-slate-300 italic">{reviewRequest}</p>
+        </div>
+
+        <p class="mt-12 text-xs text-slate-400 dark:text-slate-500 border-t border-slate-200 dark:border-slate-800 pt-6">Internal resource — not linked publicly. Questions? Contact your DCFA admin.</p>
+      </div>
+    </section>
+  </div>
+
+  <script define:vars={{ passcode: PASSCODE, signatureHtml }}>
+    const KEY = 'dcfa-brand-unlocked';
+    const gate = document.getElementById('gate');
+    const content = document.getElementById('brand-content');
+    const form = document.getElementById('passcode-form');
+    const input = document.getElementById('passcode-input');
+    const error = document.getElementById('passcode-error');
+
+    function unlock() { gate.classList.add('hidden'); content.classList.remove('hidden'); }
+    if (sessionStorage.getItem(KEY) === '1') unlock();
+
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (input.value.trim().toLowerCase() === String(passcode).toLowerCase()) {
+        sessionStorage.setItem(KEY, '1');
+        error.classList.add('hidden');
+        unlock();
+      } else {
+        error.classList.remove('hidden');
+      }
+    });
+
+    document.getElementById('copy-sig')?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(signatureHtml);
+        const done = document.getElementById('copy-sig-done');
+        done.classList.remove('hidden');
+        setTimeout(() => done.classList.add('hidden'), 2000);
+      } catch (e) {}
+    });
+  </script>
+</BaseLayout>

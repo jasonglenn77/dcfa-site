@@ -9,12 +9,15 @@ interface Props {
   description?: string;
   /** Optional extra JSON-LD (e.g. Course or FAQPage) for this specific page. */
   jsonLd?: object | object[];
+  /** Set true to keep this page out of search engines. */
+  noindex?: boolean;
 }
 
 const {
   title = 'Direct Connect Flight Academy — Colorado Springs Flight School',
   description = "FAA Part 141 flight school in Colorado Springs with Examining Authority for Private and Instrument checkrides. Mentored by active airline pilots. Your airline career starts here.",
   jsonLd,
+  noindex = false,
 } = Astro.props;
 
 // Site-wide organization / local-business structured data (helps local SEO + rich results).
@@ -60,6 +63,7 @@ const organizationSchema = {
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={Astro.url.href} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
   <meta name="theme-color" content="#1e40af" />
 
   <!-- Open Graph (Facebook, iMessage, Slack, LinkedIn, Discord) -->
