@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import CtaBlock from '../components/ui/CtaBlock.astro';
+import faq from '../data/faq/faq.json';
+
+const faqs = faq.items.filter(f => f.question && f.answer);
+
+// FAQPage structured data — makes answers eligible for Google's rich results.
+const faqSchema = faqs.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(f => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+} : undefined;
+---
+<BaseLayout
+  title="FAQ — Direct Connect Flight Academy"
+  description="Answers to common questions about flight training at Direct Connect Flight Academy in Colorado Springs — cost, timeline, financing, VA benefits, medicals, Part 141, ATP-CTP, and more."
+  jsonLd={faqSchema}
+>
+  <PageHero
+    eyebrow="Questions & Answers"
+    title="Frequently asked questions"
+    subtitle="Everything prospective students ask us — cost, timeline, medicals, financing, and how DCFA gets you to the flight deck faster."
+  />
+
+  <section class="bg-white dark:bg-slate-950 py-16 sm:py-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <div class="divide-y divide-slate-200 dark:divide-slate-800 border-y border-slate-200 dark:border-slate-800">
+        {faqs.map(f => (
+          <details class="group py-5">
+            <summary class="flex cursor-pointer items-start justify-between gap-4 list-none">
+              <h2 class="text-lg font-bold text-slate-900 dark:text-white">{f.question}</h2>
+              <svg class="mt-1 h-5 w-5 flex-shrink-0 text-blue-700 dark:text-blue-400 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </summary>
+            <p class="mt-3 text-slate-700 dark:text-slate-300 leading-relaxed">{f.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBlock
+    title="Still have questions?"
+    description="Reach out and we'll walk you through anything — programs, cost, timeline, or financing. No commitment."
+    primaryLabel="Contact DCFA"
+    secondaryLabel="Call (719) 208-7049"
+  />
+</BaseLayout>

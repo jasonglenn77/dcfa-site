@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "question": "Do I need a college degree to become an airline pilot?",
+      "answer": "No. The FAA does not require a college degree to fly for the airlines — you need the right certificates and flight hours. Many regional airlines (typically your first airline job) hire based on certificates and experience. DCFA focuses on getting you the ratings and hours airlines actually require."
+    },
+    {
+      "question": "How long does it take to go from zero experience to a professional pilot?",
+      "answer": "With consistent training, most students reach Commercial Pilot in roughly 12–14 months. Your pace depends on how often you fly, weather, and your schedule. We build a training plan around your goals."
+    },
+    {
+      "question": "How much does flight training cost?",
+      "answer": "It depends on the certificate. We publish transparent pricing for every program on our Training page — from the $150 Discovery Flight through Private, Instrument, Commercial, Multi-Engine, ATP, and ATP-CTP. Financing and VA benefits are available for eligible programs."
+    },
+    {
+      "question": "Do you offer financing or accept VA benefits / the GI Bill?",
+      "answer": "Yes. We work with aviation lenders (Stratus Financial and AOPA) and accept VA benefits under Chapters 30, 33, 1606, and 1607 for our Instrument and Commercial programs. See our Financing and VA Benefits pages for details."
+    },
+    {
+      "question": "What is a Discovery Flight?",
+      "answer": "A Discovery Flight is an introductory lesson where you take the controls with an instructor and experience flying firsthand. It's the best way to find out if aviation is for you — ours is $150 and is the first step toward your Private Pilot certificate."
+    },
+    {
+      "question": "What medical certificate do I need to start?",
+      "answer": "To fly solo you'll need at least an FAA Class III medical certificate; professional pilots ultimately need a Class I. We recommend scheduling your medical early and can point you to a local Aviation Medical Examiner."
+    },
+    {
+      "question": "What's the difference between Part 61 and Part 141 training?",
+      "answer": "Both are FAA training paths. Part 141 follows an FAA-approved structured syllabus with reduced minimum hours; Part 61 offers more flexibility. DCFA is an FAA Part 141 certificated school and also offers Part 61 training where it best fits your goals."
+    },
+    {
+      "question": "What is \"Examining Authority\" and why does it matter?",
+      "answer": "DCFA holds FAA Examining Authority for Private Pilot and Instrument checkrides, which means we administer those checkrides in-house. Most students wait weeks for an outside examiner (a DPE); with us, you finish when you're ready — often months sooner."
+    },
+    {
+      "question": "Do you offer the ATP-CTP course?",
+      "answer": "Yes. Our ATP-CTP program is $4,995 and includes virtual ground school plus full-motion Airbus A320 simulator training in Dallas or Las Vegas. It's the required prerequisite for the ATP Multi-Engine knowledge test."
+    },
+    {
+      "question": "I'm a helicopter pilot — can I transition to airplanes at DCFA?",
+      "answer": "Yes. Our Rotor Transition Program builds a customized fixed-wing pathway for military and civilian rotorcraft pilots, including Restricted ATP (R-ATP) eligibility based on your existing experience."
+    }
+  ]
+}

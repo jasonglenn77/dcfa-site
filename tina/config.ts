@@ -29,6 +29,31 @@ export default defineConfig({
   schema: {
     collections: [
       {
+        name: 'faq',
+        label: 'FAQ',
+        path: 'src/data/faq',
+        format: 'json',
+        ui: {
+          global: true,
+          allowedActions: { create: false, delete: false },
+        },
+        fields: [
+          {
+            type: 'object',
+            name: 'items',
+            label: 'Questions',
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.question || 'Question' }),
+            },
+            fields: [
+              { type: 'string', name: 'question', label: 'Question' },
+              { type: 'string', name: 'answer', label: 'Answer', ui: { component: 'textarea' } },
+            ],
+          },
+        ],
+      },
+      {
         name: 'reviews',
         label: 'Reviews / Testimonials',
         path: 'src/data/reviews',

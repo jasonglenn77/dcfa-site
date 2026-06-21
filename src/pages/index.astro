@@ -31,12 +31,12 @@ const socials = [
   <section class="relative overflow-hidden">
     <!-- Light theme hero background: DA42 in flight, bright sky -->
     <div class="absolute inset-0 dark:hidden">
-      <img src={home.heroImageLight} alt="" class="w-full h-full object-cover" />
+      <img src={home.heroImageLight} alt="" class="w-full h-full object-cover -scale-x-100" />
       <div class="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/40"></div>
     </div>
     <!-- Dark theme hero background: DA42 at dusk -->
     <div class="absolute inset-0 hidden dark:block">
-      <img src={home.heroImageDark} alt="" class="w-full h-full object-cover opacity-60" />
+      <img src={home.heroImageDark} alt="" class="w-full h-full object-cover opacity-60 -scale-x-100" />
       <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/30"></div>
     </div>
 
