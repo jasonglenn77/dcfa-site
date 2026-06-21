@@ -29,12 +29,14 @@ const qrcodes = [
   { label: 'Facebook', file: '/images/brand/qr-facebook.png', url: 'Direct Connect Flight Academy' },
 ];
 
-// Email signature (email-safe inline HTML). Logo uses an absolute URL so it
-// resolves in email clients — live once the site is on flydcfa.com.
+// Email signature (email-safe inline HTML). The logo uses an absolute URL built
+// from the site's configured domain, so it resolves in email clients today and
+// automatically points to flydcfa.com once the site moves there.
+const logoAbsUrl = new URL('/images/logo/dcfa-logo.png', Astro.site).href;
 const signatureHtml = `<table cellpadding="0" cellspacing="0" style="font-family:Arial,Helvetica,sans-serif;color:#0f172a;font-size:13px;line-height:1.5;">
   <tr>
     <td style="padding-right:16px;border-right:2px solid #1D4ED8;vertical-align:middle;">
-      <img src="https://flydcfa.com/images/logo/dcfa-logo.png" alt="Direct Connect Flight Academy" width="180" style="display:block;" />
+      <img src="${logoAbsUrl}" alt="Direct Connect Flight Academy" width="180" style="display:block;" />
     </td>
     <td style="padding-left:16px;vertical-align:middle;">
       <strong style="font-size:15px;color:#0f172a;">[Your Name]</strong><br />
