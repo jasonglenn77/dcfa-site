@@ -32,12 +32,12 @@ const socials = [
     <!-- Light theme hero background: DA42 in flight, bright sky -->
     <div class="absolute inset-0 dark:hidden">
       <img src={home.heroImageLight} alt="" class="w-full h-full object-cover -scale-x-100" />
-      <div class="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-white/5"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-white/40 sm:to-white/5"></div>
     </div>
     <!-- Dark theme hero background: DA42 at dusk -->
     <div class="absolute inset-0 hidden dark:block">
       <img src={home.heroImageDark} alt="" class="w-full h-full object-cover -scale-x-100" />
-      <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-950/10"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-950/40 sm:to-slate-950/10"></div>
     </div>
 
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
@@ -260,7 +260,7 @@ const socials = [
         <div class="text-xs font-semibold tracking-wide text-slate-500 dark:text-slate-400 uppercase">Airline Partners</div>
         <h2 class="mt-2 text-2xl font-bold text-slate-900 dark:text-white">Established pathways to the flight deck</h2>
       </div>
-      <div class="mt-10 flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-x-8 sm:gap-x-12 gap-y-8">
         {airlinePartners.map(p => (
           <div class="bg-white rounded-lg p-4 shadow-sm">
             <img src={p.logo} alt={p.name} class="h-12 w-auto object-contain" />
