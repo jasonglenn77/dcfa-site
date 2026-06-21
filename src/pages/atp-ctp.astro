@@ -2,6 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/ui/PageHero.astro';
 import CtaBlock from '../components/ui/CtaBlock.astro';
+import atpctp from '../data/atpctp/atpctp.json';
+
+// Editable in Tina (Collections → ATP-CTP Page). Sections hide until populated.
+const simPhotos = atpctp.simPhotos.filter(p => p.image);
+const reviews = atpctp.reviews.filter(r => r.quote);
 
 const curriculum = [
   { hours: 30, label: 'Virtual Instructor-Led Ground School' },
@@ -105,6 +110,38 @@ const simTopics = [
       </div>
     </div>
   </section>
+
+  {simPhotos.length > 0 && (
+    <section class="bg-white dark:bg-slate-950 py-16 sm:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Inside the A320 simulator</h2>
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          {simPhotos.map(p => (
+            <figure class="relative rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 aspect-[4/3] bg-slate-100 dark:bg-slate-900">
+              <img src={p.image} alt={p.caption || 'A320 simulator'} class="w-full h-full object-cover" loading="lazy" />
+              {p.caption && <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-sm font-semibold">{p.caption}</figcaption>}
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {reviews.length > 0 && (
+    <section class="bg-slate-50 dark:bg-slate-900 py-16 sm:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">What past clients say</h2>
+        <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          {reviews.map(r => (
+            <blockquote class="rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-6">
+              <p class="text-slate-700 dark:text-slate-300 leading-relaxed">“{r.quote}”</p>
+              {r.author && <footer class="mt-4 text-sm font-semibold text-slate-900 dark:text-white">— {r.author}</footer>}
+            </blockquote>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <CtaBlock
     title="Ready to earn your ATP?"

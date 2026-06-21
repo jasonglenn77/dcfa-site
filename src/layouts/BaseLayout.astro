@@ -1,17 +1,51 @@
 ---
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+import { site } from '../data/site';
 import '../styles/global.css';
 
 interface Props {
   title?: string;
   description?: string;
+  /** Optional extra JSON-LD (e.g. Course or FAQPage) for this specific page. */
+  jsonLd?: object | object[];
 }
 
 const {
   title = 'Direct Connect Flight Academy — Colorado Springs Flight School',
   description = "FAA Part 141 flight school in Colorado Springs with Examining Authority for Private and Instrument checkrides. Mentored by active airline pilots. Your airline career starts here.",
+  jsonLd,
 } = Astro.props;
+
+// Site-wide organization / local-business structured data (helps local SEO + rich results).
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['EducationalOrganization', 'LocalBusiness'],
+  name: site.name,
+  alternateName: site.shortName,
+  description: 'FAA Part 141 flight school in Colorado Springs, Colorado offering Private, Instrument, Commercial, Multi-Engine, ATP, ATP-CTP, and rotor-transition training.',
+  url: Astro.site?.href,
+  logo: Astro.site ? new URL('/images/logo/dcfa-logo.png', Astro.site).href : undefined,
+  image: Astro.site ? new URL('/images/aircraft/da42-air.png', Astro.site).href : undefined,
+  telephone: site.phone,
+  email: site.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.address.street,
+    addressLocality: site.address.city,
+    addressRegion: site.address.state,
+    postalCode: site.address.zip,
+    addressCountry: 'US',
+  },
+  areaServed: { '@type': 'City', name: 'Colorado Springs' },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '09:00',
+    closes: '17:00',
+  },
+  sameAs: [site.social.facebook, site.social.instagram, site.social.linkedin],
+};
 ---
 <!doctype html>
 <html lang="en">
@@ -42,6 +76,10 @@ const {
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={new URL('/images/aircraft/da42-air.png', Astro.site).href} />
+
+  <!-- Structured data -->
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
 
   <script is:inline>
     (function () {

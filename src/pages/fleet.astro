@@ -2,7 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/ui/PageHero.astro';
 import CtaBlock from '../components/ui/CtaBlock.astro';
-import { aircraft, instructionRate } from '../data/aircraft';
+import fleet from '../data/fleet/fleet.json';
+
+const aircraft = fleet.aircraft;
+const instructionRate = fleet.instructionRate;
 ---
 <BaseLayout
   title="Aircraft Fleet & Rates — Direct Connect Flight Academy"
@@ -22,17 +25,18 @@ import { aircraft, instructionRate } from '../data/aircraft';
 
       <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {aircraft.map(ac => (
-          <div class={`rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden ${ac.image ? 'sm:col-span-2 lg:col-span-3' : ''}`}>
-            {ac.image && (
+          <div class={`rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden ${ac.photo ? 'sm:col-span-2 lg:col-span-3' : ''}`}>
+            {ac.photo && (
               <div class="aspect-[16/9] bg-slate-100 dark:bg-slate-800 overflow-hidden">
-                <img src={ac.image} alt={`${ac.tailNumber} — ${ac.type}`} class="w-full h-full object-cover" />
+                <img src={ac.photo} alt={`${ac.tailNumber} — ${ac.makeModel || ac.type}`} class="w-full h-full object-cover" />
               </div>
             )}
             <div class="p-5 sm:p-6">
               <div class="flex items-start justify-between gap-3">
                 <div>
                   <div class="text-xs font-semibold tracking-wide uppercase text-blue-700 dark:text-blue-400">{ac.type}</div>
-                  <div class="mt-1 text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono">{ac.tailNumber}</div>
+                  <div class="mt-1 text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">{ac.makeModel || ac.tailNumber}</div>
+                  {ac.makeModel && <div class="text-sm font-mono text-slate-500 dark:text-slate-400">{ac.tailNumber}</div>}
                 </div>
                 <div class="text-right">
                   <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">${ac.hourlyRate}</div>
