@@ -29,12 +29,12 @@
     },
     {
       "name": "MSU Denver",
-      "logo": "/images/partners/msudenver_vertical_logo.jpg",
+      "logo": "/images/partners/msudenver_horizontal_logo.jpg",
       "wordmark": "MSU DENVER",
       "meta": "University partner · Announced 2022",
       "blurb": "Metropolitan State University of Denver — Colorado's only four-year school with FAA-approved R-ATP eligibility. The partnership lets degree-seeking students reach a Restricted ATP at 1,000 flight hours instead of 1,500, accelerating the path to the airlines by roughly a year.",
       "url": "https://www.msudenver.edu/",
-      "airlinePartner": true
+      "airlinePartner": false
     }
   ]
 }
