@@ -29,6 +29,101 @@ export default defineConfig({
   schema: {
     collections: [
       {
+        name: 'reviews',
+        label: 'Reviews / Testimonials',
+        path: 'src/data/reviews',
+        format: 'json',
+        ui: {
+          global: true,
+          allowedActions: { create: false, delete: false },
+        },
+        fields: [
+          {
+            type: 'object',
+            name: 'items',
+            label: 'Reviews',
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.author || 'Review' }),
+            },
+            fields: [
+              { type: 'string', name: 'author', label: 'Name' },
+              { type: 'number', name: 'rating', label: 'Star rating (1-5)' },
+              { type: 'string', name: 'text', label: 'Review', ui: { component: 'textarea' } },
+              { type: 'string', name: 'source', label: 'Source', description: 'e.g. "Google"' },
+            ],
+          },
+        ],
+      },
+      {
+        name: 'fleet',
+        label: 'Fleet (Aircraft)',
+        path: 'src/data/fleet',
+        format: 'json',
+        ui: {
+          global: true,
+          allowedActions: { create: false, delete: false },
+        },
+        fields: [
+          { type: 'number', name: 'instructionRate', label: 'Flight Instruction Rate ($/hr)' },
+          {
+            type: 'object',
+            name: 'aircraft',
+            label: 'Aircraft',
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.tailNumber || 'Aircraft' }),
+            },
+            fields: [
+              { type: 'string', name: 'tailNumber', label: 'Tail Number' },
+              { type: 'string', name: 'makeModel', label: 'Make / Model', description: 'e.g. "Cessna 172", "Diamond DA-42"' },
+              { type: 'string', name: 'type', label: 'Type', description: 'e.g. "Single-Engine"' },
+              { type: 'number', name: 'hourlyRate', label: 'Hourly Rate ($, wet)' },
+              { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
+              { type: 'image', name: 'photo', label: 'Photo' },
+            ],
+          },
+        ],
+      },
+      {
+        name: 'atpctp',
+        label: 'ATP-CTP Page',
+        path: 'src/data/atpctp',
+        format: 'json',
+        ui: {
+          global: true,
+          allowedActions: { create: false, delete: false },
+        },
+        fields: [
+          {
+            type: 'object',
+            name: 'simPhotos',
+            label: 'A320 Simulator Photos',
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.caption || 'Photo' }),
+            },
+            fields: [
+              { type: 'image', name: 'image', label: 'Photo' },
+              { type: 'string', name: 'caption', label: 'Caption' },
+            ],
+          },
+          {
+            type: 'object',
+            name: 'reviews',
+            label: 'Client Reviews',
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.author || 'Review' }),
+            },
+            fields: [
+              { type: 'string', name: 'quote', label: 'Review', ui: { component: 'textarea' } },
+              { type: 'string', name: 'author', label: 'Name' },
+            ],
+          },
+        ],
+      },
+      {
         name: 'team',
         label: 'Team & Graduates',
         path: 'src/data/team',
