@@ -2,42 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/ui/PageHero.astro';
 import CtaBlock from '../components/ui/CtaBlock.astro';
+import partnersData from '../data/partners/partners.json';
 
-// Partnerships shown on the About page. To show a logo, drop the file in
-// public/images/partners/ and set `logo` to its path. If `logo` is omitted,
-// the card falls back to a styled wordmark so nothing renders broken.
-const partnerships = [
-  {
-    name: 'Frontier Airlines',
-    logo: '/images/partners/frontier.png',
-    meta: 'Airline partner · Announced 2023',
-    blurb: 'A direct pipeline to one of the country\'s largest ultra-low-cost carriers — built around airline-style training from day one.',
-    url: 'https://www.flyfrontier.com',
-  },
-  {
-    name: 'Key Lime Air',
-    logo: '/images/partners/key-lime.png',
-    meta: 'Regional partner · Announced 2019',
-    blurb: 'A long-standing relationship with the regional carrier — a route to Part 121 hours and the right seat for graduates ready to fly the line.',
-    url: 'https://www.keylimeair.com',
-  },
-  {
-    name: 'GoJet Airlines',
-    logo: '/images/partners/gojet.jpg',
-    meta: 'Regional partner · United Express',
-    blurb: 'A regional carrier flying for United Express — another established pathway from DCFA training to a Part 121 cockpit.',
-    url: 'https://www.gojetairlines.com',
-  },
-  {
-    name: 'MSU Denver',
-    // Drop the official logo at public/images/partners/msu-denver.png and set this:
-    logo: undefined as string | undefined,
-    wordmark: 'MSU DENVER',
-    meta: 'University partner · Announced 2022',
-    blurb: 'Metropolitan State University of Denver — Colorado\'s only four-year school with FAA-approved R-ATP eligibility. The partnership lets degree-seeking students reach a Restricted ATP at 1,000 flight hours instead of 1,500, accelerating the path to the airlines by roughly a year.',
-    url: 'https://www.msudenver.edu/',
-  },
-];
+// Partnerships are now editable in Tina (Collections → Partners).
+const partnerships = partnersData.items;
 ---
 <BaseLayout
   title="About — Direct Connect Flight Academy"

@@ -20,12 +20,73 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: 'images/uploads', // uploads land in public/images/uploads/
+      // Whole images folder, so ALL existing site images (aircraft, cockpit,
+      // team, partners, etc.) are visible and selectable in the media manager.
+      mediaRoot: 'images',
       publicFolder: 'public',
     },
   },
   schema: {
     collections: [
+      {
+        name: 'partners',
+        label: 'Partners',
+        path: 'src/data/partners',
+        format: 'json',
+        ui: {
+          global: true,
+          allowedActions: { create: false, delete: false },
+        },
+        fields: [
+          {
+            type: 'object',
+            name: 'items',
+            label: 'Partners',
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.name || 'Partner' }),
+            },
+            fields: [
+              { type: 'string', name: 'name', label: 'Name' },
+              { type: 'image', name: 'logo', label: 'Logo' },
+              { type: 'string', name: 'wordmark', label: 'Wordmark', description: 'Text shown if there is no logo (e.g. "MSU DENVER").' },
+              { type: 'string', name: 'meta', label: 'Tagline / meta line' },
+              { type: 'string', name: 'blurb', label: 'Description', ui: { component: 'textarea' } },
+              { type: 'string', name: 'url', label: 'Website URL' },
+              { type: 'boolean', name: 'airlinePartner', label: 'Show logo in home page "Airline Partners" strip' },
+            ],
+          },
+        ],
+      },
+      {
+        name: 'scholarships',
+        label: 'Scholarships',
+        path: 'src/data/scholarships',
+        format: 'json',
+        ui: {
+          global: true,
+          allowedActions: { create: false, delete: false },
+        },
+        fields: [
+          {
+            type: 'object',
+            name: 'items',
+            label: 'Scholarships',
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.organization || 'Scholarship' }),
+            },
+            fields: [
+              { type: 'string', name: 'organization', label: 'Organization' },
+              { type: 'string', name: 'award', label: 'Award' },
+              { type: 'string', name: 'eligibility', label: 'Eligibility' },
+              { type: 'string', name: 'notes', label: 'Notes', ui: { component: 'textarea' } },
+              { type: 'string', name: 'url', label: 'Website URL' },
+              { type: 'image', name: 'logo', label: 'Logo' },
+            ],
+          },
+        ],
+      },
       {
         name: 'home',
         label: 'Home Page',

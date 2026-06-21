@@ -17,61 +17,7 @@ export const lenders: Lender[] = [
   },
 ];
 
-export interface Scholarship {
-  organization: string;
-  award: string;
-  eligibility: string;
-  notes?: string;
-  url?: string;
-  // Optional logo path, e.g. '/images/scholarships/eaa.png'. When omitted, the
-  // card shows a monogram fallback so it never renders a broken image.
-  logo?: string;
-}
-
-export const scholarships: Scholarship[] = [
-  {
-    organization: 'Colorado Pilots Association',
-    award: 'Varies',
-    eligibility: 'All pilots',
-    notes: 'Focus on safe flying in the Rocky Mountains.',
-  },
-  {
-    organization: 'EAA (Experimental Aircraft Association)',
-    award: 'Varies',
-    eligibility: 'Various — check local chapter',
-    notes: 'Includes the "Young Eagles" program.',
-  },
-  {
-    organization: 'NATA Navigate Your Future',
-    award: '$2,500',
-    eligibility: 'High school graduates',
-    notes: 'Annual; one award per year.',
-  },
-  {
-    organization: 'NBAA',
-    award: 'Varies',
-    eligibility: 'Student pilots and mechanics',
-    notes: 'Multiple scholarships with rolling deadlines.',
-  },
-  {
-    organization: 'The Ninety-Nines',
-    award: 'Up to $20,000',
-    eligibility: 'Women pilots',
-    notes: 'Founded by Amelia Earhart. Supports both initial and advanced ratings.',
-  },
-  {
-    organization: 'Tuskegee Airmen — Hubert L. Jones Chapter',
-    award: 'Varies',
-    eligibility: 'Minority HS seniors / recent graduates',
-    notes: 'Colorado-based chapter. National-level scholarship also available.',
-  },
-  {
-    organization: 'Women in Aviation International',
-    award: 'Varies',
-    eligibility: 'WAI members only',
-    notes: 'Annual program; membership required.',
-  },
-];
+// Scholarships moved to src/data/scholarships/scholarships.json (editable in Tina).
 
 export const vaBenefits = {
   acceptedChapters: [

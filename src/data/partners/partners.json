@@ -1,0 +1,8 @@
+{
+  "items": [
+    { "name": "Frontier Airlines", "logo": "/images/partners/frontier.png", "wordmark": "", "meta": "Airline partner · Announced 2023", "blurb": "A direct pipeline to one of the country's largest ultra-low-cost carriers — built around airline-style training from day one.", "url": "https://www.flyfrontier.com", "airlinePartner": true },
+    { "name": "Key Lime Air", "logo": "/images/partners/key-lime.png", "wordmark": "", "meta": "Regional partner · Announced 2019", "blurb": "A long-standing relationship with the regional carrier — a route to Part 121 hours and the right seat for graduates ready to fly the line.", "url": "https://www.keylimeair.com", "airlinePartner": true },
+    { "name": "GoJet Airlines", "logo": "/images/partners/gojet.jpg", "wordmark": "", "meta": "Regional partner · United Express", "blurb": "A regional carrier flying for United Express — another established pathway from DCFA training to a Part 121 cockpit.", "url": "https://www.gojetairlines.com", "airlinePartner": true },
+    { "name": "MSU Denver", "logo": "", "wordmark": "MSU DENVER", "meta": "University partner · Announced 2022", "blurb": "Metropolitan State University of Denver — Colorado's only four-year school with FAA-approved R-ATP eligibility. The partnership lets degree-seeking students reach a Restricted ATP at 1,000 flight hours instead of 1,500, accelerating the path to the airlines by roughly a year.", "url": "https://www.msudenver.edu/", "airlinePartner": false }
+  ]
+}

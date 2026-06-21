@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import home from '../data/home/home.json';
+import partnersData from '../data/partners/partners.json';
 
 const programs = [
   { name: 'Private Pilot', price: '$17,644.50', hours: '45 flight hrs', href: '/training#private' },
@@ -11,11 +12,8 @@ const programs = [
   { name: 'ATP-CTP', price: '$4,995', hours: '40 hrs total', href: '/atp-ctp' },
 ];
 
-const partners = [
-  { name: 'GoJet Airlines', src: '/images/partners/gojet.jpg' },
-  { name: 'Frontier Airlines', src: '/images/partners/frontier.png' },
-  { name: 'Key Lime Air', src: '/images/partners/key-lime.png' },
-];
+// Airline partners shown in the home page logo strip (editable in Tina → Partners).
+const airlinePartners = partnersData.items.filter(p => p.airlinePartner && p.logo);
 ---
 <BaseLayout>
   <!-- Hero: Examining Authority -->
@@ -252,9 +250,9 @@ const partners = [
         <h2 class="mt-2 text-2xl font-bold text-slate-900 dark:text-white">Established pathways to the flight deck</h2>
       </div>
       <div class="mt-10 flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
-        {partners.map(p => (
+        {airlinePartners.map(p => (
           <div class="bg-white rounded-lg p-4 shadow-sm">
-            <img src={p.src} alt={p.name} class="h-12 w-auto object-contain" />
+            <img src={p.logo} alt={p.name} class="h-12 w-auto object-contain" />
           </div>
         ))}
       </div>

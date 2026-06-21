@@ -1,0 +1,11 @@
+{
+  "items": [
+    { "organization": "Colorado Pilots Association", "award": "Varies", "eligibility": "All pilots", "notes": "Focus on safe flying in the Rocky Mountains.", "url": "", "logo": "" },
+    { "organization": "EAA (Experimental Aircraft Association)", "award": "Varies", "eligibility": "Various — check local chapter", "notes": "Includes the \"Young Eagles\" program.", "url": "", "logo": "" },
+    { "organization": "NATA Navigate Your Future", "award": "$2,500", "eligibility": "High school graduates", "notes": "Annual; one award per year.", "url": "", "logo": "" },
+    { "organization": "NBAA", "award": "Varies", "eligibility": "Student pilots and mechanics", "notes": "Multiple scholarships with rolling deadlines.", "url": "", "logo": "" },
+    { "organization": "The Ninety-Nines", "award": "Up to $20,000", "eligibility": "Women pilots", "notes": "Founded by Amelia Earhart. Supports both initial and advanced ratings.", "url": "", "logo": "" },
+    { "organization": "Tuskegee Airmen — Hubert L. Jones Chapter", "award": "Varies", "eligibility": "Minority HS seniors / recent graduates", "notes": "Colorado-based chapter. National-level scholarship also available.", "url": "", "logo": "" },
+    { "organization": "Women in Aviation International", "award": "Varies", "eligibility": "WAI members only", "notes": "Annual program; membership required.", "url": "", "logo": "" }
+  ]
+}

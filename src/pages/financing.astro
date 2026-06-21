@@ -2,7 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/ui/PageHero.astro';
 import CtaBlock from '../components/ui/CtaBlock.astro';
-import { lenders, scholarships } from '../data/financing';
+import { lenders } from '../data/financing';
+import scholarshipsData from '../data/scholarships/scholarships.json';
+
+// Scholarships are now editable in Tina (Collections → Scholarships).
+const scholarships = scholarshipsData.items;
 
 // Monogram fallback for scholarships without a logo yet — first letters of the
 // first two words, so each card shows a clean badge instead of a broken image.
