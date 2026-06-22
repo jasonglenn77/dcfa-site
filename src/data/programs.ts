@@ -16,6 +16,7 @@ export interface Program {
   deposit?: string;
   description: string;
   highlights: string[];
+  enrollmentRequirements?: string[];
   vaApproved?: boolean;
 }
 
@@ -26,16 +27,15 @@ export const programs: Program[] = [
     shortName: 'PPL',
     category: 'core',
     certificateType: 'Part 141',
-    prerequisite: 'None — $150 Discovery Flight required for application',
+    prerequisite: 'None',
     totalFlightHours: 45,
     hoursBreakdown: [
       { label: 'Flight Instruction', hours: 37.5 },
       { label: 'Ground Instruction', hours: 58.5 },
-      { label: 'Pre/Post Instruction', hours: 36 },
+      { label: 'Pre/Post Instruction', hours: 27 },
       { label: 'Solo', hours: 7.5 },
     ],
-    price: '$17,644.50',
-    deposit: '$1,000',
+    price: '$16,644.50',
     description: 'Your foundational course. Basic flight operations taught with airline-style crew coordination, checklist discipline, and the standards you\'ll be expected to meet on the flight deck.',
     highlights: [
       'Crew concept training from day one',
@@ -43,6 +43,14 @@ export const programs: Program[] = [
       'Challenge / response checklist methodology',
       'Airline-developed materials and flows',
       'Foundation for every advanced rating',
+    ],
+    enrollmentRequirements: [
+      'Read, write, speak, and understand English',
+      'Provide a passport or birth certificate for proof of U.S. citizenship (international students must complete TSA registration and authorization)',
+      'Obtain at least an FAA third-class medical certificate (first-class highly recommended)',
+      'Obtain an FAA student pilot certificate',
+      'Required course training materials, due before enrollment (student books/supplies and in-processing course if not previously attended)',
+      'Secure non-owned aircraft insurance with $50,000 physical damage coverage for single-engine aircraft before your first flight',
     ],
     vaApproved: false,
   },
@@ -58,12 +66,16 @@ export const programs: Program[] = [
       { label: 'Ground Instruction', hours: 5 },
       { label: 'Pre/Post Instruction', hours: 3 },
     ],
-    price: '$2,700',
+    price: '$1,700',
     description: 'For pilots joining DCFA with an existing PPL or higher. Orients you to our training documentation, instructor expectations, and the academy\'s flow-based procedures. Required before aircraft rental.',
     highlights: [
       'Required to rent academy aircraft',
       'Orientation to DCFA training methodology',
       'Bridges your existing skills to airline-style flows',
+    ],
+    enrollmentRequirements: [
+      'Required course training materials, due before enrollment (student books/supplies and in-processing course if not previously attended)',
+      'Secure non-owned aircraft insurance — $75,000 physical damage coverage for multi-engine if enrolling in the Multi-Engine Commercial Add-On, or $50,000 for any other course',
     ],
   },
   {
@@ -111,6 +123,10 @@ export const programs: Program[] = [
       'Bridges to ATP qualification',
       'VA-approved program',
     ],
+    enrollmentRequirements: [
+      'Required course training materials, due before enrollment (student books/supplies and in-processing course if not previously attended)',
+      'Secure non-owned aircraft insurance with $50,000 physical damage coverage for single-engine aircraft',
+    ],
     vaApproved: true,
   },
   {
@@ -127,14 +143,18 @@ export const programs: Program[] = [
       { label: 'Ground School', hours: 19 },
       { label: 'Flight Instruction', hours: 12.5 },
     ],
-    price: '$6,605',
+    price: '$6,980–$7,905',
     description: 'Earn a Multi-Engine Land rating on your Commercial certificate — advanced systems, asymmetric-thrust handling, and crew-style multi-engine operations in the Diamond DA-42.',
     highlights: [
-      '10.5 hrs in the DA-42 — $4,200',
-      '2 hrs DA-42 simulator — $200',
-      '19 hrs ground school — $1,330',
-      '12.5 hrs flight instruction — $875',
+      'Add a Multi-Engine Land rating to your Commercial certificate',
+      'Advanced systems and asymmetric-thrust training in the Diamond DA-42',
+      'Price varies with simulator utilization',
     ],
+    enrollmentRequirements: [
+      'Required course training materials, due before enrollment (student books/supplies and in-processing course if not previously attended)',
+      'Secure non-owned aircraft insurance with $75,000 physical damage coverage for multi-engine aircraft before your first flight',
+    ],
+    vaApproved: true,
   },
   {
     slug: 'atp-multi-engine',
@@ -150,12 +170,15 @@ export const programs: Program[] = [
       { label: 'Pre/Post Instruction', hours: 8 },
     ],
     price: '$4,715',
-    deposit: '$1,000',
     description: 'The Airline Transport Pilot certificate — the highest pilot certification the FAA issues. Covers Part 121 regulations and the crewed multi-engine protocols of airline operations.',
     highlights: [
       'Part 121 regulations and procedures',
       'Airline crew protocol training',
       'Highest pilot certification available',
+    ],
+    enrollmentRequirements: [
+      'Required course training materials, due before enrollment (student books/supplies and in-processing course if not previously attended)',
+      'Secure non-owned aircraft insurance with $75,000 physical damage coverage for multi-engine aircraft before your first flight',
     ],
   },
 ];
