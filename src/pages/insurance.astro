@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import CtaBlock from '../components/ui/CtaBlock.astro';
+
+const damageMinimums = [
+  { type: 'Single-Engine aircraft', amount: '$50,000' },
+  { type: 'Multi-Engine aircraft', amount: '$75,000' },
+];
+
+const providers = [
+  { name: 'Zanette Aviation Insurance', phone: '650-593-3030', href: 'tel:+16505933030' },
+  { name: 'Gallagher / Assured Partners', phone: '800-622-2672', href: 'tel:+18006222672' },
+  { name: 'Avemco Insurance', phone: '800-638-8440', href: 'tel:+18006388440' },
+  { name: 'SkyWatch', phone: '888-849-4902', href: 'tel:+18888494902' },
+];
+---
+<BaseLayout
+  title="Renter's Insurance Requirements — Direct Connect Flight Academy"
+  description="Non-owner renter's insurance requirements for flying at Direct Connect Flight Academy: minimum aircraft physical-damage coverage by program, recommended liability and medical coverage, and a list of insurance providers."
+>
+  <PageHero
+    eyebrow="Before You Fly"
+    title="Renter's insurance requirements"
+    subtitle="Non-owner renter's insurance must be in place before any flight at DCFA. You're free to use any provider — as long as it meets the minimum standards below."
+  />
+
+  <!-- Required coverage -->
+  <section class="bg-white dark:bg-slate-950 py-16 sm:py-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        <div>
+          <div class="text-xs font-semibold tracking-wide uppercase text-blue-700 dark:text-blue-400">Required</div>
+          <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Aircraft physical damage coverage</h2>
+          <p class="mt-3 text-slate-700 dark:text-slate-300">The minimum coverage you carry depends on the aircraft for your program:</p>
+          <div class="mt-6 space-y-3">
+            {damageMinimums.map(d => (
+              <div class="flex items-center justify-between rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 px-5 py-4">
+                <span class="font-semibold text-slate-900 dark:text-white">{d.type}</span>
+                <span class="text-xl sm:text-2xl font-extrabold text-blue-700 dark:text-blue-400">{d.amount}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <div class="text-xs font-semibold tracking-wide uppercase text-blue-700 dark:text-blue-400">Recommended</div>
+          <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Liability &amp; medical coverage</h2>
+          <div class="mt-6 space-y-4">
+            <div class="rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-5">
+              <div class="font-semibold text-slate-900 dark:text-white">Liability coverage</div>
+              <ul class="mt-2 text-sm text-slate-700 dark:text-slate-300 space-y-1">
+                <li>$250,000 per occurrence</li>
+                <li>Limited to $25,000 per passenger</li>
+              </ul>
+            </div>
+            <div class="rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-5">
+              <div class="font-semibold text-slate-900 dark:text-white">Medical coverage</div>
+              <p class="mt-2 text-sm text-slate-700 dark:text-slate-300">Minimum $1,000</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Providers -->
+  <section class="bg-slate-50 dark:bg-slate-900 py-16 sm:py-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="text-xs font-semibold tracking-wide uppercase text-blue-700 dark:text-blue-400">Where to get covered</div>
+      <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Insurance providers</h2>
+      <p class="mt-3 max-w-2xl text-slate-600 dark:text-slate-300">Shop around for the best rates, or start with one of the providers previous DCFA pilots have used:</p>
+      <div class="mt-8 grid sm:grid-cols-2 gap-4 sm:gap-5">
+        {providers.map(p => (
+          <div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-5 sm:p-6">
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">{p.name}</h3>
+            <a href={p.href} class="mt-1 inline-flex items-center gap-2 text-blue-700 dark:text-blue-400 font-semibold hover:underline">
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" /></svg>
+              {p.phone}
+            </a>
+          </div>
+        ))}
+      </div>
+      <p class="mt-6 text-sm text-slate-500 dark:text-slate-400">DCFA is not affiliated with these providers and does not endorse any one over another — they're listed for your convenience. Confirm your policy meets the minimums above before your first flight.</p>
+    </div>
+  </section>
+
+  <CtaBlock
+    title="Questions about insurance?"
+    description="We're happy to help you understand the requirements before you start. Reach out anytime."
+    primaryLabel="Contact DCFA"
+    secondaryLabel="Call (719) 208-7049"
+  />
+</BaseLayout>
