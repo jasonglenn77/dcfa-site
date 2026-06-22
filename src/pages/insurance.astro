@@ -9,10 +9,10 @@ const damageMinimums = [
 ];
 
 const providers = [
-  { name: 'Zanette Aviation Insurance', phone: '650-593-3030', href: 'tel:+16505933030' },
-  { name: 'Gallagher / Assured Partners', phone: '800-622-2672', href: 'tel:+18006222672' },
-  { name: 'Avemco Insurance', phone: '800-638-8440', href: 'tel:+18006388440' },
-  { name: 'SkyWatch', phone: '888-849-4902', href: 'tel:+18888494902' },
+  { name: 'Zanette Aviation Insurance', phone: '650-593-3030', href: 'tel:+16505933030', logo: '/images/insurance/zanette.png' },
+  { name: 'Gallagher / Assured Partners', phone: '800-622-2672', href: 'tel:+18006222672', logo: '/images/insurance/gallagher.png' },
+  { name: 'Avemco Insurance', phone: '800-638-8440', href: 'tel:+18006388440', logo: '/images/insurance/avemco.png' },
+  { name: 'SkyWatch', phone: '888-849-4902', href: 'tel:+18888494902', logo: '/images/insurance/skywatch.png' },
 ];
 ---
 <BaseLayout
@@ -72,12 +72,17 @@ const providers = [
       <p class="mt-3 max-w-2xl text-slate-600 dark:text-slate-300">Shop around for the best rates, or start with one of the providers previous DCFA pilots have used:</p>
       <div class="mt-8 grid sm:grid-cols-2 gap-4 sm:gap-5">
         {providers.map(p => (
-          <div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-5 sm:p-6">
-            <h3 class="text-lg font-bold text-slate-900 dark:text-white">{p.name}</h3>
-            <a href={p.href} class="mt-1 inline-flex items-center gap-2 text-blue-700 dark:text-blue-400 font-semibold hover:underline">
-              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" /></svg>
-              {p.phone}
-            </a>
+          <div class="flex items-center gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-5 sm:p-6">
+            <div class="flex-shrink-0 flex h-16 w-28 items-center justify-center rounded-md border border-slate-100 dark:border-slate-200 bg-white p-2">
+              <img src={p.logo} alt={`${p.name} logo`} class="max-h-full max-w-full object-contain" loading="lazy" />
+            </div>
+            <div class="min-w-0">
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">{p.name}</h3>
+              <a href={p.href} class="mt-1 inline-flex items-center gap-2 text-blue-700 dark:text-blue-400 font-semibold hover:underline">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" /></svg>
+                {p.phone}
+              </a>
+            </div>
           </div>
         ))}
       </div>
