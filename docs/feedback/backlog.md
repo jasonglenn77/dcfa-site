@@ -72,6 +72,23 @@ Source: Frank Schultz, 2026-06-15
 
 ---
 
+## Round 2 — Michelle Dwyer (2026-06-22)
+
+Source: `DCFA website requests-6.22.2026.eml`
+
+### Done
+- [x] **Renter's Insurance Requirements** page (`/insurance`) from the insurance doc — minimums ($50k single / $75k multi), recommended liability/medical, provider list. Linked from footer + Fleet.
+
+### Pricing & prerequisite changes (⚠️ pending Jason's confirmation — these supersede Frank's earlier numbers)
+- [ ] **Deposits → "Course Training Materials":** drop the $1,000 enrollment deposit; replace with per-course required training materials, paid before each course. **Costs not finalized** (Michelle is building the list).
+- [ ] **Private Pilot:** price **$16,644.50** (was $17,644.50); **Pre/Post Instruction 27 hrs** (was 36); **Discovery Flight NOT required** (remove from prerequisite); add prerequisites (English; passport/birth cert; FAA 3rd-class medical min; FAA student pilot cert; $50k non-owned insurance).
+- [ ] **Transition Course:** **$1,700** (the $2,700 included the deposit).
+- [ ] **Multi-Engine Commercial Add-On:** **$6,980–$7,905** range (sim-utilization dependent; advertise the range — what they bill the GI); **remove the cost-breakdown highlights**; **add VA-approved**; $75k non-owned insurance prereq.
+- [ ] **"Course Training Fee $…"** amounts across courses — **placeholder, awaiting Michelle's finalized list.**
+- Note: Michelle will "go through the rest of the site" and send finalized Course Materials costs.
+
+---
+
 ## How this file is maintained
 - Each new feedback email → saved as `.eml` in this folder, then parsed into the lists above.
 - I keep the project memory pointer current; this file is the task source of truth.
