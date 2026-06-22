@@ -79,13 +79,17 @@ Source: `DCFA website requests-6.22.2026.eml`
 ### Done
 - [x] **Renter's Insurance Requirements** page (`/insurance`) from the insurance doc — minimums ($50k single / $75k multi), recommended liability/medical, provider list. Linked from footer + Fleet.
 
-### Pricing & prerequisite changes (⚠️ pending Jason's confirmation — these supersede Frank's earlier numbers)
-- [ ] **Deposits → "Course Training Materials":** drop the $1,000 enrollment deposit; replace with per-course required training materials, paid before each course. **Costs not finalized** (Michelle is building the list).
-- [ ] **Private Pilot:** price **$16,644.50** (was $17,644.50); **Pre/Post Instruction 27 hrs** (was 36); **Discovery Flight NOT required** (remove from prerequisite); add prerequisites (English; passport/birth cert; FAA 3rd-class medical min; FAA student pilot cert; $50k non-owned insurance).
-- [ ] **Transition Course:** **$1,700** (the $2,700 included the deposit).
-- [ ] **Multi-Engine Commercial Add-On:** **$6,980–$7,905** range (sim-utilization dependent; advertise the range — what they bill the GI); **remove the cost-breakdown highlights**; **add VA-approved**; $75k non-owned insurance prereq.
-- [ ] **"Course Training Fee $…"** amounts across courses — **placeholder, awaiting Michelle's finalized list.**
-- Note: Michelle will "go through the rest of the site" and send finalized Course Materials costs.
+### Pricing & prerequisite changes — applied (confirmed override of Frank's earlier numbers)
+- [x] **Deposits removed** ($1,000, Private + ATP) → replaced with a "required course training materials" prerequisite line.
+- [x] **Private Pilot:** price **$16,644.50**; **Pre/Post 27 hrs**; removed Discovery-required prerequisite; added enrollment-requirements list.
+- [x] **Transition Course:** **$1,700**.
+- [x] **Multi-Engine Commercial Add-On:** **$6,980–$7,905** range; removed cost breakdown; added VA-approved; insurance prereq.
+- [x] Per-course **Enrollment Requirements** lists rendered on program cards. Homepage price previews updated.
+
+### Still pending from Michelle
+- [ ] **"Course Training Fee $…"** dollar amounts per course — awaiting her finalized materials/cost list (currently worded as "required course training materials, due before enrollment" with no figure).
+- [ ] **Instrument Rating** was not addressed in her email — no enrollment-requirements list added; confirm whether it should get one.
+- [ ] Michelle will "go through the rest of the site" and send more.
 
 ---
 
