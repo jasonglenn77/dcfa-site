@@ -29,6 +29,7 @@ export const vaBenefits = {
   approvedPrograms: [
     'Instrument Rating',
     'Commercial Single-Engine Land',
+    'Multi-Engine Commercial Add-On',
     'ATP-CTP (simulator time only)',
   ],
   notEligible: ['Private Pilot certificate'],

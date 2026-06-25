@@ -99,6 +99,10 @@ export const programs: Program[] = [
       'Real-world IFR scenario training',
       'VA-approved program',
     ],
+    enrollmentRequirements: [
+      'Required course training materials, due before enrollment (student books/supplies and in-processing course if not previously attended)',
+      'Secure non-owned aircraft insurance with $50,000 physical damage coverage for single-engine aircraft',
+    ],
     vaApproved: true,
   },
   {
