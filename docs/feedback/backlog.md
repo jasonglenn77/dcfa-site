@@ -93,6 +93,24 @@ Source: `DCFA website requests-6.22.2026.eml`
 
 ---
 
+## Round 3 — BJ (relayed by Michelle, 2026-06-24)
+
+Source: `emailfeedback_BJ_6.24.26.txt`
+
+### Done
+- [x] Fleet: $70 instruction rate now notes "applies to CFI, CFII & MEI"; added **Elite Simulator** rate ($150/hr, instructor included).
+- [x] About: added the **FAA Examining Authority disclaimer** paragraph.
+- [x] VA/GI page: added **Multi-Engine Commercial Add-On** as a VA-approved program (training order).
+- [x] **Instrument Rating** enrollment requirements (course materials + $50k single-engine insurance).
+
+### Pending — needs input / Teams discussion
+- [ ] **Fleet aircraft make/model** — confirm the model for each single-engine tail number (BJ suggests "Piper Warrior" / framing as "our Piper fleet and the Diamond fleet"). Need per-tail models or the chosen framing.
+- [ ] **ATP Multi-Engine** enrollment requirements — BJ/Frank to provide the regulatory requirements before the course; offered to draft standard FAA ATP prerequisites for review.
+- [ ] **Medical class for military benefits** — BJ believes it must be 1st class; confirm before changing the VA page (currently "Class I or II").
+- [ ] **Student books/supplies cost model** — Teams meeting (replacing the one-time deposit with per-course materials + finalized amounts).
+
+---
+
 ## How this file is maintained
 - Each new feedback email → saved as `.eml` in this folder, then parsed into the lists above.
 - I keep the project memory pointer current; this file is the task source of truth.
