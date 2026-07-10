@@ -1,6 +1,10 @@
 {
-  "heroImageLight": "/images/aircraft/da42-air.png",
-  "heroImageDark": "/images/aircraft/da42-ground.png",
+  "heroImages": [
+    { "image": "/images/aircraft/da42-air.png" },
+    { "image": "/images/aircraft/multi-engine.jpg" },
+    { "image": "/images/cockpit/cockpit-training.jpg" },
+    { "image": "/images/aircraft/da42-ground.png" }
+  ],
   "gallery": [
     { "image": "/images/aircraft/da42-ground.png", "caption": "DA42 multi-engine on the ramp" },
     { "image": "/images/aircraft/multi-engine.jpg", "caption": "Multi-engine training" },

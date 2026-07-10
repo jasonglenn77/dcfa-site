@@ -90,7 +90,7 @@ const { program } = Astro.props;
     )}
 
     <div class="mt-8">
-      <a href="/contact" class="inline-flex items-center rounded-md bg-blue-700 hover:bg-blue-800 px-5 py-2.5 text-sm font-semibold text-white transition">
+      <a href={`/contact?program=${encodeURIComponent(program.name)}`} class="inline-flex items-center rounded-md bg-blue-700 hover:bg-blue-800 px-5 py-2.5 text-sm font-semibold text-white transition">
         Get started with {program.shortName ?? program.name} →
       </a>
     </div>

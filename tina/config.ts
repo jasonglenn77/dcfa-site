@@ -261,16 +261,17 @@ export default defineConfig({
         },
         fields: [
           {
-            type: 'image',
-            name: 'heroImageLight',
-            label: 'Hero Background — Light mode',
-            description: 'Big background photo at the top of the home page (shown in light mode).',
-          },
-          {
-            type: 'image',
-            name: 'heroImageDark',
-            label: 'Hero Background — Dark mode',
-            description: 'Background photo shown when a visitor uses dark mode.',
+            type: 'object',
+            name: 'heroImages',
+            label: 'Hero Carousel Images',
+            description: 'Full-width photos that rotate at the top of the home page. Add a few landscape (wide) shots.',
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.image || 'Photo' }),
+            },
+            fields: [
+              { type: 'image', name: 'image', label: 'Photo' },
+            ],
           },
           {
             type: 'object',

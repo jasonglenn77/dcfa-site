@@ -9,11 +9,16 @@ import PageHero from '../components/ui/PageHero.astro';
 const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? '';
 
 const programOptions = [
-  'Discovery Flight to Airline Pilot Accelerated Program',
-  'Continuing training with DCFA',
-  'MSU Student / RATP program',
-  'RTP — Rotary to Fixed-Wing Transition',
+  'Private Pilot',
+  'Instrument Rating',
+  'Commercial Single-Engine',
+  'Multi-Engine Commercial Add-On',
+  'ATP Multi-Engine',
   'ATP-CTP Program',
+  'Transition Course',
+  'Rotor Transition (RTP)',
+  'MSU Student / R-ATP program',
+  'Discovery Flight',
   'Unsure / want to learn more',
 ];
 
@@ -188,6 +193,14 @@ const referralOptions = [
   </section>
 
   <script>
+    // Pre-select the program from a ?program= query param (e.g. a program card link).
+    (function () {
+      const p = new URLSearchParams(location.search).get('program');
+      if (!p) return;
+      const sel = document.getElementById('program_interest');
+      if (sel && Array.from(sel.options).some(o => o.value === p)) sel.value = p;
+    })();
+
     // Submit the contact form in-page (AJAX) so the visitor stays on the site,
     // sees an inline thank-you, and isn't bounced to web3forms or back to a
     // pre-filled form.
