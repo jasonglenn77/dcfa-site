@@ -1,4 +1,11 @@
 {
+  "groundSchoolDates": [
+    { "date": "First week of every month", "note": "Virtual — attend live from anywhere. Unlimited seats." }
+  ],
+  "simulatorDates": [
+    { "date": "Example — August 12–13, 2026", "location": "Dallas, TX", "slotsTotal": 2, "slotsLeft": 1 },
+    { "date": "Example — September 9–10, 2026", "location": "Las Vegas, NV", "slotsTotal": 2, "slotsLeft": 2 }
+  ],
   "simPhotos": [],
   "reviews": []
 }

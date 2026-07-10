@@ -7,6 +7,15 @@ import atpctp from '../data/atpctp/atpctp.json';
 // Editable in Tina (Collections → ATP-CTP Page). Sections hide until populated.
 const simPhotos = atpctp.simPhotos.filter(p => p.image);
 const reviews = atpctp.reviews.filter(r => r.quote);
+const groundSchoolDates = (atpctp.groundSchoolDates ?? []).filter(d => d.date);
+const simulatorDates = (atpctp.simulatorDates ?? []).filter(d => d.date).map(d => {
+  const hasLeft = typeof d.slotsLeft === 'number';
+  const left = hasLeft ? d.slotsLeft : null;
+  const total = typeof d.slotsTotal === 'number' ? d.slotsTotal : 2;
+  const full = hasLeft && d.slotsLeft < 1;
+  const badge = !hasLeft ? null : full ? 'Full' : `${left} of ${total} slot${left === 1 ? '' : 's'} left`;
+  return { ...d, badge, full };
+});
 
 const curriculum = [
   { hours: 30, label: 'Virtual Instructor-Led Ground School' },
@@ -110,6 +119,53 @@ const simTopics = [
       </div>
     </div>
   </section>
+
+  {(groundSchoolDates.length > 0 || simulatorDates.length > 0) && (
+    <section class="bg-white dark:bg-slate-950 py-16 sm:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Upcoming dates</h2>
+        <p class="mt-3 max-w-2xl text-slate-600 dark:text-slate-300">Choose a ground school and a simulator session. Ground school runs monthly with unlimited seats; each simulator session seats a two-pilot crew.</p>
+        <div class="mt-8 grid gap-8 lg:grid-cols-2">
+          {groundSchoolDates.length > 0 && (
+            <div>
+              <div class="text-xs font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-400">Ground School</div>
+              <ul class="mt-3 space-y-3">
+                {groundSchoolDates.map(d => (
+                  <li class="rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-4">
+                    <div class="font-bold text-slate-900 dark:text-white">{d.date}</div>
+                    {d.note && <div class="mt-1 text-sm text-slate-600 dark:text-slate-300">{d.note}</div>}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {simulatorDates.length > 0 && (
+            <div>
+              <div class="text-xs font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-400">Simulator Sessions</div>
+              <ul class="mt-3 space-y-3">
+                {simulatorDates.map(d => (
+                  <li class="flex items-center justify-between gap-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-4">
+                    <div>
+                      <div class="font-bold text-slate-900 dark:text-white">{d.date}</div>
+                      {d.location && <div class="mt-0.5 text-sm text-slate-600 dark:text-slate-300">{d.location}</div>}
+                    </div>
+                    {d.badge && (
+                      <span class:list={["flex-shrink-0 rounded-full px-3 py-1 text-xs font-semibold", d.full ? "bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-400" : "bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300"]}>
+                        {d.badge}
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+        <div class="mt-8">
+          <a href="/contact?program=ATP-CTP%20Program" class="inline-flex items-center rounded-md bg-blue-700 hover:bg-blue-800 px-6 py-3 text-base font-semibold text-white transition">Reserve your seat →</a>
+        </div>
+      </div>
+    </section>
+  )}
 
   {simPhotos.length > 0 && (
     <section class="bg-white dark:bg-slate-950 py-16 sm:py-20">

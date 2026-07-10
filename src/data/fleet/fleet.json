@@ -1,11 +1,11 @@
 {
   "instructionRate": 70,
   "aircraft": [
-    { "tailNumber": "N342T", "makeModel": "Diamond DA-42", "type": "Multi-Engine Twin", "hourlyRate": 400, "description": "Twin-engine trainer for multi-engine ratings, ATP preparation, and time-building toward the 25-hour multi-engine ATP requirement.", "photo": "/images/aircraft/da42-air.png" },
-    { "tailNumber": "N7206C", "makeModel": "", "type": "Single-Engine", "hourlyRate": 165, "description": "Entry-rate single-engine trainer.", "photo": "" },
-    { "tailNumber": "N29230", "makeModel": "", "type": "Single-Engine", "hourlyRate": 198, "description": "", "photo": "" },
-    { "tailNumber": "N555PB", "makeModel": "", "type": "Single-Engine", "hourlyRate": 198, "description": "", "photo": "" },
-    { "tailNumber": "N38989", "makeModel": "", "type": "Single-Engine", "hourlyRate": 198, "description": "", "photo": "" },
-    { "tailNumber": "N8650E", "makeModel": "", "type": "Single-Engine", "hourlyRate": 198, "description": "", "photo": "" }
+    { "tailNumber": "N342T", "makeModel": "Diamond DA-42", "type": "Multi-Engine Twin", "hourlyRate": 400, "description": "Twin-engine trainer for multi-engine ratings, ATP preparation, and time-building toward the 25-hour multi-engine ATP requirement.", "photo": "/images/aircraft/da42-air.png", "specs": ["Multi-engine (twin)", "IFR-equipped glass cockpit", "4 seats"] },
+    { "tailNumber": "N7206C", "makeModel": "", "type": "Single-Engine", "hourlyRate": 165, "description": "Entry-rate single-engine trainer.", "photo": "", "specs": [] },
+    { "tailNumber": "N29230", "makeModel": "", "type": "Single-Engine", "hourlyRate": 198, "description": "", "photo": "", "specs": [] },
+    { "tailNumber": "N555PB", "makeModel": "", "type": "Single-Engine", "hourlyRate": 198, "description": "", "photo": "", "specs": [] },
+    { "tailNumber": "N38989", "makeModel": "", "type": "Single-Engine", "hourlyRate": 198, "description": "", "photo": "", "specs": [] },
+    { "tailNumber": "N8650E", "makeModel": "", "type": "Single-Engine", "hourlyRate": 198, "description": "", "photo": "", "specs": [] }
   ]
 }

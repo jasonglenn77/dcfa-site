@@ -25,26 +25,44 @@ const instructionRate = fleet.instructionRate;
 
       <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {aircraft.map(ac => (
-          <div class={`rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden ${ac.photo ? 'sm:col-span-2 lg:col-span-3' : ''}`}>
-            {ac.photo && (
-              <div class="aspect-[16/9] bg-slate-100 dark:bg-slate-800 overflow-hidden">
-                <img src={ac.photo} alt={`${ac.tailNumber} — ${ac.makeModel || ac.type}`} class="w-full h-full object-cover" />
-              </div>
-            )}
-            <div class="p-5 sm:p-6">
+          <div class="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+            <div class="relative aspect-[4/3] bg-slate-100 dark:bg-slate-800">
+              {ac.photo ? (
+                <img src={ac.photo} alt={`${ac.tailNumber} — ${ac.makeModel || ac.type}`} class="h-full w-full object-cover" loading="lazy" />
+              ) : (
+                <div class="flex h-full w-full items-center justify-center text-slate-300 dark:text-slate-600">
+                  <svg class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg>
+                </div>
+              )}
+              {ac.specs && ac.specs.length > 0 && (
+                <div data-specs class="absolute inset-0 flex flex-col justify-center bg-slate-950/90 p-5 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div class="text-xs font-semibold uppercase tracking-wide text-blue-300">Aircraft details</div>
+                  <ul class="mt-3 space-y-1.5">
+                    {ac.specs.map(s => (
+                      <li class="flex items-start gap-2 text-sm">
+                        <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-300" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                        <span>{s}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  {ac.description && <p class="mt-3 text-sm text-slate-200">{ac.description}</p>}
+                </div>
+              )}
+            </div>
+            <div class="flex flex-1 flex-col p-5 sm:p-6">
               <div class="flex items-start justify-between gap-3">
                 <div>
                   <div class="text-xs font-semibold tracking-wide uppercase text-blue-700 dark:text-blue-400">{ac.type}</div>
-                  <div class="mt-1 text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">{ac.makeModel || ac.tailNumber}</div>
+                  <div class="mt-1 text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">{ac.makeModel || ac.tailNumber}</div>
                   {ac.makeModel && <div class="text-sm font-mono text-slate-500 dark:text-slate-400">{ac.tailNumber}</div>}
                 </div>
-                <div class="text-right">
-                  <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">${ac.hourlyRate}</div>
-                  <div class="text-xs text-slate-500 dark:text-slate-400">per hour, wet</div>
+                <div class="flex-shrink-0 text-right">
+                  <div class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">${ac.hourlyRate}</div>
+                  <div class="text-xs text-slate-500 dark:text-slate-400">/hr, wet</div>
                 </div>
               </div>
-              {ac.description && (
-                <p class="mt-4 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">{ac.description}</p>
+              {ac.specs && ac.specs.length > 0 && (
+                <button type="button" data-specs-toggle class="mt-4 self-start text-sm font-semibold text-blue-700 dark:text-blue-400 hover:underline lg:hidden">View aircraft details →</button>
               )}
             </div>
           </div>
@@ -88,4 +106,14 @@ const instructionRate = fleet.instructionRate;
     primaryLabel="Book a Discovery Flight — $150"
     secondaryLabel="Call (719) 208-7049"
   />
+
+  <script>
+    // Mobile/tap: reveal the aircraft-details overlay (hover handles desktop).
+    document.querySelectorAll('[data-specs-toggle]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const panel = btn.closest('.group')?.querySelector('[data-specs]');
+        if (panel) panel.style.opacity = panel.style.opacity === '1' ? '' : '1';
+      });
+    });
+  </script>
 </BaseLayout>

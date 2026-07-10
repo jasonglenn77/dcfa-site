@@ -106,6 +106,7 @@ export default defineConfig({
               { type: 'number', name: 'hourlyRate', label: 'Hourly Rate ($, wet)' },
               { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
               { type: 'image', name: 'photo', label: 'Photo' },
+              { type: 'string', name: 'specs', label: 'Details / specs (shown on hover)', description: 'Avionics, engine, seats, etc. — add one per item.', list: true },
             ],
           },
         ],
@@ -120,6 +121,30 @@ export default defineConfig({
           allowedActions: { create: false, delete: false },
         },
         fields: [
+          {
+            type: 'object',
+            name: 'groundSchoolDates',
+            label: 'Ground School Dates',
+            list: true,
+            ui: { itemProps: (item) => ({ label: item?.date || 'Date' }) },
+            fields: [
+              { type: 'string', name: 'date', label: 'Date(s)' },
+              { type: 'string', name: 'note', label: 'Note' },
+            ],
+          },
+          {
+            type: 'object',
+            name: 'simulatorDates',
+            label: 'Simulator Dates',
+            list: true,
+            ui: { itemProps: (item) => ({ label: item?.date || 'Sim date' }) },
+            fields: [
+              { type: 'string', name: 'date', label: 'Date(s)' },
+              { type: 'string', name: 'location', label: 'Location' },
+              { type: 'number', name: 'slotsTotal', label: 'Total slots (usually 2)' },
+              { type: 'number', name: 'slotsLeft', label: 'Slots left' },
+            ],
+          },
           {
             type: 'object',
             name: 'simPhotos',
