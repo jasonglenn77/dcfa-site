@@ -1,11 +1,70 @@
 {
   "instructionRate": 70,
+  "simulator": {
+    "name": "Elite Simulator (DA-40/42)",
+    "hourlyRate": 150,
+    "note": "Instructor included.",
+    "specs": [
+      "Single-engine DA-40",
+      "Multi-engine DA-42",
+      "IFR equipped (G1000)",
+      "Full visuals"
+    ]
+  },
   "aircraft": [
-    { "tailNumber": "N342T", "makeModel": "Diamond DA-42", "type": "Multi-Engine Twin", "hourlyRate": 400, "description": "Twin-engine trainer for multi-engine ratings, ATP preparation, and time-building toward the 25-hour multi-engine ATP requirement.", "photo": "/images/aircraft/da42-air.png", "specs": ["Multi-engine (twin)", "IFR-equipped glass cockpit", "4 seats"] },
-    { "tailNumber": "N7206C", "makeModel": "", "type": "Single-Engine", "hourlyRate": 165, "description": "Entry-rate single-engine trainer.", "photo": "", "specs": [] },
-    { "tailNumber": "N29230", "makeModel": "", "type": "Single-Engine", "hourlyRate": 198, "description": "", "photo": "", "specs": [] },
-    { "tailNumber": "N555PB", "makeModel": "", "type": "Single-Engine", "hourlyRate": 198, "description": "", "photo": "", "specs": [] },
-    { "tailNumber": "N38989", "makeModel": "", "type": "Single-Engine", "hourlyRate": 198, "description": "", "photo": "", "specs": [] },
-    { "tailNumber": "N8650E", "makeModel": "", "type": "Single-Engine", "hourlyRate": 198, "description": "", "photo": "", "specs": [] }
+    {
+      "tailNumber": "N342T",
+      "makeModel": "Diamond DA-42",
+      "type": "Multi-Engine Twin",
+      "hourlyRate": 400,
+      "description": "Twin-engine trainer for multi-engine ratings, ATP preparation, and time-building toward the 25-hour multi-engine ATP requirement.",
+      "photo": "/images/aircraft/da42-air.png",
+      "specs": ["Multi-engine", "IFR equipped", "Glass cockpit (Garmin G-1000)"]
+    },
+    {
+      "tailNumber": "N7206C",
+      "makeModel": "",
+      "type": "Single-Engine",
+      "hourlyRate": 165,
+      "description": "",
+      "photo": "",
+      "specs": ["Single engine", "IFR equipped", "160 HP Lycoming O-320", "King KX170", "Intercom/Dual PTT (4 place)"]
+    },
+    {
+      "tailNumber": "N29230",
+      "makeModel": "",
+      "type": "Single-Engine",
+      "hourlyRate": 198,
+      "description": "",
+      "photo": "",
+      "specs": ["Single engine", "IFR equipped", "180 HP Lycoming O-360", "Garmin GNS 650 XL", "Garmin G5", "Intercom/Dual PTT (4 place)"]
+    },
+    {
+      "tailNumber": "N555PB",
+      "makeModel": "",
+      "type": "Single-Engine",
+      "hourlyRate": 198,
+      "description": "",
+      "photo": "",
+      "specs": ["Single engine", "IFR equipped", "180 HP Lycoming O-360", "King KX170", "Intercom/Dual PTT (4 place)"]
+    },
+    {
+      "tailNumber": "N38989",
+      "makeModel": "",
+      "type": "Single-Engine",
+      "hourlyRate": 198,
+      "description": "",
+      "photo": "",
+      "specs": ["Single engine", "IFR equipped", "180 HP Lycoming O-360", "King KX 170", "Intercom/Dual PTT (4 place)"]
+    },
+    {
+      "tailNumber": "N8650E",
+      "makeModel": "",
+      "type": "Single-Engine",
+      "hourlyRate": 198,
+      "description": "",
+      "photo": "",
+      "specs": ["Single engine", "IFR equipped", "180 HP Lycoming O-360", "Garmin GNS 650 XL", "Garmin G5", "Intercom/Dual PTT (4 place)"]
+    }
   ]
 }

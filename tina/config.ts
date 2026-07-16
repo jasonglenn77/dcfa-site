@@ -93,6 +93,17 @@ export default defineConfig({
           { type: 'number', name: 'instructionRate', label: 'Flight Instruction Rate ($/hr)' },
           {
             type: 'object',
+            name: 'simulator',
+            label: 'Elite Simulator',
+            fields: [
+              { type: 'string', name: 'name', label: 'Name' },
+              { type: 'number', name: 'hourlyRate', label: 'Hourly Rate ($)' },
+              { type: 'string', name: 'note', label: 'Note', description: 'e.g. "Instructor included."' },
+              { type: 'string', name: 'specs', label: 'Details / specs', description: 'Configurations, avionics, visuals — add one per item.', list: true },
+            ],
+          },
+          {
+            type: 'object',
             name: 'aircraft',
             label: 'Aircraft',
             list: true,

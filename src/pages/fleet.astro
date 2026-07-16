@@ -6,6 +6,7 @@ import fleet from '../data/fleet/fleet.json';
 
 const aircraft = fleet.aircraft;
 const instructionRate = fleet.instructionRate;
+const simulator = fleet.simulator;
 ---
 <BaseLayout
   title="Aircraft Fleet & Rates — Direct Connect Flight Academy"
@@ -87,9 +88,19 @@ const instructionRate = fleet.instructionRate;
           <div class="mt-2 text-sm text-slate-700 dark:text-slate-300">Applies to CFI, CFII &amp; MEI, in addition to aircraft rental.</div>
         </div>
         <div class="rounded-xl bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900 p-6 sm:p-8">
-          <div class="text-xs font-semibold tracking-wide uppercase text-blue-700 dark:text-blue-400">Elite Simulator</div>
-          <div class="mt-2 text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white">$150<span class="text-2xl text-slate-500 dark:text-slate-400 font-normal">/hr</span></div>
-          <div class="mt-2 text-sm text-slate-700 dark:text-slate-300">Instructor included.</div>
+          <div class="text-xs font-semibold tracking-wide uppercase text-blue-700 dark:text-blue-400">{simulator.name}</div>
+          <div class="mt-2 text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white">${simulator.hourlyRate}<span class="text-2xl text-slate-500 dark:text-slate-400 font-normal">/hr</span></div>
+          {simulator.note && <div class="mt-2 text-sm text-slate-700 dark:text-slate-300">{simulator.note}</div>}
+          {simulator.specs && simulator.specs.length > 0 && (
+            <ul class="mt-4 space-y-1.5 border-t border-blue-200 dark:border-blue-900 pt-4">
+              {simulator.specs.map(s => (
+                <li class="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300">
+                  <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-700 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+                  <span>{s}</span>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
         <div class="rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8">
           <div class="text-xs font-semibold tracking-wide uppercase text-slate-500 dark:text-slate-400">Rental Eligibility</div>
