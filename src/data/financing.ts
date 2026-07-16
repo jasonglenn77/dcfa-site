@@ -26,6 +26,12 @@ export const vaBenefits = {
     { code: 'Chapter 1606', name: 'Montgomery GI Bill — Selected Reserve' },
     { code: 'Chapter 1607', name: 'Reserve Educational Assistance Program' },
   ],
+  // Sources, newest first — do not trim this list to match flydcfa.com, which is
+  // out of date (it lists only Instrument + Commercial). See docs/feedback/backlog.md.
+  //   BJ,    2026-06-24: add Multi-Engine Commercial Add-On.
+  //   Frank, 2026-06-15: add ATP-CTP (simulator time only; $650 VA ground school).
+  // Pending: BJ to confirm the definitive list, then restore a hard count to the
+  // va-benefits subtitle + home band (worded count-free until he does).
   approvedPrograms: [
     'Instrument Rating',
     'Commercial Single-Engine Land',

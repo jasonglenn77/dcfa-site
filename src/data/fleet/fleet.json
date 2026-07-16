@@ -37,7 +37,7 @@
       "hourlyRate": 198,
       "description": "",
       "photo": "",
-      "specs": ["Single engine", "IFR equipped", "180 HP Lycoming O-360", "Garmin GNS 650 XL", "Garmin G5", "Intercom/Dual PTT (4 place)"]
+      "specs": ["Single engine", "IFR equipped", "180 HP Lycoming O-360", "Garmin GTN 650", "Garmin G5", "Intercom/Dual PTT (4 place)"]
     },
     {
       "tailNumber": "N555PB",
@@ -64,7 +64,7 @@
       "hourlyRate": 198,
       "description": "",
       "photo": "",
-      "specs": ["Single engine", "IFR equipped", "180 HP Lycoming O-360", "Garmin GNS 650 XL", "Garmin G5", "Intercom/Dual PTT (4 place)"]
+      "specs": ["Single engine", "IFR equipped", "180 HP Lycoming O-360", "Garmin GTN 650", "Garmin G5", "Intercom/Dual PTT (4 place)"]
     }
   ]
 }
