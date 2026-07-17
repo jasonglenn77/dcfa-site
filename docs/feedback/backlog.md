@@ -130,7 +130,7 @@ Instrument, Commercial SEL, Multi-Engine Add-On, ATP-CTP (sim only).
 - The "two of our core programs" copy the team sent back is verbatim our own subtitle, written from
   the stale old site — i.e. not independent confirmation.
 
-**Resolution needed from BJ:** confirm the definitive VA-approved list. Then either restore a hard
+**Resolution needed from DCFA:** confirm the definitive VA-approved list. Then either restore a hard
 count to the subtitle/home band, or trim `financing.ts → approvedPrograms`. The old site should be
 updated (or retired) to match either way.
 
@@ -160,8 +160,8 @@ These render as visible gaps or unsupported claims. Ranked by damage.
       Private Pilot student actually flies; only the DA-42 has a photo.
 - [ ] **Primary-training reviews.** All 3 reviews are ATP-CTP; a Private Pilot prospect gets zero social proof.
 
-### ⚠️ Needs a decision from BJ / Frank
-- [ ] **VA program list** (carried over above) — still the top open question.
+### ⚠️ Needs a decision from DCFA
+- [ ] **VA program list** (carried over above) — still the top open question for DCFA.
 - [ ] **Is the in-house checkride included in program price?** Needed before we can make the strongest
       version of the Examining Authority argument (see below).
 - [ ] **Do you offer CFI/CFII?** `programs.ts` stops at ATP Multi-Engine. Competitor's flagship is

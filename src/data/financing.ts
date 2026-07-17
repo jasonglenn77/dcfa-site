@@ -30,7 +30,7 @@ export const vaBenefits = {
   // out of date (it lists only Instrument + Commercial). See docs/feedback/backlog.md.
   //   BJ,    2026-06-24: add Multi-Engine Commercial Add-On.
   //   Frank, 2026-06-15: add ATP-CTP (simulator time only; $650 VA ground school).
-  // Pending: BJ to confirm the definitive list, then restore a hard count to the
+  // Pending: DCFA to confirm the definitive list, then restore a hard count to the
   // va-benefits subtitle + home band (worded count-free until he does).
   approvedPrograms: [
     'Instrument Rating',

@@ -15,8 +15,10 @@ const avatarInitials = (name: string) =>
 // Only show people who have something to say. A "spotlight" that is a blank circle
 // and a first name reads as an unfinished site, so these sections hide until the
 // team fills them in via Tina — same pattern as the reviews sections.
-const instructors = team.instructors.filter(p => p.role || p.bio || p.photo);
-const graduates = team.graduates.filter(g => g.achievement || g.bio || g.photo);
+// Require a photo or a bio specifically: a role alone still renders an empty card,
+// and a job title is not the credibility this section exists to provide.
+const instructors = team.instructors.filter(p => p.photo || p.bio);
+const graduates = team.graduates.filter(g => g.photo || g.achievement || g.bio);
 ---
 <BaseLayout
   title="About — Direct Connect Flight Academy"
