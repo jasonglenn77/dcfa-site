@@ -4,13 +4,20 @@ import home from '../data/home/home.json';
 import partnersData from '../data/partners/partners.json';
 import reviewsData from '../data/reviews/reviews.json';
 import { vaBenefits } from '../data/financing';
+import { programs as allPrograms } from '../data/programs';
 
-const programs = [
-  { name: 'Private Pilot', price: '$16,644.50', hours: '45 flight hrs', href: '/training#private' },
-  { name: 'Instrument Rating', price: '$17,628', hours: '47 flight hrs', href: '/training#instrument' },
-  { name: 'Commercial Single-Engine', price: '$36,738', hours: '121 flight hrs', href: '/training#commercial' },
-  { name: 'Multi-Engine Commercial Add-On', price: '$6,980–$7,905', hours: '12.5 flight hrs', href: '/training#multi' },
-  { name: 'ATP Multi-Engine', price: '$4,715', hours: '6.5 flight hrs', href: '/training#atp' },
+// Derived from programs.ts so prices and #anchors can never drift from /training.
+// The anchor must match ProgramCard's `id={program.slug}`.
+const programCards = [
+  ...allPrograms
+    .filter(p => p.slug !== 'transition-course')
+    .map(p => ({
+      name: p.name,
+      price: p.price,
+      hours: `${p.totalFlightHours} flight hrs`,
+      href: `/training#${p.slug}`,
+    })),
+  // ATP-CTP lives on its own page, not in programs.ts.
   { name: 'ATP-CTP', price: '$4,995', hours: '40 hrs total', href: '/atp-ctp' },
 ];
 
@@ -39,7 +46,7 @@ const socials = [
           loading={i === 0 ? "eager" : "lazy"}
         />
       ))}
-      <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/65 to-slate-950/35"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/70 to-slate-950/55 sm:bg-gradient-to-r sm:from-slate-950/90 sm:via-slate-950/65 sm:to-slate-950/35"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent"></div>
     </div>
 
@@ -68,7 +75,7 @@ const socials = [
         </p>
 
         <div class="mt-10 flex flex-wrap gap-4">
-          <a href="/contact" class="inline-flex items-center rounded-md bg-blue-600 hover:bg-blue-700 px-6 py-3 text-base font-semibold text-white transition shadow-lg shadow-blue-900/40">
+          <a href="/contact?program=Discovery%20Flight" class="inline-flex items-center rounded-md bg-blue-600 hover:bg-blue-700 px-6 py-3 text-base font-semibold text-white transition shadow-lg shadow-blue-900/40">
             Book a Discovery Flight — $150
           </a>
           <a href="/training" class="inline-flex items-center rounded-md border border-white/40 bg-white/10 backdrop-blur px-6 py-3 text-base font-semibold text-white hover:bg-white/20 transition">
@@ -95,9 +102,12 @@ const socials = [
     </div>
 
     {home.heroImages.length > 1 && (
-      <div id="hero-dots" class="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 gap-2.5">
+      <!-- Dot is 10px but the button is padded out to a 44px tap target. -->
+      <div id="hero-dots" class="absolute bottom-2 left-1/2 z-10 flex -translate-x-1/2">
         {home.heroImages.map((_, i) => (
-          <button type="button" data-slide={i} aria-label={`Show slide ${i + 1}`} class:list={["h-2.5 w-2.5 rounded-full transition", i === 0 ? "bg-white" : "bg-white/40 hover:bg-white/70"]}></button>
+          <button type="button" data-slide={i} aria-label={`Show slide ${i + 1}`} class="group flex h-11 w-11 items-center justify-center">
+            <span class:list={["block h-2.5 w-2.5 rounded-full transition", i === 0 ? "bg-white" : "bg-white/40 group-hover:bg-white/70"]}></span>
+          </button>
         ))}
       </div>
     )}
@@ -113,8 +123,11 @@ const socials = [
         idx = (n + slides.length) % slides.length;
         slides.forEach((s, i) => { s.style.opacity = i === idx ? '1' : '0'; });
         dots.forEach((d, i) => {
-          d.classList.toggle('bg-white', i === idx);
-          d.classList.toggle('bg-white/40', i !== idx);
+          // The colour lives on the inner span; the button is just the tap target.
+          const dot = d.firstElementChild;
+          if (!dot) return;
+          dot.classList.toggle('bg-white', i === idx);
+          dot.classList.toggle('bg-white/40', i !== idx);
         });
       }
       let timer = setInterval(() => show(idx + 1), 5500);
@@ -212,7 +225,7 @@ const socials = [
             <a href="/financing/va-benefits" class="inline-flex items-center rounded-md bg-white text-blue-900 px-6 py-3 text-base font-semibold hover:bg-blue-50 transition">
               See the VA benefits guide →
             </a>
-            <a href="/contact?program=Unsure" class="inline-flex items-center rounded-md border border-white/30 px-6 py-3 text-base font-semibold text-white hover:bg-white/10 transition">
+            <a href="/contact?program=Unsure%20%2F%20want%20to%20learn%20more" class="inline-flex items-center rounded-md border border-white/30 px-6 py-3 text-base font-semibold text-white hover:bg-white/10 transition">
               Talk to us
             </a>
           </div>
@@ -248,7 +261,7 @@ const socials = [
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {programs.map(program => (
+        {programCards.map(program => (
           <a href={program.href} class="group block rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-6 hover:border-blue-500 dark:hover:border-blue-500 hover:shadow-lg transition">
             <div class="text-sm text-slate-500 dark:text-slate-400">{program.hours}</div>
             <div class="mt-1 text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-700 dark:group-hover:text-blue-400 transition">{program.name}</div>
@@ -265,7 +278,7 @@ const socials = [
           <div class="font-bold text-lg">Need a custom training plan?</div>
           <div class="text-blue-100 text-sm mt-1">Rotor pilots, returning students, and veterans all have unique paths. Tell us where you are — we'll build the right program.</div>
         </div>
-        <a href="/contact" class="flex-shrink-0 inline-flex items-center rounded-md bg-white text-blue-900 px-5 py-2.5 text-sm font-semibold hover:bg-blue-50 transition">
+        <a href="/contact?program=Unsure%20%2F%20want%20to%20learn%20more" class="flex-shrink-0 inline-flex items-center rounded-md bg-white text-blue-900 px-5 py-2.5 text-sm font-semibold hover:bg-blue-50 transition">
           Get a personalized quote
         </a>
       </div>
@@ -406,7 +419,7 @@ const socials = [
         A Discovery Flight is the best way to find out if aviation is for you. Take the controls, fly over the Front Range, and decide.
       </p>
       <div class="mt-8 flex flex-wrap justify-center gap-4">
-        <a href="/contact" class="inline-flex items-center rounded-md bg-white text-blue-900 px-6 py-3 text-base font-semibold hover:bg-blue-50 transition">
+        <a href="/contact?program=Discovery%20Flight" class="inline-flex items-center rounded-md bg-white text-blue-900 px-6 py-3 text-base font-semibold hover:bg-blue-50 transition">
           Book a Discovery Flight — $150
         </a>
         <a href="tel:+17192087049" class="inline-flex items-center rounded-md border border-blue-300 dark:border-slate-600 px-6 py-3 text-base font-semibold text-white hover:bg-blue-800 dark:hover:bg-slate-800 transition">

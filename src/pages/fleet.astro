@@ -36,7 +36,7 @@ const simulator = fleet.simulator;
                 </div>
               )}
               {ac.specs && ac.specs.length > 0 && (
-                <div data-specs class="absolute inset-0 flex flex-col justify-center bg-slate-950/90 p-5 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <div data-specs class="absolute inset-0 flex flex-col justify-start overflow-y-auto bg-slate-950/90 p-5 text-white opacity-0 transition-opacity duration-300 hoverable:group-hover:opacity-100">
                   <div class="text-xs font-semibold uppercase tracking-wide text-blue-300">Aircraft details</div>
                   <ul class="mt-3 space-y-1.5">
                     {ac.specs.map(s => (
@@ -63,7 +63,7 @@ const simulator = fleet.simulator;
                 </div>
               </div>
               {ac.specs && ac.specs.length > 0 && (
-                <button type="button" data-specs-toggle class="mt-4 self-start text-sm font-semibold text-blue-700 dark:text-blue-400 hover:underline lg:hidden">View aircraft details →</button>
+                <button type="button" data-specs-toggle aria-expanded="false" class="mt-4 -mx-2 self-start px-2 py-3 text-sm font-semibold text-blue-700 dark:text-blue-400 hover:underline hoverable:hidden">View aircraft details →</button>
               )}
             </div>
           </div>
@@ -119,11 +119,17 @@ const simulator = fleet.simulator;
   />
 
   <script>
-    // Mobile/tap: reveal the aircraft-details overlay (hover handles desktop).
+    // Touch devices: tap to reveal the aircraft-details overlay. Hover-capable
+    // pointers get it via the `hoverable:group-hover` variant instead, so the two
+    // mechanisms never fight over the same element.
     document.querySelectorAll('[data-specs-toggle]').forEach((btn) => {
       btn.addEventListener('click', () => {
         const panel = btn.closest('.group')?.querySelector('[data-specs]');
-        if (panel) panel.style.opacity = panel.style.opacity === '1' ? '' : '1';
+        if (!panel) return;
+        const open = panel.style.opacity !== '1';
+        panel.style.opacity = open ? '1' : '';
+        btn.setAttribute('aria-expanded', String(open));
+        btn.textContent = open ? 'Hide aircraft details ←' : 'View aircraft details →';
       });
     });
   </script>

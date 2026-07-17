@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/ui/PageHero.astro';
+import CtaBlock from '../../components/ui/CtaBlock.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
@@ -47,4 +48,6 @@ const fmt = (d: Date) =>
       )}
     </div>
   </section>
+
+  <CtaBlock />
 </BaseLayout>

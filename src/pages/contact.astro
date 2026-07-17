@@ -121,12 +121,12 @@ const referralOptions = [
               <div>
                 <label for="first_name" class="block text-sm font-semibold text-slate-700 dark:text-slate-300">First name <span class="text-red-600">*</span></label>
                 <input type="text" id="first_name" name="first_name" required autocomplete="given-name"
-                  class="mt-1.5 block w-full rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2.5 shadow-sm focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-0" />
+                  class="mt-1.5 block w-full rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2.5 shadow-sm focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-0" />
               </div>
               <div>
                 <label for="last_name" class="block text-sm font-semibold text-slate-700 dark:text-slate-300">Last name <span class="text-red-600">*</span></label>
                 <input type="text" id="last_name" name="last_name" required autocomplete="family-name"
-                  class="mt-1.5 block w-full rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2.5 shadow-sm focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring-2" />
+                  class="mt-1.5 block w-full rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2.5 shadow-sm focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring-2" />
               </div>
             </div>
 
@@ -134,19 +134,19 @@ const referralOptions = [
               <div>
                 <label for="email" class="block text-sm font-semibold text-slate-700 dark:text-slate-300">Email <span class="text-red-600">*</span></label>
                 <input type="email" id="email" name="email" required autocomplete="email" inputmode="email"
-                  class="mt-1.5 block w-full rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2.5 shadow-sm focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring-2" />
+                  class="mt-1.5 block w-full rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2.5 shadow-sm focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring-2" />
               </div>
               <div>
                 <label for="phone" class="block text-sm font-semibold text-slate-700 dark:text-slate-300">Phone <span class="text-red-600">*</span></label>
                 <input type="tel" id="phone" name="phone" required autocomplete="tel" inputmode="tel"
-                  class="mt-1.5 block w-full rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2.5 shadow-sm focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring-2" />
+                  class="mt-1.5 block w-full rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2.5 shadow-sm focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring-2" />
               </div>
             </div>
 
             <div>
               <label for="program_interest" class="block text-sm font-semibold text-slate-700 dark:text-slate-300">Program interest <span class="text-red-600">*</span></label>
               <select id="program_interest" name="program_interest" required
-                class="mt-1.5 block w-full rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2.5 shadow-sm focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring-2">
+                class="mt-1.5 block w-full rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2.5 shadow-sm focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring-2">
                 <option value="">Select a program…</option>
                 {programOptions.map(opt => <option value={opt}>{opt}</option>)}
               </select>
@@ -155,7 +155,7 @@ const referralOptions = [
             <div>
               <label for="aviation_experience" class="block text-sm font-semibold text-slate-700 dark:text-slate-300">Previous aviation experience</label>
               <textarea id="aviation_experience" name="aviation_experience" rows="3"
-                class="mt-1.5 block w-full rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2.5 shadow-sm focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring-2"
+                class="mt-1.5 block w-full rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2.5 shadow-sm focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring-2"
                 placeholder="Certificates held, hours, recent flying — anything you'd like us to know."></textarea>
             </div>
 
@@ -164,12 +164,12 @@ const referralOptions = [
                 <label for="current_location" class="block text-sm font-semibold text-slate-700 dark:text-slate-300">Current location</label>
                 <input type="text" id="current_location" name="current_location" autocomplete="address-level2"
                   placeholder="City, State"
-                  class="mt-1.5 block w-full rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2.5 shadow-sm focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring-2" />
+                  class="mt-1.5 block w-full rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2.5 shadow-sm focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring-2" />
               </div>
               <div>
                 <label for="referral" class="block text-sm font-semibold text-slate-700 dark:text-slate-300">How did you hear about us?</label>
                 <select id="referral" name="referral"
-                  class="mt-1.5 block w-full rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2.5 shadow-sm focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring-2">
+                  class="mt-1.5 block w-full rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white px-3 py-2.5 shadow-sm focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring-2">
                   <option value="">Select…</option>
                   {referralOptions.map(opt => <option value={opt}>{opt}</option>)}
                 </select>
@@ -194,11 +194,19 @@ const referralOptions = [
 
   <script>
     // Pre-select the program from a ?program= query param (e.g. a program card link).
+    // Matches loosely on purpose: an exact-match-only lookup fails silently when a
+    // link and an option label drift apart, and the visitor never knows.
     (function () {
       const p = new URLSearchParams(location.search).get('program');
       if (!p) return;
       const sel = document.getElementById('program_interest');
-      if (sel && Array.from(sel.options).some(o => o.value === p)) sel.value = p;
+      if (!sel) return;
+      const norm = (s) => s.trim().toLowerCase();
+      const opts = Array.from(sel.options);
+      const hit =
+        opts.find(o => norm(o.value) === norm(p)) ||
+        opts.find(o => norm(o.value).startsWith(norm(p)));
+      if (hit) sel.value = hit.value;
     })();
 
     // Submit the contact form in-page (AJAX) so the visitor stays on the site,

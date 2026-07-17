@@ -11,6 +11,12 @@ const partnerships = partnersData.items;
 // Initials fallback for team/grad photos that haven't been uploaded yet.
 const avatarInitials = (name: string) =>
   name.split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join('').toUpperCase();
+
+// Only show people who have something to say. A "spotlight" that is a blank circle
+// and a first name reads as an unfinished site, so these sections hide until the
+// team fills them in via Tina — same pattern as the reviews sections.
+const instructors = team.instructors.filter(p => p.role || p.bio || p.photo);
+const graduates = team.graduates.filter(g => g.achievement || g.bio || g.photo);
 ---
 <BaseLayout
   title="About — Direct Connect Flight Academy"
@@ -61,7 +67,7 @@ const avatarInitials = (name: string) =>
           { title: 'Active Airline Pilot Mentors', body: 'Instructors are working Part 121 pilots, not time-builders. They know what comes next.' },
           { title: 'ATP-CTP with A320 Sim', body: 'Full-motion Airbus A320 simulator training in Dallas or Las Vegas as part of our $4,995 ATP-CTP program.' },
           { title: 'Rotor Transition Program', body: 'Customized fixed-wing pathways for military and civilian helicopter pilots.' },
-          { title: 'VA Benefits Accepted', body: 'Chapters 30, 33, 1606, and 1607 for the Instrument and Commercial programs.' },
+          { title: 'VA Benefits Accepted', body: 'Chapters 30, 33, 1606, and 1607 for several of our core programs.' },
         ].map(c => (
           <div class="rounded-lg bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-5 sm:p-6">
             <h3 class="text-lg font-bold text-slate-900 dark:text-white">{c.title}</h3>
@@ -73,6 +79,7 @@ const avatarInitials = (name: string) =>
   </section>
 
   <!-- Meet the team -->
+  {instructors.length > 0 && (
   <section class="bg-white dark:bg-slate-950 py-16 sm:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
@@ -81,7 +88,7 @@ const avatarInitials = (name: string) =>
         <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300">The instructors and staff who'll get you to the flight deck.</p>
       </div>
       <div class="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
-        {team.instructors.map(person => (
+        {instructors.map(person => (
           <div class="text-center">
             <div class="aspect-square w-full rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
               {person.photo ? (
@@ -98,8 +105,10 @@ const avatarInitials = (name: string) =>
       </div>
     </div>
   </section>
+  )}
 
   <!-- Graduate spotlights -->
+  {graduates.length > 0 && (
   <section class="bg-slate-50 dark:bg-slate-900 py-16 sm:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
@@ -108,7 +117,7 @@ const avatarInitials = (name: string) =>
         <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300">DCFA graduates building real aviation careers.</p>
       </div>
       <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-        {team.graduates.map(grad => (
+        {graduates.map(grad => (
           <div class="flex gap-4 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-5">
             <div class="flex-shrink-0 h-16 w-16 rounded-full overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
               {grad.photo ? (
@@ -127,6 +136,7 @@ const avatarInitials = (name: string) =>
       </div>
     </div>
   </section>
+  )}
 
   <!-- Partnerships in action -->
   <section class="bg-white dark:bg-slate-950 py-16 sm:py-20">

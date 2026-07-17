@@ -1,11 +1,11 @@
 {
   "items": [
-    { "organization": "Colorado Pilots Association", "award": "Varies", "eligibility": "All pilots", "notes": "Focus on safe flying in the Rocky Mountains.", "url": "", "logo": "" },
-    { "organization": "EAA (Experimental Aircraft Association)", "award": "Varies", "eligibility": "Various — check local chapter", "notes": "Includes the \"Young Eagles\" program.", "url": "", "logo": "" },
-    { "organization": "NATA Navigate Your Future", "award": "$2,500", "eligibility": "High school graduates", "notes": "Annual; one award per year.", "url": "", "logo": "" },
-    { "organization": "NBAA", "award": "Varies", "eligibility": "Student pilots and mechanics", "notes": "Multiple scholarships with rolling deadlines.", "url": "", "logo": "" },
-    { "organization": "The Ninety-Nines", "award": "Up to $20,000", "eligibility": "Women pilots", "notes": "Founded by Amelia Earhart. Supports both initial and advanced ratings.", "url": "", "logo": "" },
-    { "organization": "Tuskegee Airmen — Hubert L. Jones Chapter", "award": "Varies", "eligibility": "Minority HS seniors / recent graduates", "notes": "Colorado-based chapter. National-level scholarship also available.", "url": "", "logo": "" },
-    { "organization": "Women in Aviation International", "award": "Varies", "eligibility": "WAI members only", "notes": "Annual program; membership required.", "url": "", "logo": "" }
+    { "organization": "Colorado Pilots Association", "award": "Varies", "eligibility": "All pilots", "notes": "Focus on safe flying in the Rocky Mountains. Includes the Walt & Terry Barbo (Private Pilot) and Emily Howell Warner (advanced ratings) scholarships.", "url": "https://coloradopilots.org/content.aspx?page_id=22&club_id=612720&module_id=513946", "logo": "" },
+    { "organization": "EAA (Experimental Aircraft Association)", "award": "Varies", "eligibility": "Age 16+; various — check local chapter", "notes": "Includes the Ray Aviation Scholarship. Applications typically open October 1 and close in December.", "url": "https://www.eaa.org/eaa/learn-to-fly/scholarships", "logo": "" },
+    { "organization": "NATA Navigate Your Future", "award": "$2,500", "eligibility": "High school seniors accepted into an accredited aviation program", "notes": "Annual; deadline is the last Friday in June.", "url": "https://nata.aero/national-air-transportation-foundation/scholarships/navigate-your-future-scholarship/", "logo": "" },
+    { "organization": "NBAA", "award": "$1,000 – $8,000", "eligibility": "Student pilots and working aviation professionals", "notes": "Roughly $100,000 awarded annually across 20+ scholarships. Most student deadlines are June 15.", "url": "https://nbaa.org/professional-development/scholarships/", "logo": "" },
+    { "organization": "The Ninety-Nines", "award": "Up to $20,000", "eligibility": "Women pilots", "notes": "Founded by Amelia Earhart. The Amelia Earhart Memorial Scholarship Fund supports both initial and advanced ratings.", "url": "https://ninety-nines.org/scholarships/", "logo": "" },
+    { "organization": "Tuskegee Airmen — Hubert L. Jones Chapter", "award": "Up to $2,000", "eligibility": "Accredited Colorado high school seniors with a 3.0+ GPA", "notes": "Denver-based chapter serving all of Colorado, so Colorado Springs students qualify. A national-level scholarship is also available.", "url": "https://www.colorado-redtails.org/tai-scholarships", "logo": "" },
+    { "organization": "Women in Aviation International", "award": "Varies", "eligibility": "WAI members only", "notes": "50+ scholarships annually across flight training, engineering, maintenance, and dispatch. Membership required.", "url": "https://www.wai.org/scholarships", "logo": "" }
   ]
 }

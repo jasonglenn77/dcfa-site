@@ -2,6 +2,10 @@
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
+/* Gate hover-reveal UI on real hover support rather than screen width — a large
+   touch device (iPad landscape) is >=lg but still cannot hover. */
+@custom-variant hoverable (@media (hover: hover) and (pointer: fine));
+
 @utility scrollbar-hide {
   scrollbar-width: none;
   -ms-overflow-style: none;

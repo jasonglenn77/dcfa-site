@@ -25,7 +25,7 @@ const navItems = [
       </nav>
 
       <div class="hidden lg:flex items-center gap-3">
-        <button id="theme-toggle" class="p-2 rounded-md text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition" aria-label="Toggle dark mode">
+        <button id="theme-toggle" class="flex h-11 w-11 items-center justify-center rounded-md text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition" aria-label="Toggle dark mode">
           <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" class="h-5 w-5 hidden dark:block">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
           </svg>
@@ -33,13 +33,13 @@ const navItems = [
             <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
           </svg>
         </button>
-        <a href="/contact" class="inline-flex items-center rounded-md bg-blue-700 hover:bg-blue-800 px-4 py-2 text-sm font-semibold text-white transition shadow-sm">
+        <a href="/contact?program=Discovery%20Flight" class="inline-flex items-center rounded-md bg-blue-700 hover:bg-blue-800 px-4 py-2 text-sm font-semibold text-white transition shadow-sm">
           Book Discovery Flight
         </a>
       </div>
 
       <div class="flex lg:hidden items-center gap-2">
-        <button id="theme-toggle-mobile" class="p-2 rounded-md text-slate-600 dark:text-slate-300" aria-label="Toggle dark mode">
+        <button id="theme-toggle-mobile" class="flex h-11 w-11 items-center justify-center rounded-md text-slate-600 dark:text-slate-300" aria-label="Toggle dark mode">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" class="h-5 w-5 hidden dark:block">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
           </svg>
@@ -47,7 +47,7 @@ const navItems = [
             <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
           </svg>
         </button>
-        <button id="mobile-menu-button" class="text-slate-700 dark:text-slate-200 p-2 -mr-2" aria-label="Toggle menu" aria-expanded="false">
+        <button id="mobile-menu-button" class="flex h-11 w-11 items-center justify-center -mr-2 text-slate-700 dark:text-slate-200" aria-label="Toggle menu" aria-expanded="false">
           <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
@@ -58,13 +58,13 @@ const navItems = [
       </div>
     </div>
 
-    <div id="mobile-menu" class="hidden lg:hidden pb-4 space-y-1">
+    <div id="mobile-menu" class="hidden lg:hidden pb-4 space-y-1 max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain">
       {navItems.map(item => (
         <a href={item.href} class="block px-3 py-2 text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md">
           {item.label}
         </a>
       ))}
-      <a href="/contact" class="block mt-3 mx-3 rounded-md bg-blue-700 hover:bg-blue-800 px-4 py-2 text-center text-sm font-semibold text-white">
+      <a href="/contact?program=Discovery%20Flight" class="block mt-3 mx-3 rounded-md bg-blue-700 hover:bg-blue-800 px-4 py-2 text-center text-sm font-semibold text-white">
         Book Discovery Flight
       </a>
     </div>

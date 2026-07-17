@@ -9,7 +9,7 @@ interface Props {
 
 const { title, eyebrow = 'Coming Soon', intro } = Astro.props;
 ---
-<BaseLayout title={`${title} — Direct Connect Flight Academy`}>
+<BaseLayout title={`${title} — Direct Connect Flight Academy`} noindex={true}>
   <section class="bg-blue-900 dark:bg-slate-900 text-white py-20">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <div class="inline-block text-xs font-semibold tracking-wide text-blue-200 uppercase">{eyebrow}</div>
