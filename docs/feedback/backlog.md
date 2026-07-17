@@ -142,6 +142,57 @@ updated (or retired) to match either way.
 
 ---
 
+## Pre-launch audit (2026-07) — before the flydcfa.com cutover
+
+Full audit run across IA/flow, messaging vs. competitor, mobile, and consistency.
+Mobile verified at a true 390px emulated viewport via `scripts/mobile-audit.mjs`
+(**no page overflows**; tap targets fixed). Fixes shipped in one commit — see it for detail.
+
+### ⛔ Blocking launch — needs DCFA content
+These render as visible gaps or unsupported claims. Ranked by damage.
+- [ ] **Instructor bios + credentials.** 3 of 4 have no role/photo/bio; BJ's is a joke bio with no
+      flight credentials. The homepage sells *"mentored by airline pilots — active Part 121 pilots"*;
+      About is where a prospect verifies that, and it currently can't. Need: airline, aircraft, hours.
+      *(Sections now auto-hide while empty, so the site no longer looks broken — but the claim is unsupported.)*
+- [ ] **Graduate outcomes.** All 5 are name-only. One line each ("Carson — First Officer, Key Lime Air, 2024").
+- [ ] **A320 simulator photos.** `simPhotos: []` — the hero asset of the $4,995 product is invisible.
+- [ ] **Aircraft photos + make/model** for the 5 single-engine tails (see above). These are the aircraft a
+      Private Pilot student actually flies; only the DA-42 has a photo.
+- [ ] **Primary-training reviews.** All 3 reviews are ATP-CTP; a Private Pilot prospect gets zero social proof.
+
+### ⚠️ Needs a decision from BJ / Frank
+- [ ] **VA program list** (carried over above) — still the top open question.
+- [ ] **Is the in-house checkride included in program price?** Needed before we can make the strongest
+      version of the Examining Authority argument (see below).
+- [ ] **Do you offer CFI/CFII?** `programs.ts` stops at ATP Multi-Engine. Competitor's flagship is
+      "Zero to CFII, $43,555". A career prospect can't see how they get from Commercial (~250 hrs) to
+      ATP (1,500). Either add the program or state how partners/MSU close the gap.
+- [ ] **Safety statement** — no safety/maintenance content anywhere. Competitor leads with "Safety first."
+      and screens schools for "questionable safety records". Silence doesn't help.
+
+### 💡 Messaging opportunities (my recommendation; needs sign-off)
+- [ ] **Argue Examining Authority in dollars, not just time.** Zero mentions of checkride/DPE fees on the
+      whole site; the competitor publishes ~$900/checkride. We eliminate a fee we never mention.
+- [ ] **Promote the MSU R-ATP partnership.** R-ATP at 1,000 hrs instead of 1,500 ≈ a year saved — bigger
+      than the checkride-wait saving, and it currently exists only as a blurb in `partners.json`.
+- [ ] **Answer the price gap.** Zero-to-commercial ≈ $71k here vs. competitor's "under $45,000 to CFII"
+      marketing. We publish prices honestly but never justify them.
+- [ ] **Audience router below the hero** — hero says "Your airline career" but both CTAs sell a $150
+      Discovery Flight. Hobbyists/MSU students have nowhere to self-identify.
+- [ ] Competitor's SEO article ranks DCFA positively *and* cites an FAA study implying examiner type
+      doesn't affect safety — a direct shot at our central claim. EA is a time/cost claim, not a safety
+      claim; worth owning that comparison in a blog post.
+
+### Domain cutover checklist (when DNS is ready)
+- [ ] `astro.config.mjs` → `site: 'https://flydcfa.com'`
+- [ ] Re-check `public/robots.txt` + sitemap output
+- [ ] Update the QR code and email-signature URLs
+- [ ] Point TinaCloud / Cloudflare custom domain; verify `/admin` still authenticates
+- [ ] Old flydcfa.com VA page is stale (lists 2 programs) — update or retire it so it stops
+      contradicting the new site.
+
+---
+
 ## How this file is maintained
 - Each new feedback email → saved as `.eml` in this folder, then parsed into the lists above.
 - I keep the project memory pointer current; this file is the task source of truth.
