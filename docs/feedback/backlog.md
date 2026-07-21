@@ -106,7 +106,7 @@ Source: `emailfeedback_BJ_6.24.26.txt`
 ### Pending — needs input / Teams discussion
 - [ ] **Fleet aircraft make/model** — confirm the model for each single-engine tail number (BJ suggests "Piper Warrior" / framing as "our Piper fleet and the Diamond fleet"). Need per-tail models or the chosen framing.
 - [ ] **ATP Multi-Engine** enrollment requirements — BJ/Frank to provide the regulatory requirements before the course; offered to draft standard FAA ATP prerequisites for review.
-- [ ] **Medical class for military benefits** — BJ believes it must be 1st class; confirm before changing the VA page (currently "Class I or II").
+- [x] **Medical class for military benefits** — RESOLVED by the 2026-07 VA doc: **Class II** required at enrollment. Site updated from "Class I or II" to Class II.
 - [ ] **Student books/supplies cost model** — Teams meeting (replacing the one-time deposit with per-course materials + finalized amounts).
 
 ---
@@ -120,19 +120,13 @@ Source: `emailfeedback_BJ_6.24.26.txt`
 - [x] Home: **"We love our VETERANS!"** band + above-the-fold hero chip linking to it (`#veterans`).
 - [x] Karissa + Michelle added as web3forms recipients (every signup) — done by Jason in the dashboard.
 
-### ⚠️ Open — VA program count contradiction (needs BJ)
-The site says GI Bill benefits cover **"several of our core programs"** and lists **four**:
-Instrument, Commercial SEL, Multi-Engine Add-On, ATP-CTP (sim only).
-
-- **flydcfa.com/va-benefits lists only two** (Instrument + Commercial SEL; "Private Pilot not eligible")
-  and never mentions ATP-CTP or Multi-Engine re: VA.
-- But the extra two came from the owners **more recently** than that page: Frank (6/15) and BJ (6/24).
-- The "two of our core programs" copy the team sent back is verbatim our own subtitle, written from
-  the stale old site — i.e. not independent confirmation.
-
-**Resolution needed from DCFA:** confirm the definitive VA-approved list. Then either restore a hard
-count to the subtitle/home band, or trim `financing.ts → approvedPrograms`. The old site should be
-updated (or retired) to match either way.
+### ✅ RESOLVED — VA program list (DCFA doc, 2026-07)
+Source: `docs/feedback/VA Programs listed out for Website.docx`.
+**Four** VA-approved programs confirmed, each with its own approved TCO:
+Instrument Rating, Commercial Single-Engine, Multi-Engine Add-On, ATP-CTP.
+This matches what was already on the site — flydcfa.com (2 programs) was the stale source.
+Shipped: VR&E (Ch. 31) added, Class II medical, WEAMS/38 CFR/non-reimbursable notes,
+per-program VA detail, GI Bill(R) trademark attribution, hard count restored to "four".
 
 ### Open — other
 - [ ] **Garmin unit:** team sent "Garmin GNS 650 XL" (N29230, N8650E) — no such product. Published as
@@ -161,7 +155,22 @@ These render as visible gaps or unsupported claims. Ranked by damage.
 - [ ] **Primary-training reviews.** All 3 reviews are ATP-CTP; a Private Pilot prospect gets zero social proof.
 
 ### ⚠️ Needs a decision from DCFA
-- [ ] **VA program list** (carried over above) — still the top open question for DCFA.
+- [ ] **VA doc prices/hours differ from the published site figures — needs reconciliation.**
+      Verified: every price in the VA doc equals *minimum TCO hours x the doc's own hourly rates*
+      (Instrument $16,960 / Commercial $36,590 / Multi $7,905 / ATP-CTP $4,995 — all four match to
+      the dollar). So these read as VA-minimum floor costs, not retail. The site currently shows
+      $17,628 and $36,738 from Michelle's Round 2 pricing, and different hour breakdowns
+      (e.g. Instrument pre/post 27.5 on site vs 15.0 in the doc).
+      **Deliberately did NOT publish the doc's prices/hours** — two different figures for the same
+      program on one site is the exact contradiction the audit set out to remove. Ask DCFA which is
+      authoritative, then update the single source (`programs.ts`).
+- [ ] **ATP-CTP "simulator time only"** — the doc presents ATP-CTP as a full VA program page, but
+      Frank previously said VA covers sim time only with ~$650 ground school out of pocket. The doc's
+      own ground line (30 hrs @ $20 = $600) is close to that, so the caveat is probably still right.
+      Confirm before removing it from `financing.ts` / the ATP-CTP price card.
+- [ ] **Per-tail aircraft models.** The doc gives fleet-level framing ("Piper Cherokee / Warrior /
+      Archer") but not which model each tail number is. Still need per-tail make/model for the five
+      single-engine aircraft.
 - [ ] **Is the in-house checkride included in program price?** Needed before we can make the strongest
       version of the Examining Authority argument (see below).
 - [ ] **Do you offer CFI/CFII?** `programs.ts` stops at ATP Multi-Engine. Competitor's flagship is
