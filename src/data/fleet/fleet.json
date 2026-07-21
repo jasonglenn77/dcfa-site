@@ -46,14 +46,15 @@
       "type": "Single-Engine",
       "hourlyRate": 198,
       "description": "",
-      "photo": "",
+      "photo": "/images/aircraft/IMG_3589.jpeg",
       "specs": [
         "Single engine",
         "IFR equipped",
         "180 HP Lycoming O-360",
         "Garmin GTN 650",
         "Garmin G5",
-        "Intercom/Dual PTT (4 place)"
+        "Intercom/Dual PTT (4 place)",
+        ""
       ]
     },
     {
