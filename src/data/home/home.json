@@ -1,15 +1,41 @@
 {
   "heroImages": [
-    { "image": "/images/aircraft/da42-air.png" },
-    { "image": "/images/aircraft/multi-engine.jpg" },
-    { "image": "/images/cockpit/cockpit-training.jpg" },
-    { "image": "/images/aircraft/da42-ground.png" }
+    {
+      "image": "/images/aircraft/da42-air.png"
+    },
+    {
+      "image": "/images/aircraft/multi-engine.jpg"
+    },
+    {
+      "image": "/images/cockpit/cockpit-training.jpg"
+    },
+    {
+      "image": "/images/aircraft/da42-ground.png"
+    },
+    {
+      "image": "/images/team/BJDwyer_picture.jpg"
+    }
   ],
   "gallery": [
-    { "image": "/images/aircraft/da42-ground.png", "caption": "DA42 multi-engine on the ramp" },
-    { "image": "/images/aircraft/multi-engine.jpg", "caption": "Multi-engine training" },
-    { "image": "/images/cockpit/cockpit-training.jpg", "caption": "Crew-style cockpit training" },
-    { "image": "/images/cockpit/instrument-panel.jpg", "caption": "IFR-ready avionics" },
-    { "image": "/images/team/open-house.jpg", "caption": "Open house community" }
+    {
+      "image": "/images/aircraft/da42-ground.png",
+      "caption": "DA42 multi-engine on the ramp"
+    },
+    {
+      "image": "/images/aircraft/multi-engine.jpg",
+      "caption": "Multi-engine training"
+    },
+    {
+      "image": "/images/cockpit/cockpit-training.jpg",
+      "caption": "Crew-style cockpit training"
+    },
+    {
+      "image": "/images/cockpit/instrument-panel.jpg",
+      "caption": "IFR-ready avionics"
+    },
+    {
+      "image": "/images/team/open-house.jpg",
+      "caption": "Open house community"
+    }
   ]
 }
