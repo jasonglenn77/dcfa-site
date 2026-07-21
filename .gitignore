@@ -14,3 +14,6 @@ start.txt
 # TinaCMS — regenerated on each build
 tina/__generated__/
 public/admin/
+
+# Word/Office lock files
+~$*
