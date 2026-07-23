@@ -1,0 +1,252 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+import { programs } from '../../data/programs';
+import { vaBenefits } from '../../data/financing';
+import partnersData from '../../data/partners/partners.json';
+import reviewsData from '../../data/reviews/reviews.json';
+
+// Print-ready one-page event flier. Everything is derived from the same data the
+// website uses, so a price change in programs.ts updates the flier too — no second
+// copy of the numbers to fall out of date.
+//
+// The QR points at flydcfa.com (never the workers.dev preview): print outlives the
+// domain cutover, and that URL resolves before and after it.
+const corePrograms = programs.filter(p => p.category === 'core');
+const partners = partnersData.items.map(p => p.name);
+
+// The sheet is a fixed 11in with overflow hidden, so an over-long quote silently
+// pushes the contact footer off the page. Take the shortest genuine review and
+// excerpt it at a sentence boundary to a length the layout can always hold.
+const MAX_QUOTE = 170;
+const shortest = reviewsData.items
+  .filter(r => r.text && r.author)
+  .sort((a, b) => a.text.length - b.text.length)[0];
+
+function excerpt(text: string) {
+  const clean = text.replace(/\s+/g, ' ').trim();
+  if (clean.length <= MAX_QUOTE) return clean;
+  let out = '';
+  for (const sentence of clean.split(/(?<=[.!?])\s+/)) {
+    if (out && (out + ' ' + sentence).length > MAX_QUOTE) break;
+    out = out ? `${out} ${sentence}` : sentence;
+  }
+  // A single sentence longer than the cap still needs a hard cut.
+  if (!out) out = clean.slice(0, MAX_QUOTE).trimEnd();
+  return out.length < clean.length ? `${out} …` : out;
+}
+
+const quote = shortest ? { ...shortest, text: excerpt(shortest.text) } : null;
+
+const whyDcfa = [
+  {
+    title: 'We give your checkride, not a stranger',
+    body: 'DCFA holds FAA Examining Authority for Private and Instrument checkrides — rare in the U.S. Most students wait 2–6 weeks for an outside examiner. You test here, on your schedule.',
+  },
+  {
+    title: 'FAA Part 141 certificated',
+    body: 'An FAA-approved curriculum with reduced minimum hours compared with Part 61 training.',
+  },
+  {
+    title: 'Mentored by airline pilots',
+    body: 'Your instructors fly for the airlines — they teach the job you actually want.',
+  },
+  {
+    title: '300+ flying days a year',
+    body: 'Colorado Springs weather means fewer cancellations, the top reason training timelines slip.',
+  },
+];
+---
+<BaseLayout
+  title="Event Flier — DCFA (Internal)"
+  description="Print-ready one-page flier for events."
+  noindex={true}
+>
+  <!-- Screen-only toolbar. Hidden when printing. -->
+  <div class="no-print bg-slate-100 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-4">
+    <div class="mx-auto max-w-[8.5in] px-4 flex flex-wrap items-center justify-between gap-3">
+      <div>
+        <a href="/brand" class="text-sm font-semibold text-blue-700 dark:text-blue-400 hover:underline">← Back to Brand Toolkit</a>
+        <p class="mt-1 text-xs text-slate-600 dark:text-slate-400">
+          US Letter (8.5&quot; × 11&quot;). Print at 100% scale with background graphics on.
+        </p>
+      </div>
+      <button id="print-flier" type="button" class="rounded-md bg-blue-700 hover:bg-blue-800 px-5 py-2.5 text-sm font-semibold text-white transition">
+        Print / Save as PDF
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== The sheet ===== -->
+  <div class="no-print-bg flex justify-center bg-slate-200 dark:bg-slate-800 py-8">
+    <div class="flier-sheet bg-white text-slate-900 shadow-xl">
+
+      <!-- Masthead -->
+      <div class="bg-[#1E3A8A] px-[0.5in] py-[0.28in] flex items-center justify-between gap-6">
+        <img src="/images/brand/dcfa-logo-white.png" alt="Direct Connect Flight Academy" class="h-[0.52in] w-auto" />
+        <div class="text-right text-white">
+          <div class="text-[10.5pt] font-bold leading-tight">FAA Part 141 Certificated</div>
+          <div class="text-[9pt] text-blue-200 leading-tight">Colorado Springs Airport (KCOS)</div>
+        </div>
+      </div>
+
+      <div class="flex-1 px-[0.5in] pt-[0.22in] pb-[0.06in]">
+        <!-- Headline -->
+        <h1 class="text-[24pt] font-extrabold leading-[1.05] tracking-tight text-slate-900">
+          Your airline career,<br /><span class="text-[#1D4ED8]">on your schedule.</span>
+        </h1>
+        <p class="mt-[0.1in] text-[10.5pt] leading-snug text-slate-700">
+          From your first Discovery Flight through ATP — with transparent pricing at every step.
+        </p>
+
+        <!-- Why DCFA + QR -->
+        <div class="mt-[0.17in] flex gap-[0.28in]">
+          <div class="flex-1 space-y-[0.105in]">
+            {whyDcfa.map(item => (
+              <div class="flex gap-2.5">
+                <svg class="mt-[2pt] h-[11pt] w-[11pt] flex-shrink-0 text-[#1D4ED8]" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                </svg>
+                <div>
+                  <div class="text-[10.5pt] font-bold leading-tight text-slate-900">{item.title}</div>
+                  <div class="text-[9pt] leading-snug text-slate-600">{item.body}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- CTA / QR card -->
+          <div class="w-[2.35in] flex-shrink-0 rounded-lg border-2 border-[#1D4ED8] bg-blue-50 p-[0.16in] text-center">
+            <div class="text-[9pt] font-bold uppercase tracking-wide text-[#1D4ED8]">Start here</div>
+            <div class="mt-[0.04in] text-[15pt] font-extrabold leading-tight text-slate-900">Discovery Flight</div>
+            <div class="text-[21pt] font-extrabold leading-none text-[#1D4ED8]">{site.discoveryFlightPrice}</div>
+            <div class="mt-[0.03in] text-[8.5pt] leading-snug text-slate-600">Take the controls and fly the Front Range.</div>
+            <img src="/images/brand/qr-flier.png" alt="Scan to book a Discovery Flight at flydcfa.com" class="mx-auto mt-[0.07in] h-[1.15in] w-[1.15in]" />
+            <div class="text-[8.5pt] font-semibold leading-tight text-slate-700">Scan to book</div>
+            <div class="text-[10pt] font-extrabold text-[#1D4ED8]">flydcfa.com</div>
+          </div>
+        </div>
+
+        <!-- Programs and pricing -->
+        <div class="mt-[0.18in]">
+          <div class="flex items-baseline justify-between border-b-2 border-slate-900 pb-[0.05in]">
+            <h2 class="text-[13pt] font-extrabold tracking-tight text-slate-900">Programs &amp; pricing</h2>
+            <span class="text-[8.5pt] text-slate-500">Full details at flydcfa.com/training</span>
+          </div>
+          <table class="mt-[0.1in] w-full border-collapse">
+            <tbody>
+              {corePrograms.map((p, i) => (
+                <tr class={i % 2 === 1 ? 'bg-slate-50' : ''}>
+                  <td class="py-[0.05in] pr-2 text-[10pt] font-bold text-slate-900">{p.name}</td>
+                  <td class="py-[0.05in] pr-2 text-[8.5pt] text-slate-500 whitespace-nowrap">{p.certificateType}</td>
+                  <td class="py-[0.05in] text-right text-[10pt] font-extrabold text-slate-900 whitespace-nowrap">{p.price}</td>
+                </tr>
+              ))}
+              <tr class={corePrograms.length % 2 === 1 ? 'bg-slate-50' : ''}>
+                <td class="py-[0.05in] pr-2 text-[10pt] font-bold text-slate-900">
+                  ATP-CTP <span class="text-[8.5pt] font-normal text-slate-500">— incl. full-motion A320 simulator</span>
+                </td>
+                <td class="py-[0.05in] pr-2 text-[8.5pt] text-slate-500 whitespace-nowrap">FAR 61.156</td>
+                <td class="py-[0.05in] text-right text-[10pt] font-extrabold text-slate-900 whitespace-nowrap">$4,995</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Veterans -->
+        <div class="mt-[0.12in] rounded-lg bg-[#1E3A8A] px-[0.2in] py-[0.14in] text-white">
+          <div class="flex items-start gap-3">
+            <svg class="mt-[1pt] h-[15pt] w-[15pt] flex-shrink-0 text-blue-300" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2 3 6v6c0 5.25 3.75 9.75 9 10 5.25-.25 9-4.75 9-10V6l-9-4Z" />
+            </svg>
+            <div>
+              <div class="text-[11.5pt] font-extrabold leading-tight">We love our VETERANS!</div>
+              <div class="mt-[0.03in] text-[9pt] leading-snug text-blue-100">
+                Approved by the VA to train eligible veterans using GI Bill<sup>&reg;</sup> and Veteran Readiness &amp;
+                Employment (VR&amp;E) benefits across {vaBenefits.approvedPrograms.length} programs:
+                Instrument Rating, Commercial Single-Engine, the Multi-Engine Add-On, and ATP-CTP.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review + partners -->
+        <div class="mt-[0.1in] flex gap-[0.28in]">
+          {quote && (
+            <div class="flex-1">
+              <div class="text-[10.5pt] italic leading-snug text-slate-700">&ldquo;{quote.text}&rdquo;</div>
+              <div class="mt-[0.05in] text-[9pt] font-bold text-slate-900">
+                — {quote.author}
+                <span class="font-normal text-slate-500">{quote.rating ? ` · ${'★'.repeat(quote.rating)}` : ''}{quote.source ? ` · ${quote.source}` : ''}</span>
+              </div>
+            </div>
+          )}
+          <div class="w-[2.35in] flex-shrink-0">
+            <div class="text-[8.5pt] font-bold uppercase tracking-wide text-slate-500">Airline pathways</div>
+            <div class="mt-[0.04in] text-[9.5pt] font-semibold leading-snug text-slate-800">{partners.join(' · ')}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="mt-auto">
+        <div class="bg-slate-900 px-[0.5in] py-[0.16in] text-white">
+          <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-[10pt]">
+            <span class="font-extrabold">{site.phone}</span>
+            <span>{site.email}</span>
+            <span>{site.address.full}</span>
+            <span class="font-extrabold text-blue-300">flydcfa.com</span>
+          </div>
+        </div>
+        <div class="bg-slate-100 px-[0.5in] py-[0.09in]">
+          <p class="text-[6pt] leading-[1.35] text-slate-500">
+            Prices shown are program totals and are subject to change; see flydcfa.com/training for current pricing and
+            what each program includes. Examining Authority applies to eligible students enrolled in DCFA's FAA-approved
+            Part 141 Private Pilot and Instrument Rating courses. GI Bill<sup>&reg;</sup> is a registered trademark of the
+            U.S. Department of Veterans Affairs (VA). More information about education benefits offered by VA is available
+            at the official U.S. government website at https://www.va.gov/education/. DCFA is not affiliated with, endorsed
+            by, or sponsored by the U.S. Department of Veterans Affairs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style is:global>
+    /* The sheet is a real US-Letter page so on-screen preview matches the print. */
+    .flier-sheet {
+      width: 8.5in;
+      height: 11in;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      /* The sheet is a flex item of the centering wrapper. Without this it shrinks
+         below 8.5in in a narrow window, reflowing the whole layout and pushing the
+         footer off the page — the preview must always show true print dimensions. */
+      flex-shrink: 0;
+    }
+    /* Force the light palette regardless of the site's dark-mode toggle — the flier
+       is a print artifact and should look identical either way. */
+    [data-theme='dark'] .flier-sheet { background: #fff; color: #0f172a; }
+
+    @media print {
+      @page { size: letter; margin: 0; }
+      html, body { background: #fff !important; margin: 0 !important; padding: 0 !important; }
+      /* Site chrome and the preview toolbar never belong on the printed sheet. */
+      header, footer, .no-print { display: none !important; }
+      .no-print-bg { background: #fff !important; padding: 0 !important; display: block !important; }
+      main { margin: 0 !important; padding: 0 !important; }
+      .flier-sheet {
+        box-shadow: none !important;
+        width: 8.5in; height: 11in;
+        break-inside: avoid; page-break-inside: avoid;
+      }
+      /* Without this the navy bands print as white and the flier loses its identity. */
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    }
+  </style>
+
+  <script>
+    document.getElementById('print-flier')?.addEventListener('click', () => window.print());
+  </script>
+</BaseLayout>
