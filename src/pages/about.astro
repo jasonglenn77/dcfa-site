@@ -12,13 +12,21 @@ const partnerships = partnersData.items;
 const avatarInitials = (name: string) =>
   name.split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join('').toUpperCase();
 
-// Only show people who have something to say. A "spotlight" that is a blank circle
-// and a first name reads as an unfinished site, so these sections hide until the
-// team fills them in via Tina — same pattern as the reviews sections.
-// Require a photo or a bio specifically: a role alone still renders an empty card,
-// and a job title is not the credibility this section exists to provide.
-const instructors = team.instructors.filter(p => p.photo || p.bio);
-const graduates = team.graduates.filter(g => g.photo || g.achievement || g.bio);
+// The team uses free-text fields as notes-to-self while drafting ("Ready for
+// update", "need to fill this out", "TBD"). Treat those as empty so a placeholder
+// never publishes as if it were real copy. Matches the whole trimmed value only,
+// so a genuine bio that happens to contain one of these words is unaffected.
+const PLACEHOLDER = /^(ready for update|need to fill (this )?out|tbd|todo|coming soon|placeholder|update|n\/a|-)?$/i;
+const real = (v?: string) => (v && !PLACEHOLDER.test(v.trim()) ? v.trim() : '');
+
+// Normalize first, then decide what shows. A card needs a photo or a real bio;
+// a role/name alone is not the credibility this section exists to provide.
+const instructors = team.instructors
+  .map(p => ({ ...p, bio: real(p.bio), role: p.role?.trim() ?? '' }))
+  .filter(p => p.photo || p.bio);
+const graduates = team.graduates
+  .map(g => ({ ...g, bio: real(g.bio), achievement: real(g.achievement) }))
+  .filter(g => g.photo || g.achievement || g.bio);
 ---
 <BaseLayout
   title="About — Direct Connect Flight Academy"
