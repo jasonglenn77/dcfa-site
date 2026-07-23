@@ -41,6 +41,17 @@ export const vaBenefits = {
   notEligible: ['Private Pilot certificate'],
   fundingWindow: 'August 1 – July 31 annually',
 
+  // How VA reimbursement relates to the program price. Confirmed by Ben Dwyer
+  // (2026-07): the VA reimburses only the hours it approves, which can be fewer
+  // than the full course requires — e.g. it approves 15 pre/post-briefing hours
+  // on the Instrument Rating while the full course runs roughly 30. So the prices
+  // on the Training page (full course cost) are higher than the VA-approved amount.
+  costExplainer: {
+    heading: 'How VA reimbursement affects your cost',
+    body:
+      'The VA reimburses the hours it approves for each course, which can be fewer than the full course requires. For example, the VA approves 15 hours of pre/post-flight briefing for the Instrument Rating, while the full course includes roughly 30. You are responsible for the difference between the VA-approved hours and the full program. The prices shown on our Training page are the full course cost — talk to us and we will walk you through what your specific benefit is expected to cover.',
+  },
+
   // Verbatim compliance statements supplied by DCFA.
   complianceNotes: [
     'DCFA is approved by the Department of Veterans Affairs to train eligible veterans using GI Bill® and Veteran Readiness & Employment (VR&E) benefits.',
@@ -96,6 +107,12 @@ export const vaBenefits = {
         "DCFA's ATP Certification Training Program provides the training required before the ATP written exam. Veterans may use VA benefits toward this course when they meet all eligibility requirements.",
       prerequisite: 'Commercial Pilot Certificate with Instrument Rating',
       equipment: ['Airbus A320-200 Flight Training Device (FSTD)', 'Airbus A320-200 full-flight simulators'],
+      // Ben Dwyer (2026-07): the VA does not currently reimburse virtual ground
+      // school. Our standard ATP-CTP ground school is virtual, so for VA students
+      // that portion (~$600) is out of pocket; the VA covers the simulator training.
+      // When a class is run in person, VA benefits can cover the full $4,995.
+      note:
+        'Our ATP-CTP ground school is delivered virtually, and the VA does not currently reimburse virtual ground school — so for VA students that portion (about $600) is out of pocket while the VA covers the simulator training. When we run a class in person, VA benefits can cover the full $4,995.',
     },
   ],
 

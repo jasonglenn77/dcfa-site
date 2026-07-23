@@ -155,19 +155,15 @@ These render as visible gaps or unsupported claims. Ranked by damage.
 - [ ] **Primary-training reviews.** All 3 reviews are ATP-CTP; a Private Pilot prospect gets zero social proof.
 
 ### ⚠️ Needs a decision from DCFA
-- [ ] **VA doc prices/hours differ from the published site figures — needs reconciliation.**
-      Verified: every price in the VA doc equals *minimum TCO hours x the doc's own hourly rates*
-      (Instrument $16,960 / Commercial $36,590 / Multi $7,905 / ATP-CTP $4,995 — all four match to
-      the dollar). So these read as VA-minimum floor costs, not retail. The site currently shows
-      $17,628 and $36,738 from Michelle's Round 2 pricing, and different hour breakdowns
-      (e.g. Instrument pre/post 27.5 on site vs 15.0 in the doc).
-      **Deliberately did NOT publish the doc's prices/hours** — two different figures for the same
-      program on one site is the exact contradiction the audit set out to remove. Ask DCFA which is
-      authoritative, then update the single source (`programs.ts`).
-- [ ] **ATP-CTP "simulator time only"** — the doc presents ATP-CTP as a full VA program page, but
-      Frank previously said VA covers sim time only with ~$650 ground school out of pocket. The doc's
-      own ground line (30 hrs @ $20 = $600) is close to that, so the caveat is probably still right.
-      Confirm before removing it from `financing.ts` / the ATP-CTP price card.
+- [x] **VA doc prices vs. site prices — RESOLVED (Ben Dwyer, 2026-07).** The doc's figures are the
+      **VA-approved cost** (VA reimburses only approved hours, which are fewer than the full course —
+      e.g. VA approves 15 Pre/Post hrs on Instrument vs ~30 actual). The site prices are the **full
+      course cost** and stay as-is. Added a "How VA reimbursement affects your cost" explainer to the
+      VA page rather than publishing a second set of numbers. Confirms the earlier arithmetic finding.
+- [x] **ATP-CTP VA coverage — RESOLVED (Ben Dwyer, 2026-07).** The VA won't reimburse *virtual*
+      ground school, and our standard class is virtual — so VA covers the simulator training and the
+      ground portion (~$600, corrected from the earlier $650 estimate) is out of pocket. An **in-person**
+      class can be fully VA-covered at $4,995. Updated the ATP-CTP price card and the VA page note.
 - [ ] **Per-tail aircraft models.** The doc gives fleet-level framing ("Piper Cherokee / Warrior /
       Archer") but not which model each tail number is. Still need per-tail make/model for the five
       single-engine aircraft.
