@@ -4,9 +4,17 @@ import PageHero from '../components/ui/PageHero.astro';
 import CtaBlock from '../components/ui/CtaBlock.astro';
 import fleet from '../data/fleet/fleet.json';
 
-const aircraft = fleet.aircraft;
+// Drop blank spec entries — a stray empty line from a Tina edit would otherwise
+// render as a bullet with no text. Normalize here so every render site is safe.
+const aircraft = fleet.aircraft.map(ac => ({
+  ...ac,
+  specs: (ac.specs ?? []).map(s => s.trim()).filter(Boolean),
+}));
 const instructionRate = fleet.instructionRate;
-const simulator = fleet.simulator;
+const simulator = {
+  ...fleet.simulator,
+  specs: (fleet.simulator?.specs ?? []).map(s => s.trim()).filter(Boolean),
+};
 ---
 <BaseLayout
   title="Aircraft Fleet & Rates — Direct Connect Flight Academy"
