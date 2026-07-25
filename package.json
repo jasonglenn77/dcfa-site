@@ -6,12 +6,15 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "npm run build && wrangler dev",
     "astro": "astro",
     "tina:dev": "tinacms dev -c \"astro dev\"",
-    "tina:build": "tinacms build && astro build"
+    "tina:build": "tinacms build && astro build",
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "12",
     "@astrojs/sitemap": "^3.2.1",
     "@tailwindcss/vite": "^4.0.0",
     "@tinacms/cli": "^2.5.1",
@@ -21,6 +24,7 @@
   },
   "devDependencies": {
     "qrcode": "^1.5.4",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "wrangler": "^4.114.0"
   }
 }
