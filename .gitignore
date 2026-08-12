@@ -17,3 +17,8 @@ public/admin/
 
 # Word/Office lock files
 ~$*
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
