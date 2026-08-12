@@ -11,17 +11,21 @@ const { eyebrow, title, subtitle, bgImage } = Astro.props;
 <section class="relative overflow-hidden bg-blue-900 dark:bg-slate-900 text-white">
   {bgImage && (
     <div class="absolute inset-0">
-      <img src={bgImage} alt="" class="w-full h-full object-cover opacity-25 dark:opacity-20" />
-      <div class="absolute inset-0 bg-gradient-to-r from-blue-900/95 via-blue-900/80 to-blue-900/40 dark:from-slate-900/95 dark:via-slate-900/80 dark:to-slate-900/40"></div>
+      <!-- Let the photo actually read (60%), with a directional scrim only where the
+           text sits — vertical on mobile, left-weighted on wider screens. -->
+      <img src={bgImage} alt="" class="w-full h-full object-cover opacity-60 dark:opacity-40" />
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/60 to-slate-950/45 sm:bg-gradient-to-r sm:from-slate-950/90 sm:via-slate-950/55 sm:to-slate-950/20"></div>
     </div>
   )}
-  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-28">
     {eyebrow && (
-      <div class="inline-block text-xs font-semibold tracking-wide text-blue-200 uppercase">{eyebrow}</div>
+      <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-blue-300">
+        <span class="h-px w-8 bg-blue-400/70"></span>{eyebrow}
+      </div>
     )}
-    <h1 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">{title}</h1>
+    <h1 class="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight max-w-3xl">{title}</h1>
     {subtitle && (
-      <p class="mt-5 text-base sm:text-lg lg:text-xl text-blue-100 max-w-3xl leading-relaxed">{subtitle}</p>
+      <p class="mt-5 text-base sm:text-lg lg:text-xl text-slate-200 max-w-2xl leading-relaxed">{subtitle}</p>
     )}
   </div>
 </section>

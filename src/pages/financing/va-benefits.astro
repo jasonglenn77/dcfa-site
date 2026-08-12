@@ -22,16 +22,9 @@ import { vaBenefits } from '../../data/financing';
           <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">VA benefits we accept</h2>
           <ul class="mt-6 space-y-3">
             {vaBenefits.acceptedChapters.map(c => (
-              <li class="rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-4 flex items-start gap-3">
-                <div class="flex-shrink-0 h-8 w-8 rounded-md bg-green-100 dark:bg-green-900/40 flex items-center justify-center">
-                  <svg class="h-4 w-4 text-green-700 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                  </svg>
-                </div>
-                <div>
-                  <div class="font-bold text-slate-900 dark:text-white">{c.code}</div>
-                  <div class="text-sm text-slate-600 dark:text-slate-400">{c.name}</div>
-                </div>
+              <li class="rounded-lg border border-slate-200 dark:border-slate-800 border-l-4 border-l-green-600 dark:border-l-green-500 bg-slate-50 dark:bg-slate-900 p-4">
+                <div class="font-bold text-slate-900 dark:text-white">{c.code}</div>
+                <div class="text-sm text-slate-600 dark:text-slate-400">{c.name}</div>
               </li>
             ))}
           </ul>
