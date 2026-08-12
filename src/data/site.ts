@@ -6,12 +6,12 @@ export const site = {
   phoneHref: 'tel:+17192087049',
   email: 'info@flydcfa.com',
   address: {
-    street: '1055 Aviation Way',
-    city: 'Colorado Springs',
+    street: '13775 Judge Orr Rd',
+    city: 'Peyton',
     state: 'CO',
-    zip: '80916',
-    full: '1055 Aviation Way, Colorado Springs, CO 80916',
-    mapsUrl: 'https://maps.google.com/?q=1055+Aviation+Way+Colorado+Springs+CO+80916',
+    zip: '80831',
+    full: '13775 Judge Orr Rd, Peyton, CO 80831',
+    mapsUrl: 'https://maps.google.com/?q=13775+Judge+Orr+Rd+Peyton+CO+80831',
   },
   hours: {
     weekday: 'Mon–Fri: 9:00 AM – 5:00 PM',
