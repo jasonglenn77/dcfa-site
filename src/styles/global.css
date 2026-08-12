@@ -14,6 +14,31 @@
 
 @theme {
   --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+
+  /* DCFA brand navy — sampled from the logo wordmark (#0C4890). Remaps the
+     entire "blue" scale so every existing blue-* utility becomes the brand navy
+     site-wide, moving off the default Tailwind blue with one change. */
+  --color-blue-50:  #eff4fb;
+  --color-blue-100: #dbe7f5;
+  --color-blue-200: #b7cdea;
+  --color-blue-300: #8aabd9;
+  --color-blue-400: #5285c4;
+  --color-blue-500: #2a66ac;
+  --color-blue-600: #14539b;
+  --color-blue-700: #0c4890;
+  --color-blue-800: #0b3b74;
+  --color-blue-900: #0d335f;
+  --color-blue-950: #08203d;
+
+  /* Steel-silver accent — sampled from the logo swoosh (#84848F). */
+  --color-steel-100: #ececee;
+  --color-steel-200: #d6d6da;
+  --color-steel-300: #b4b4bb;
+  --color-steel-400: #9a9aa2;
+  --color-steel-500: #84848f;
+  --color-steel-600: #6a6a75;
+  --color-steel-700: #55555e;
 }
 
 html {
@@ -24,4 +49,11 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* Headings use the display face with tighter tracking — a designed type system
+   rather than default body sizes. Applies site-wide without touching markup. */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
 }
