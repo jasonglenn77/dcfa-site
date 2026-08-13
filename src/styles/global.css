@@ -14,7 +14,7 @@
 
 @theme {
   --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-display: 'Archivo', 'Inter', system-ui, sans-serif;
 
   /* DCFA brand navy — sampled from the logo wordmark (#0C4890). Remaps the
      entire "blue" scale so every existing blue-* utility becomes the brand navy
