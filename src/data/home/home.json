@@ -4,16 +4,16 @@
       "image": "/images/aircraft/da42-air.png"
     },
     {
-      "image": "/images/IMG_3827.jpg"
+      "image": "/images/TannahFox.jpeg"
     },
     {
-      "image": "/images/BD4BBD05-E3BE-4096-B337-C6BF73085914.jpeg"
+      "image": "/images/IMG_3840.jpg"
     },
     {
       "image": "/images/aircraft/da42-ground.png"
     },
     {
-      "image": "/images/IMG_9060.jpeg"
+      "image": ""
     }
   ],
   "gallery": [
@@ -34,8 +34,12 @@
       "caption": "IFR-ready avionics"
     },
     {
-      "image": "",
-      "caption": ""
+      "image": "/images/IMG_9890.jpg",
+      "caption": "RTAG ATP-CTP Scholarship to deserving Veteran"
+    },
+    {
+      "image": "/images/IMG_2595.jpeg",
+      "caption": "2025 RTAG Convention"
     }
   ]
 }
