@@ -13,10 +13,10 @@ const navItems = [
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
       <a href="/" class="inline-flex items-center" aria-label="Direct Connect Flight Academy — Home">
-        <!-- Full-colour logo on the light header; the reversed white logo in dark mode.
-             Swapping assets beats CSS-brightening a colour logo (which fringed the edges). -->
-        <img src="/images/logo/dcfa-logo.png" alt="Direct Connect Flight Academy" class="h-8 w-auto dark:hidden" />
-        <img src="/images/brand/dcfa-logo-white.png" alt="Direct Connect Flight Academy" class="h-8 w-auto hidden dark:block" />
+        <!-- Full-colour logo everywhere. The brand blue is bright enough to read on
+             the dark header/footer, so we keep the colours instead of reversing to
+             white. No brightness filter (that was what fringed the edges). -->
+        <img src="/images/logo/dcfa-logo.png" alt="Direct Connect Flight Academy" class="h-8 w-auto" />
       </a>
 
       <nav class="hidden lg:flex items-center gap-7">
