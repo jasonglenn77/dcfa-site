@@ -320,6 +320,19 @@ export default defineConfig({
             fields: [
               { type: 'image', name: 'image', label: 'Photo' },
               { type: 'string', name: 'caption', label: 'Caption' },
+              {
+                type: 'string',
+                name: 'focus',
+                label: 'Crop focus',
+                description: 'Which part of the photo to keep when it is cropped to fit its tile. Choose "Top" for group photos so faces are not cut off. Defaults to Top.',
+                options: [
+                  { value: 'top', label: 'Top (keep heads / faces)' },
+                  { value: 'center', label: 'Center' },
+                  { value: 'bottom', label: 'Bottom' },
+                  { value: 'left', label: 'Left' },
+                  { value: 'right', label: 'Right' },
+                ],
+              },
             ],
           },
         ],
