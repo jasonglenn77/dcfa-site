@@ -9,9 +9,13 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = path.join(root, 'directconnectlogo.jpg');
 const OUT = path.join(root, 'public/images/logo/dcfa-logo.png');
 
-// Near-white cutoff. Any pixel whose darkest channel is >= this is background.
-// Navy min-channel ~12, steel ~132 — both stay opaque with huge margin.
-const WHITE = 230;
+// Soft knockout ramp keyed on each pixel's darkest channel. Anything at/below LOW
+// is real logo art (navy min ~12, steel ~132) and stays fully opaque; at/above
+// HIGH is background and goes fully transparent; the band between is ramped so
+// anti-aliased edges fade smoothly instead of leaving a hard near-white fringe
+// (that fringe was what the footer's brightness filter amplified into a halo).
+const LOW = 185;
+const HIGH = 246;
 
 const img = sharp(SRC).ensureAlpha();
 const { data, info } = await img.raw().toBuffer({ resolveWithObject: true });
@@ -26,7 +30,7 @@ console.log('corners RGB:', corner(0, 0), corner(width - 1, 0), corner(0, height
 
 for (let p = 0; p < data.length; p += channels) {
   const min = Math.min(data[p], data[p + 1], data[p + 2]);
-  if (min >= WHITE) data[p + 3] = 0; // background → transparent (hard edge; high-res downscale smooths it)
+  data[p + 3] = min <= LOW ? 255 : min >= HIGH ? 0 : Math.round((255 * (HIGH - min)) / (HIGH - LOW));
 }
 
 await sharp(data, { raw: { width, height, channels } })
