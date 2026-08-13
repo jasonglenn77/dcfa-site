@@ -4,13 +4,16 @@
       "image": "/images/aircraft/da42-air.png"
     },
     {
-      "image": "/images/aircraft/multi-engine.jpg"
+      "image": "/images/IMG_3827.jpg"
     },
     {
-      "image": "/images/cockpit/cockpit-training.jpg"
+      "image": "/images/BD4BBD05-E3BE-4096-B337-C6BF73085914.jpeg"
     },
     {
       "image": "/images/aircraft/da42-ground.png"
+    },
+    {
+      "image": "/images/IMG_9060.jpeg"
     }
   ],
   "gallery": [
@@ -23,16 +26,16 @@
       "caption": "Multi-engine training"
     },
     {
-      "image": "/images/cockpit/cockpit-training.jpg",
-      "caption": "Crew-style cockpit training"
+      "image": "/images/IMG_1711.jpeg",
+      "caption": "A320 Cockpit"
     },
     {
       "image": "/images/cockpit/instrument-panel.jpg",
       "caption": "IFR-ready avionics"
     },
     {
-      "image": "/images/team/open-house.jpg",
-      "caption": "Open house community"
+      "image": "",
+      "caption": ""
     }
   ]
 }
