@@ -57,3 +57,14 @@ h1, h2, h3, h4 {
   font-family: var(--font-display);
   letter-spacing: -0.02em;
 }
+
+/* Trailing CTA arrows nudge forward on hover instead of sitting as a static
+   baked-in glyph — one consistent motion cue across every link and button. */
+.cta-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+a:hover .cta-arrow,
+button:hover .cta-arrow {
+  transform: translateX(3px);
+}

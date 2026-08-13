@@ -71,7 +71,7 @@ const simulator = {
                 </div>
               </div>
               {ac.specs && ac.specs.length > 0 && (
-                <button type="button" data-specs-toggle aria-expanded="false" class="mt-4 -mx-2 self-start px-2 py-3 text-sm font-semibold text-blue-700 dark:text-blue-400 hover:underline hoverable:hidden">View aircraft details →</button>
+                <button type="button" data-specs-toggle aria-expanded="false" class="mt-4 -mx-2 self-start px-2 py-3 text-sm font-semibold text-blue-700 dark:text-blue-400 hover:underline hoverable:hidden">View aircraft details <span class="cta-arrow">→</span></button>
               )}
             </div>
           </div>
@@ -137,7 +137,7 @@ const simulator = {
         const open = panel.style.opacity !== '1';
         panel.style.opacity = open ? '1' : '';
         btn.setAttribute('aria-expanded', String(open));
-        btn.textContent = open ? 'Hide aircraft details ←' : 'View aircraft details →';
+        btn.textContent = open ? 'Hide aircraft details ←' : 'View aircraft details <span class="cta-arrow">→</span>';
       });
     });
   </script>

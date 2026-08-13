@@ -112,7 +112,7 @@ import { vaBenefits } from '../../data/financing';
             )}
 
             <a href={p.href} class="mt-5 inline-flex items-center text-sm font-semibold text-blue-700 dark:text-blue-400 hover:underline">
-              See hours and pricing →
+              See hours and pricing <span class="cta-arrow">→</span>
             </a>
           </div>
         ))}
@@ -156,7 +156,7 @@ import { vaBenefits } from '../../data/financing';
               <p class="mt-2 text-slate-700 dark:text-slate-300">{step.detail}</p>
               {step.url && (
                 <a href={step.url} target={step.url.startsWith('http') ? '_blank' : undefined} rel={step.url.startsWith('http') ? 'noopener' : undefined} class="mt-3 inline-flex items-center text-sm font-semibold text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">
-                  {step.url.startsWith('http') ? 'Open external link' : 'Submit interest form'} →
+                  {step.url.startsWith('http') ? 'Open external link' : 'Submit interest form'} <span class="cta-arrow">→</span>
                 </a>
               )}
             </div>

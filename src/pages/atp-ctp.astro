@@ -5,7 +5,7 @@ import CtaBlock from '../components/ui/CtaBlock.astro';
 import atpctp from '../data/atpctp/atpctp.json';
 import reviewsData from '../data/reviews/reviews.json';
 
-// Editable in Tina (Collections → ATP-CTP Page). Sections hide until populated.
+// Editable in Tina (Collections <span class="cta-arrow">→</span> ATP-CTP Page). Sections hide until populated.
 const simPhotos = atpctp.simPhotos.filter(p => p.image);
 
 // Page-specific reviews win; otherwise fall back to the shared Reviews collection
@@ -169,7 +169,7 @@ const simTopics = [
           )}
         </div>
         <div class="mt-8">
-          <a href="/contact?program=ATP-CTP%20Program" class="inline-flex items-center rounded-md bg-blue-700 hover:bg-blue-800 px-6 py-3 text-base font-semibold text-white transition">Reserve your seat →</a>
+          <a href="/contact?program=ATP-CTP%20Program" class="inline-flex items-center rounded-md bg-blue-700 hover:bg-blue-800 px-6 py-3 text-base font-semibold text-white transition">Reserve your seat <span class="cta-arrow">→</span></a>
         </div>
       </div>
     </section>
