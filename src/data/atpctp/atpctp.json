@@ -7,6 +7,10 @@
     {
       "date": "September 9–12, 2026",
       "note": "Virtual — attend live from anywhere. Unlimited seats."
+    },
+    {
+      "date": "October 1-4, 2026",
+      "note": "Virtual "
     }
   ],
   "simulatorDates": [
@@ -27,8 +31,23 @@
       "location": "Dallas, TX",
       "slotsTotal": 2,
       "slotsLeft": 2
+    },
+    {
+      "date": "October 8-9, 2026",
+      "location": "DFW",
+      "slotsTotal": 2,
+      "slotsLeft": 0
     }
   ],
   "simPhotos": [],
-  "reviews": []
+  "reviews": [
+    {
+      "quote": "I had an amazing experience with DCFA during my ATP-CTP course. The instructors, Cody and Ben, ensured the course was both interesting and fun. Moreover, the online ground portion saved both travel time and costs. I feel like I took a major leap forward in my aviation skills and could not recommend this group highly enough. Be prepared to work, but also have a great time!",
+      "author": "Marty Stern, First Officer at GoJet Airlines (CL-65) - Doctor of Physical Therapy - TN Army NG Warrant Officer "
+    },
+    {
+      "quote": "I can’t say enough great things about my experience with Direct Connect Flight Academy in completing their ATP-CTP course. Definitely one of the best one of these courses available in my opinion, especially if you are using GI Bill and want to save a little time and money. I found out about them at RTAG. They are the only CTP course I could find that offered the classroom portion online, reducing the amount of time away from home and the money spent on hotels. They made the whole process of completing the course easy and as stress free as possible. Their instructors are true professionals and are actively working in the roles that they are instructing in. They definitely exceeded my expectations, especially for a smaller flight academy. 10/10 recommend!",
+      "author": "Brian Harrington, Military Pilot, Dual Rated Commercial Pilot - ASEL, AMEL, RH, Instrument Airplane, Instrument Helicopter "
+    }
+  ]
 }
