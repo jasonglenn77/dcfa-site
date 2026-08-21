@@ -31,6 +31,12 @@
       "location": "Dallas, TX",
       "slotsTotal": 2,
       "slotsLeft": 2
+    },
+    {
+      "date": "October 8-9",
+      "location": "DFW",
+      "slotsTotal": 2,
+      "slotsLeft": 0
     }
   ],
   "simPhotos": [],
