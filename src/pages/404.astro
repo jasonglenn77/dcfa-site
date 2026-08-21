@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// A real 404 page. Cloudflare Pages serves dist/404.html with a proper 404 status
+// for any unmatched URL — so removed/old pages return a clean "not found" that
+// Google can drop, instead of the homepage being served with a 200 (a soft 404).
+---
+<BaseLayout
+  title="Page Not Found — Direct Connect Flight Academy"
+  description="The page you're looking for doesn't exist or has moved."
+  noindex={true}
+>
+  <section class="bg-white dark:bg-slate-950">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center">
+      <div class="font-display text-6xl sm:text-7xl font-bold text-blue-700 dark:text-blue-400 tabular-nums">404</div>
+      <h1 class="mt-6 text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">This page took a wrong turn.</h1>
+      <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
+        The page you're looking for doesn't exist or may have moved. Let's get you back on course.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="/" class="inline-flex items-center rounded-md bg-blue-700 hover:bg-blue-800 px-6 py-3 text-base font-semibold text-white transition">
+          Back to home
+        </a>
+        <a href="/training" class="inline-flex items-center rounded-md border border-slate-300 dark:border-slate-700 px-6 py-3 text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 transition">
+          Explore programs
+        </a>
+        <a href="/contact" class="inline-flex items-center rounded-md border border-slate-300 dark:border-slate-700 px-6 py-3 text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 transition">
+          Contact us
+        </a>
+      </div>
+      <p class="mt-10 text-sm text-slate-500 dark:text-slate-400">
+        Popular pages:
+        <a href="/atp-ctp" class="font-semibold text-blue-700 dark:text-blue-400 hover:underline">ATP-CTP</a> ·
+        <a href="/fleet" class="font-semibold text-blue-700 dark:text-blue-400 hover:underline">Fleet &amp; Rates</a> ·
+        <a href="/financing/va-benefits" class="font-semibold text-blue-700 dark:text-blue-400 hover:underline">VA Benefits</a> ·
+        <a href="/faq" class="font-semibold text-blue-700 dark:text-blue-400 hover:underline">FAQ</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
