@@ -46,6 +46,12 @@
       "location": "Dallas",
       "slotsTotal": 4,
       "slotsLeft": 0
+    },
+    {
+      "date": "November 21-22 2-26",
+      "location": "DFW",
+      "slotsTotal": 2,
+      "slotsLeft": 1
     }
   ],
   "simPhotos": [],
