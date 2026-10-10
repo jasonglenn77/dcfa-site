@@ -55,6 +55,12 @@
       "location": "Dallas",
       "slotsTotal": 2,
       "slotsLeft": 0
+    },
+    {
+      "date": "December 13-14, 2026",
+      "location": "Dallas",
+      "slotsTotal": 2,
+      "slotsLeft": 1
     }
   ],
   "simPhotos": [],
